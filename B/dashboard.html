@@ -149,7 +149,11 @@ var autoBtn = document.getElementById("autoBtn");
 autoBtn.onclick = function(){
     okState = confirm("Are you sure you want to automatically assign papers?")
     if (okState == true){
+        /*autoAllocate()*/
         alert("Papers have been succesfully assigned.")
+    }
+    else{
+      alert("Operation has been cancelled.")
     }
 }
 
