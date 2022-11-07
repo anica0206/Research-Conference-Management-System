@@ -24,8 +24,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
     <a href="#Create" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create New Account</a>
+    <a href="adminUpdateAccount.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Account</a>
     <a href="adminViewAccount.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Account</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Button</a>
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
   </div>
@@ -54,11 +54,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <h2>New User Account</h2>
       </div>
       <div class = "Create">
-        <pre label>Username:      <input type="text" id="username" required placeholder="Enter username"/> </label></pre>
-        <pre label>Password:      <input type="text" id="password" required placeholder="Enter password"/> </label></pre>
-        <pre label>Email:         <input type="text" id="email" required placeholder="Enter email"/> </label></pre>
-        <pre label>First Name:    <input type="text" id="firstname" required placeholder="Enter first name"/> </label></pre>
-        <pre label>Last Name:     <input type="text" id="lastname" required placeholder="Enter last name"/> </label></pre>
+        <pre label>Name:          <input type="text" id="name" required placeholder="Enter username"/> </label></pre>
+        <pre label>Username:      <input type="text" id="userid" required placeholder="Enter password"/> </label></pre>
+        <pre label>Password:      <input type="text" id="password" required placeholder="Enter email"/> </label></pre>
         <pre label>Role:          <select name ="role" id = "role">
           <option value = "Admin">Admin</option>
           <option value = "Author">Author</option>
