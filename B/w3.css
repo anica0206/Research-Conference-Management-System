@@ -235,12 +235,13 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
 
 
-
+.w3-contentTHIRD{max-width:980px;margin-left:10%}
 .w3-bar .w3-bar-item-right{padding:8px 16px;float:right;width:auto;border:none;display:block;outline:0}/*bar item from the right*/
 .boxShadow{box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 .textShadow{text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 0 0 25px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 0, 0, 0.2);}
 .logoutIcon{color:red;}
 .w3-twothirdPAPERVIEW{width:30%}
+.w3-twothirdPAPERLIST{width:40%;float:right}
 .w3-buttonMODAL{border:none;display:inline-block;padding:10px 50px;vertical-align:middle;overflow:hidden;text-decoration:none;color:#000000;background-color:#ffffff;text-align:center;cursor:pointer;white-space:nowrap}
 .w3-margin-topModified{position:inherit; margin-top:5%; margin-left:35%; margin-bottom:5%;}
 /* The Modal (background) */
