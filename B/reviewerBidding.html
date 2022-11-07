@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bid Paper</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+</head>
+<body>
+    <header class="w3-container w3-red w3-center" style="padding:20px 16px">
+        <h1 class="w3-margin w3-jumbo">Paper Bidding</h1>
+    </header>    
+        
+    <!-- First Grid -->
+    <div class="">
+        <div style="text-align:center">
+            <h1>PAPERS HERE</h1>
+            <h5 class="w3-padding-32">PAPERS HERE</h5>
+    
+            <p class="w3-text-grey">. . . . ..  .</p>
+        </div>
+
+        </div>
+        </div>
+    </div>
+
+
+
+
+<script>
+
+var finishBtn = document.getElementById("finishBtn");
+// When the user clicks the button
+finishBtn.onclick = function(){
+    okState = confirm("Are you sure with your choices?")
+    if (okState == true){
+        /*allocatePapers()*/
+        alert("Papers have been successfully allocated.")
+        window.history.back();
+    }
+}
+
+var cancelBtn = document.getElementById("cancelBtn");
+// When the user clicks the button
+cancelBtn.onclick = function(){
+    okState = confirm("Cancel selecting papers?")
+    if (okState == true){
+        /*exit()*/
+        alert("Operation has been cancelled.")
+        window.history.back();
+    }
+}
+</script>
+</body>

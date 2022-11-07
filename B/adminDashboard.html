@@ -59,7 +59,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <pre label>Email:         <input type="text" id="email" required placeholder="Enter email"/> </label></pre>
         <pre label>First Name:    <input type="text" id="firstname" required placeholder="Enter first name"/> </label></pre>
         <pre label>Last Name:     <input type="text" id="lastname" required placeholder="Enter last name"/> </label></pre>
-        <pre label>Role:          <input type="text" id="role" required placeholder="Enter role"/> </label></pre>
+        <pre label>Role:          <select name ="role" id = "role">
+          <option value = "Admin">Admin</option>
+          <option value = "Author">Author</option>
+          <option value = "Reviewer">Reviewer</option>
+          <option value = "Chair">Conference Chair</option></select>
+        </label></pre>
 
         <br>
         </pre><button id = "createAccount" onclick="CreateAccountConfirmation()" type="submit" >Create New Account</button></div><br>

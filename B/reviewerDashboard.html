@@ -23,7 +23,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
-    <a href="#Create" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Bid for Papers</a>
+    <a href="reviewerBidding.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Bid for Papers</a>
     <a href="adminViewAccount.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Rate Paper</a>
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
@@ -44,25 +44,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
   <h1 class="w3-margin w3-jumbo" style="color:rgb(0, 0, 0);"><b>Reviewer</b></h1>
   <p class="w3-xlarge"></p>
-  <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Start Bidding</button>
+  <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Set Workload</button>
   
   <div id="myModal" class="modal" style ="color: black">
     <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-header">
         <span class="close">&times;</span>
-        <h2>New User Account</h2>
+        <h2>Set the maximum number of Paper to review</h2>
       </div>
       <div class = "Create">
-        <pre label>Username:      <input type="text" id="username" required placeholder="Enter username"/> </label></pre>
-        <pre label>Password:      <input type="text" id="password" required placeholder="Enter password"/> </label></pre>
-        <pre label>Email:         <input type="text" id="email" required placeholder="Enter email"/> </label></pre>
-        <pre label>First Name:    <input type="text" id="firstname" required placeholder="Enter first name"/> </label></pre>
-        <pre label>Last Name:     <input type="text" id="lastname" required placeholder="Enter last name"/> </label></pre>
-        <pre label>Role:          <input type="text" id="role" required placeholder="Enter role"/> </label></pre>
+        <pre label>Max Workload: <input type="number" id="username" required placeholder="Enter Number"/> </label></pre>
 
         <br>
-        </pre><button id = "createAccount" onclick="CreateAccountConfirmation()" type="submit" >Create New Account</button></div><br>
+        </pre><button id = "createAccount" onclick="CreateAccountConfirmation()" type="submit" >Set WorkLoad</button></div><br>
       </div>
         <h3></h3>
       </div>
@@ -79,8 +74,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" onClick = "location.href = 'adminViewAccount.html'" >Lets Go</button>
 
 
-      <p class="w3-text-grey w3-justify" style="padding-right:10%">As a Reviewer, you will have to start by bidding for paper that you like
-        to review on. Paper will then be allocated based on your bidding and preferred workload for you to review on.
+      <p class="w3-text-grey w3-justify" style="padding-right:10%">As a Reviewer, you will have to start by setting the maximum number
+        of paper you like to review and start bidding. Paper will then be allocated based on your bidding and preferred workload for you to review on.
      </p>
     </div>
 
