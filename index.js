@@ -2,19 +2,19 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "rlaxoghks96!",
-  database: "db",
+  password: "root",
+  database: "314_testdb",
 });
 
 connection.connect();
 
-connection.query("select * from user", function (error, results, fields) {
+connection.query("select * from users", function (error, results, fields) {
   if (error) throw error;
   console.log("users: ", results);
 });
 
 connection.query(
-  "select role from user where id = 1",
+  "select role from users where id = 1",
   function (error, results, fields) {
     if (error) throw error;
     console.log("users: ", results);
@@ -22,7 +22,7 @@ connection.query(
 );
 
 connection.query(
-  "INSERT INTO `db`.`user` (`ID`, `name`, `role`) VALUES ('4', 'marco', 'html');",
+  "INSERT INTO `314_testdb`.`users` (`id`, `userName`, `password`, `role`) VALUES ('4', 'marco', '1234','html');",
   function (error, results, fields) {
     if (error) throw error;
     console.log("users: ", results);

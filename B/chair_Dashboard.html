@@ -22,9 +22,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
-    <a href="chair_allocatePapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Allocate</a>
+    <a id="allocateBtnBar" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Allocate</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Allocation</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
     <a href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Make Decision</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Button 4</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">List of Submissions</a>
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
   </div>
@@ -43,7 +45,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <h1 class="w3-margin w3-jumbo textShadow" style="color:black;"c><b>Chairman</b></h1>
   <p class="w3-xlarge"></p>
   <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Allocate</button>
-  
+  <button  id="reallocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Reallocate</button>
+
   <div id="myModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
@@ -83,17 +86,37 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div class="w3-contentTHIRD">
     <div class="w3-third w3-center">
-      <img src="file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-right:100px"></i>
+      <img src="file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-right:10px"></i>
     </div>
 
-    <div class="w3-twothirdPAPERLIST">
+    <div class="w3-twothirdPAPERLIST" style="margin-left:57%">
       <h2>Want to view accepted or rejected papers?</h2>
-      <h5 class="w3-padding-32">something here....</h5>
+      <button  id="viewPapersBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow">View</button>
 
-      <p class="w3-text-grey">something here.....</p>
+
+      <p class="w3-text-grey w3-justify" style="padding-right:10%;width:70%">This is where all the papers that you've gone through ends up in. The ones that pass the acceptance criteria and even those that gets trashed into the bin because they suck. A hall of fame that doubles as a hall of shame! </p>
+
     </div>
   </div>
 </div>
+
+<!-- Third Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h2>Want to see papers' reviews and ratings?</h2>
+      <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow">List</button>
+
+
+      <p class="w3-text-grey w3-justify" style="padding-right:10%">The place where a list of submitted reviews and their respective author's ratings are all compiled together and displayed for you in a neat format! Pretty handy huh? </p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <img src="file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
+    </div>
+  </div>
+</div>
+
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
@@ -132,8 +155,11 @@ window.onclick = function(event) {
 }
 // Get the button that opens the modal
 var allocateBtn = document.getElementById("allocateBtn");
-var allocate
 allocateBtn.onclick = function() {
+    modal.style.display = "block";
+}
+var allocateBtnBar = document.getElementById("allocateBtnBar");
+allocateBtnBar.onclick = function() {
     modal.style.display = "block";
 }
 // Get the <span> element that closes the modal
