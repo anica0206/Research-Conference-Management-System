@@ -9,10 +9,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-header{background-image: url("authorbg.jpg"); background-size: cover;}
+header{background-image: url("admin.jpg"); background-size: cover;}
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+
 </style>
 </head>
 <body>
@@ -22,8 +23,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
-    <a href="#Create" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit Paper</a>
-    <a href="authorViewPapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>
+    <a href="#Create" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create New Account</a>
+    <a href="authorViewPapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Account</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Button</a>
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
@@ -41,25 +42,28 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-  <h1 class="w3-margin w3-jumbo" style="color:black;"><b>Author</b></h1>
+  <h1 class="w3-margin w3-jumbo" style="color:rgb(255, 255, 255);"><b>System Admin</b></h1>
   <p class="w3-xlarge"></p>
-  <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit Paper</button>
+  <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Create an new Account</button>
   
   <div id="myModal" class="modal" style ="color: black">
     <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-header">
         <span class="close">&times;</span>
-        <h2>Submit Paper</h2>
+        <h2>New User Account</h2>
       </div>
       <div class = "Create">
-        <pre label>Paper Name: <input type="text" id="name" required placeholder="Enter Paper's Title"/> </label>
-        
-        <input type="file" name="files" id="files" multiple>
+        <pre label>Username:      <input type="text" id="username" required placeholder="Enter username"/> </label></pre>
+        <pre label>Password:      <input type="text" id="password" required placeholder="Enter password"/> </label></pre>
+        <pre label>Email:         <input type="text" id="email" required placeholder="Enter email"/> </label></pre>
+        <pre label>First Name:    <input type="text" id="firstname" required placeholder="Enter first name"/> </label></pre>
+        <pre label>Last Name:     <input type="text" id="lastname" required placeholder="Enter last name"/> </label></pre>
+        <pre label>Role:          <input type="text" id="role" required placeholder="Enter role"/> </label></pre>
+
         <br>
-        <button id = "uploadPaper" onclick="CreatePageConfirmation()" type="submit" >Upload</button></pre>
+        </pre><button id = "createAccount" onclick="CreateAccountConfirmation()" type="submit" >Create New Account</button></div><br>
       </div>
-      <div class="modal-footer">
         <h3></h3>
       </div>
     </div>
@@ -70,17 +74,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-twothird">
-      <h2>Want to view or edit your Papers?</h2>
+      <h2>View Account
+      </h2>
       <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" onClick = "location.href = 'authorViewPapers.html'" >Lets Go</button>
 
 
-      <p class="w3-text-grey w3-justify" style="padding-right:10%">We will show you all the papers that have been uploaded.
-        You will be able to make any amendment to the paper you uploaded or remove the papers from the system.
-        You can also rate the reviewers' reviews and ratings for your paper. </p>
+      <p class="w3-text-grey w3-justify" style="padding-right:10%">As a System Admin, you will be able to view all the account in this system. 
+        You will have the rights to make any amendment to user account. </p>
     </div>
 
     <div class="w3-third w3-center">
-      <img src="file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
+      <img src="admingirl.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
     </div>
   </div>
 </div>
@@ -150,14 +154,15 @@ manualBtn.onclick = function(){
 }
 
 
-function CreatePageConfirmation() {
-  var text = "Are you sure you want to upload the Paper?";
-  if (confirm(text) == true) {
-    text = alert("Papers have been succesfully uploaded.")
-  } else {
-    text = alert("Operation has been cancelled.")
-    }
-  }
+function CreateAccountConfirmation() {
+    //if (username.exist(database)){}
+    var text = alert("Username already exist");
+    
+    //else{
+    text = alert("Account has been created successfully");
+    window.location.href = "adminDashboard.html";
+    //}
+}
 
 
 </script>
