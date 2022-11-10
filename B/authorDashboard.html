@@ -22,6 +22,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
+    <a href="authorCreatePapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit Paper</a>
     <a href="authorViewPapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>
     <a href="authorUpdatePapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Paper</a>
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
@@ -42,22 +43,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
   <h1 class="w3-margin w3-jumbo" style="color:black;"><b>Author</b></h1>
   <p class="w3-xlarge"></p>
-  <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit Paper</button>
+  <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onClick = "location.href = 'authorCreatePapers.html'">Submit Paper</button>
   
   <div id="myModal" class="modal" style ="color: black">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h2>Submit Paper</h2>
-      </div>
-      <div class = "Create">
-        <pre label>Paper Name: <input type="text" id="name" required placeholder="Enter Paper's Title"/> </label>
-        
-        <input type="file" name="files" id="files" multiple>
-        <br>
-        <button id = "uploadPaper" onclick="CreatePageConfirmation()" type="submit" >Upload</button></pre>
-      </div>
+</div>
       <div class="modal-footer">
         <h3></h3>
       </div>

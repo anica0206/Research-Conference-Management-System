@@ -323,3 +323,9 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     border: 1px solid #444444;
     border-collapse: collapse;
     }
+
+    .message 
+    {
+      height: 412px;
+      width: 594px;
+    }
