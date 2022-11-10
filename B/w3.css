@@ -245,8 +245,9 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-twothirdPAPERVIEW{width:30%}
 .w3-twothirdPAPERLIST{width:100%;}
 .w3-buttonMODAL{border:none;display:inline-block;padding:10px 50px;vertical-align:middle;overflow:hidden;text-decoration:none;color:#000000;background-color:#ffffff;text-align:center;cursor:pointer;white-space:nowrap}
-.w3-margin-topModified{position:inherit; margin-top:10%; margin-left:35%; margin-bottom:10%;}
-.w3-margin-topModified2{position:inherit; margin-top:7%; margin-left:22%; margin-bottom:7%;}
+.w3-margin-topModified3{position:inherit; margin-top:5%; margin-left:30%; margin-bottom:5%;}
+.w3-margin-topModified2{position:inherit; margin-top:7%; margin-left:17%; margin-bottom:7%;}
+.w3-margin-topModified{position:inherit; margin-top:10%; margin-left:34%; margin-bottom:10%;}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
