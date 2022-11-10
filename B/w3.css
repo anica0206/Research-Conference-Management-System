@@ -317,3 +317,9 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     background-color: #f44336;
     color: white;
   }
+
+  .author_table{
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+    }
