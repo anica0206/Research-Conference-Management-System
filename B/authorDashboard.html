@@ -22,9 +22,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
-    <a href="#Create" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit Paper</a>
     <a href="authorViewPapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Button</a>
+    <a href="authorUpdatePapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Paper</a>
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
   </div>
@@ -70,13 +69,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-twothird">
-      <h2>Want to view or edit your Papers?</h2>
+      <h2>Want to view or search for your Papers?</h2>
       <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" onClick = "location.href = 'authorViewPapers.html'" >Lets Go</button>
 
 
       <p class="w3-text-grey w3-justify" style="padding-right:10%">We will show you all the papers that have been uploaded.
-        You will be able to make any amendment to the paper you uploaded or remove the papers from the system.
-        You can also rate the reviewers' reviews and ratings for your paper. </p>
+        You will be able see which paper have been submitted and can search for the paper you needed </p>
     </div>
 
     <div class="w3-third w3-center">
@@ -89,14 +87,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-third w3-center">
-      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+      <img src="images/book1.jpg" width="150%" class="boxShadow" style="float: right"></i>
     </div>
 
     <div class="w3-twothird">
-      <h1>title 2</h1>
-      <h5 class="w3-padding-32">something here....</h5>
+      <h6 style = "position: relative; left:80px; font-size: 30px; font-weight: 400;">Want to Update or delete your Papers?</h6>
+      <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" onClick = "location.href = 'authorUpdatePapers.html'" >Update</button>
 
-      <p class="w3-text-grey">something here.....</p>
+      <p class="w3-text-grey" style = "position: relative; left:80px;">We will show you all the papers that have been uploaded.
+        You will be able to make any amendment to the paper you uploaded or remove the papers from the system.</p>
     </div>
   </div>
 </div>
