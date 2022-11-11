@@ -334,3 +334,32 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
       height: 412px;
       width: 594px;
     }
+
+    .dropdown {
+    display: inline-block;
+    position: relative;
+    
+  }
+
+  .dropdown-content {
+    display: none;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a {
+    display: block;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+  }
+
+  .dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: black;  
+  }
