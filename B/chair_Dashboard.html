@@ -24,7 +24,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <a id="allocate" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Allocate</a>
       <a id="reallocate" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Reallocate</a>
       <a id="makedecision" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Make Decision</a>
-      <a id="listOfSubmissions" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">List of Submissions</a>
+      <a id="listofsubmissions" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">List of Submissions</a>
       <a id="viewBids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
       <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
@@ -204,7 +204,45 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </div>
     </div>
 
+    <!--CHAIR LISTOFSUBMISSIONS PAGE-->
+    <div id="pg4" style="display:none">
+      <header class="w3-container w3-red w3-center" style="padding:20px 16px">
+        <h1 class="w3-margin w3-jumbo">List of Submissions</h1>
+        <p class="w3-xlarge"></p>
+        <button  id="reallocateUpdateBtn" class="w3-button w3-black w3-padding-large w3-large">Finish</button>
+        <button  id="reallocateCancelBtn" class="w3-button w3-black w3-padding-large w3-large">Cancel</button>
+      </header>    
+        
+      <!-- First Grid -->
+      <div class="">
+          <div style="text-align:center">
+              <h1>PAPERS HERE</h1>
+              <h5 class="w3-padding-32">PAPERS HERE</h5>
+      
+              <p class="w3-text-grey">. . . . ..  .</p>
+          </div>
+      </div>
+    </div>
 
+    <!--CHAIR VIEWBIDS PAGE-->
+    <div id="pg5" style="display:none">
+      <header class="w3-container w3-red w3-center" style="padding:20px 16px">
+        <h1 class="w3-margin w3-jumbo">List of Bids</h1>
+        <p class="w3-xlarge"></p>
+        <button  id="updateBidsBtn" class="w3-button w3-black w3-padding-large w3-large">Update Bids</button>
+        <button  id="reallocateCancelBtn" class="w3-button w3-black w3-padding-large w3-large">Cancel</button>
+      </header>    
+        
+      <!-- First Grid -->
+      <div class="">
+          <div style="text-align:center">
+              <h1>PAPERS HERE</h1>
+              <h5 class="w3-padding-32">PAPERS HERE</h5>
+      
+              <p class="w3-text-grey">. . . . ..  .</p>
+          </div>
+      </div>
+    </div>
 
 <!-- Footer -->
 <!-- <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
@@ -227,7 +265,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       "dashboard",
       "allocate",
       "reallocate",
-      "makedecision"
+      "makedecision",
+      "listofsubmissions"
     ];
     document.getElementById(func).classList.add("w3-white");
     document.getElementById(func).classList.remove("w3-button");
@@ -265,6 +304,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         alert("Do you want to go to the make decision page? (any unsaved changes in the current will be lost)")
         ChangeEffect("makedecision");
     });
+
+    document
+    .getElementById("listofsubmissions")
+    .addEventListener("click", function () {
+        alert("Do you want to go to the make decision page? (any unsaved changes in the current will be lost)")
+        ChangeEffect("listofsubmissions");
+    });
+
+    document
+    .getElementById("viewbids")
+    .addEventListener("click", function () {
+        alert("Do you want to go to the make decision page? (any unsaved changes in the current will be lost)")
+        ChangeEffect("viewbids");
+    });
+
 
       //DASHBOARD FUNCTIONS ############################################################################
       //GET THE MODAL BLOCK
@@ -362,18 +416,6 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
-
-  document
-  .getElementById("listOfSubmissions")
-  .addEventListener("click", function () {
-      ChangeEffect("listOfSubmissions");
-  });  
-
-  document
-  .getElementById("viewBids")
-  .addEventListener("click", function () {
-      ChangeEffect("viewBids");
-  });  
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
