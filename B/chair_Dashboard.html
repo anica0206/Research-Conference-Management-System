@@ -25,7 +25,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <a id="reallocate" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Reallocate</a>
       <a id="makedecision" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Make Decision</a>
       <a id="listofsubmissions" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">List of Submissions</a>
-      <a id="viewBids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
+      <a id="viewbids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
       <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
     </div>
@@ -266,7 +266,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       "allocate",
       "reallocate",
       "makedecision",
-      "listofsubmissions"
+      "listofsubmissions",
+      "viewbids"
     ];
     document.getElementById(func).classList.add("w3-white");
     document.getElementById(func).classList.remove("w3-button");
@@ -287,35 +288,36 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     document
     .getElementById("dashboard")
     .addEventListener("click", function () {
-        alert("Do you want to go to the dashboard? (any unsaved changes will be lost)")
         ChangeEffect("dashboard");
+    });
+
+    document
+    .getElementById("allocate")
+    .addEventListener("click", function () {
+        modal.style.display="block"
     });
 
     document
     .getElementById("reallocate")
     .addEventListener("click", function () {
-        alert("Do you want to go to the reallocation page? (any unsaved changes in the current will be lost)")
         ChangeEffect("reallocate");
     });
 
     document
     .getElementById("makedecision")
     .addEventListener("click", function () {
-        alert("Do you want to go to the make decision page? (any unsaved changes in the current will be lost)")
         ChangeEffect("makedecision");
     });
 
     document
     .getElementById("listofsubmissions")
     .addEventListener("click", function () {
-        alert("Do you want to go to the make decision page? (any unsaved changes in the current will be lost)")
         ChangeEffect("listofsubmissions");
     });
 
     document
     .getElementById("viewbids")
     .addEventListener("click", function () {
-        alert("Do you want to go to the make decision page? (any unsaved changes in the current will be lost)")
         ChangeEffect("viewbids");
     });
 
@@ -335,7 +337,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             modal.style.display = "block";
         }
 
-        var allocateBtnBar = document.getElementById("allocate");
+        var allocateBtnBar = document.getElementById("allocateBtn");
         allocateBtnBar.onclick = function() {
             modal.style.display = "block";
         }
