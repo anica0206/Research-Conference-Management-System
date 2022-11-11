@@ -3,12 +3,17 @@
 <head>
 <title>Create Paper</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale= 1">
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+    body
+    {
+        height: 2000px;
+        width: 30%;
+    }
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
@@ -38,24 +43,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     </header>    
         
     <!-- First Grid -->
-    <div class="">
-        <div style="text-align:center">
-            <form method="post" action = "/author_create">
-                <label for="topic">Topic:</label><br>
-                <input type="text" id="topic" name="topic"><br>
-                <label for="message">Paper</label><br>
-                <input type ="text " class = "message" name="message" id="message"></label><br>
-                <input type="submit" value="Submit">
-            </form> 
-    
-            <p class="w3-text-grey">. . . . ..  .</p>
-        </div>
-
-        </div>
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div style="text-align:left">
+                <form method="post" action = "/author_create">
+                    <label for="topic">Topic: </label>
+                    <input type="text" id="topic" name="topic"><br>
+                    <br>
+                    <label for="message">Paper: </label>
+                    <input type ="text " class = "message" name="message" id="message"></label><br><br>
+                    <input type="submit" value="Submit">
+                </form> 
+        
+                <p class="w3-text-grey">. . . . ..  .</p>
+            </div>
         </div>
     </div>
-
-
 
 
 <script>
