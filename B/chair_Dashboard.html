@@ -9,119 +9,153 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-header{background-image: url("images/asd.jpg"); background-size: cover;}
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
 </head>
 <body>
-<div id="chair_dashboard">
+
   <!-- Navbar -->
   <div class="w3-top">
     <div class="w3-bar w3-red w3-card w3-left-align w3-large">
       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-      <a class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
-      <a id="allocateBtnBar" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Allocate</a>
-      <a href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Reallocate</a>
-      <a href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Make Decision</a>
-      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">List of Submissions</a>
-      <a href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
+      <a id="dashboard" class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
+      <a id="allocate" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Allocate</a>
+      <a id="reallocate" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Reallocate</a>
+      <a id="makeDecision" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Make Decision</a>
+      <a id="listOfSubmissions" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">List of Submissions</a>
+      <a id="viewBids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
       <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
     </div>
-
-    <!-- Navbar on small screens -->
-    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
-    </div>
   </div>
 
-  <!-- Header -->
-  <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-    <h1 class="w3-margin w3-jumbo textShadow" style="color:black;"c><b>Chairman</b></h1>
-    <p class="w3-xlarge"></p>
-    <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Allocate</button>
-    <button  id="reallocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Reallocate</button>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div>
 
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">&times;</span>
-          <h2>Select Paper Allocation Method</h2>
+
+  <!--Chair dashboard block ################################################################################################################-->
+  <div id="pg0">
+      <!-- Header -->
+      <header class="w3-container w3-red w3-center" style="padding:128px 16px;background-image: url(images/asd.jpg); background-size: cover;">
+        <h1 class="w3-margin w3-jumbo textShadow" style="color:black;"c><b>Chairman</b></h1>
+        <p class="w3-xlarge"></p>
+        <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Allocate</button>
+        <button  id="reallocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Reallocate</button>
+
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2>Select Paper Allocation Method</h2>
+            </div>
+            <div class="modal-body">
+              <button id="autoBtn" class="w3-buttonMODAL w3-hide-small w3-hover-red">Automatic</button>
+              <button id="manualBtn" class="w3-buttonMODAL w3-hide-small w3-hover-red">Manual</button>
+            </div>
+            <div class="modal-footer">
+              <h3></h3>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-          <button id="autoBtn" class="w3-buttonMODAL w3-hide-small w3-hover-red">Automatic</button>
-          <button id="manualBtn" class="w3-buttonMODAL w3-hide-small w3-hover-red">Manual</button>
+      </header>
+
+      <!-- First Grid -->
+      <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+          <div class="w3-twothird">
+            <h2>Want to approve or reject reviewed papers?</h2>
+            <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified3 boxShadow">Make Decision</button>
+
+
+            <p class="w3-text-grey w3-justify" style="padding-right:10%">We will show you all the papers that have been reviewed by the lovely reviewer team. Once approved or rejected, you will not be able to change your decision! So make sure to pay attention to what you are doing. </p>
+          </div>
+
+          <div class="w3-third w3-center">
+            <img src="images/cc_writing_16x9.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
+          </div>
         </div>
-        <div class="modal-footer">
-          <h3></h3>
+      </div>
+
+      <!-- Second Grid -->
+      <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-contentTHIRD">
+          <div class="w3-third w3-center">
+            <img src="images/acceptReject.jpg" width="150%" class="boxShadow" style="margin-right:10px"></i>
+          </div>
+
+          <div class="w3-twothirdPAPERLIST" style="margin-left:57%">
+            <h2>Want to view accepted or rejected papers?</h2>
+            <button  id="listOfSubmissionsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow">List of Submissions</button>
+
+
+            <p class="w3-text-grey w3-justify" style="padding-right:10%;width:70%">This is where all the papers that you've gone through ends up in. The ones that pass the acceptance criteria and even those that gets trashed into the bin because they suck. A hall of fame that doubles as a hall of shame! </p>
+
+          </div>
         </div>
       </div>
+
+      <!-- Third Grid -->
+      <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+          <div class="w3-twothird">
+            <h2>Want to see all the bids on papers?</h2>
+            <button  id="viewBidsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow">View Bids</button>
+
+
+            <p class="w3-text-grey w3-justify" style="padding-right:10%">The place where a list of submitted reviews and their respective author's ratings are all compiled together and displayed for you in a neat format! Pretty handy huh? </p>
+          </div>
+
+          <div class="w3-third w3-center">
+            <img src="images/file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+          <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
+      </div>
+    </div>>
+
+    <!-- Chair Allocate Paper ####################################################################################################################-->
+    <div id="pg1" style="display:hidden">
+      <header class="w3-container w3-red w3-center" style="padding:20px 16px">
+        <p class="w3-xlarge w3-left-align">Important: Choose papers until the quantity fits the number of papers that the reviewer required !!!</p>
+        <h1 class="w3-margin w3-jumbo">Allocate Papers</h1>
+        <label class ="w3-xlarge" for="cars">Choose a reviewer:</label>
+            <select name="reviewerList" id="reviewerList">
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+            <option value="d">d</option>
+            </select>
+        <p class="w3-xlarge"></p>
+        <button  id="finishBtn" class="w3-button w3-black w3-padding-large w3-large">Finish</button>
+        <button  id="cancelBtn" class="w3-button w3-black w3-padding-large w3-large">Cancel</button>
+        <span style="float:right; margin-left:-20%">aaaaaaaaaaaREVIEWER X HAS THIS PREFERENCES</span>
+      </header>    
+        
+      <!-- First Grid -->
+      <div class="">
+          <div style="text-align:center">
+              <h1>PAPERS HERE</h1>
+              <h5 class="w3-padding-32">PAPERS HERE</h5>
+      
+              <p class="w3-text-grey">. . . . ..  .</p>
+          </div>
+      </div>
     </div>
-  </header>
-  <!-- BOB IS GAY -->
-  <!-- First Grid -->
-  <div class="w3-row-padding w3-padding-64 w3-container">
-    <div class="w3-content">
-      <div class="w3-twothird">
-        <h2>Want to approve or reject reviewed papers?</h2>
-        <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified3 boxShadow">Make Decision</button>
 
 
-        <p class="w3-text-grey w3-justify" style="padding-right:10%">We will show you all the papers that have been reviewed by the lovely reviewer team. Once approved or rejected, you will not be able to change your decision! So make sure to pay attention to what you are doing. </p>
-      </div>
 
-      <div class="w3-third w3-center">
-        <img src="images/cc_writing_16x9.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
-      </div>
-    </div>
-  </div>
-
-  <!-- Second Grid -->
-  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-    <div class="w3-contentTHIRD">
-      <div class="w3-third w3-center">
-        <img src="images/acceptReject.jpg" width="150%" class="boxShadow" style="margin-right:10px"></i>
-      </div>
-
-      <div class="w3-twothirdPAPERLIST" style="margin-left:57%">
-        <h2>Want to view accepted or rejected papers?</h2>
-        <button  id="listOfSubmissionsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow">List of Submissions</button>
-
-
-        <p class="w3-text-grey w3-justify" style="padding-right:10%;width:70%">This is where all the papers that you've gone through ends up in. The ones that pass the acceptance criteria and even those that gets trashed into the bin because they suck. A hall of fame that doubles as a hall of shame! </p>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Third Grid -->
-  <div class="w3-row-padding w3-padding-64 w3-container">
-    <div class="w3-content">
-      <div class="w3-twothird">
-        <h2>Want to see all the bids on papers?</h2>
-        <button  id="viewBidsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow">View Bids</button>
-
-
-        <p class="w3-text-grey w3-justify" style="padding-right:10%">The place where a list of submitted reviews and their respective author's ratings are all compiled together and displayed for you in a neat format! Pretty handy huh? </p>
-      </div>
-
-      <div class="w3-third w3-center">
-        <img src="images/file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-      <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
-  </div>
-</div>
 <!-- Footer -->
 <!-- <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
   <div class="w3-xlarge w3-padding-32">
@@ -136,6 +170,128 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </footer> -->
 
 <script>
+
+  // Change page content functions
+  function ChangeEffect(func) {
+    const navInfo = [
+      "dashboard",
+      "allocate",
+    ];
+    document.getElementById(func).classList.add("w3-white");
+
+    for (const e in navInfo) {
+      if (navInfo[e] == func) {
+        document.getElementById(`pg${e}`).style.display =
+            "block";
+        continue;
+      }
+      document.getElementById(navInfo[e]).classList.remove("w3-white")
+      document.getElementById(`pg${e}`).style.display = "none";
+    }
+  }
+      //DASHBOARD FUNCTIONS ############################################################################
+      //GET THE MODAL BLOCK
+      var modal = document.getElementById("myModal");
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+          modal.style.display = "none";
+          }
+      }
+        // Get the button that opens the modal
+        var allocateBtn = document.getElementById("allocateBtn");
+        allocateBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        var allocateBtnBar = document.getElementById("allocate");
+        allocateBtnBar.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+          var manualBtn = document.getElementById("manualBtn");
+          // When the user clicks the button, open the modal 
+          manualBtn.onclick = function(){
+              modal.style.display = "none";// close modal
+              ChangeEffect("allocate");//redirect to another page
+          }
+      
+          var autoBtn = document.getElementById("autoBtn");
+          // When the user clicks the button, open the modal 
+          autoBtn.onclick = function(){
+              okState = confirm("Are you sure you want to automatically assign papers?")
+              if (okState == true){
+                /*autoAllocate()*/
+                modal.style.display = "none";
+                alert("Papers have been succesfully assigned.")
+              }
+              else{
+                alert("Operation has been cancelled.")
+              }
+          }
+
+      //ALLOCATE PAPERS FUNCTIONS ############################################################################
+      var finishBtn = document.getElementById("finishBtn");
+      // When the user clicks the button
+      finishBtn.onclick = function(){
+          okState = confirm("Are you sure with your choices?")
+          if (okState == true){
+              /*allocatePapers()*/
+              alert("Papers have been successfully allocated.");
+              ChangeEffect("dashboard");
+          }
+      }
+
+      var cancelBtn = document.getElementById("cancelBtn");
+      // When the user clicks the button
+      cancelBtn.onclick = function(){
+          okState = confirm("Cancel selecting papers?")
+          if (okState == true){
+              /*exit()*/
+              alert("Operation has been cancelled.")
+              ChangeEffect("dashboard");
+          }
+      }      
+    
+  
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+  document
+    .getElementById("dashboard")
+    .addEventListener("click", function () {
+        ChangeEffect("dashboard");
+    });
+
+  document
+    .getElementById("reallocate")
+    .addEventListener("click", function () {
+        ChangeEffect("reallocate");
+    });
+
+  document
+    .getElementById("makeDecision")
+    .addEventListener("click", function () {
+        ChangeEffect("makeDecision");
+    });
+
+  document
+  .getElementById("listOfSubmissions")
+  .addEventListener("click", function () {
+      ChangeEffect("listOfSubmissions");
+  });  
+
+  document
+  .getElementById("viewBids")
+  .addEventListener("click", function () {
+      ChangeEffect("viewBids");
+  });  
+
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
   var x = document.getElementById("navDemo");
@@ -144,47 +300,6 @@ function myFunction() {
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
-}
-// Get the modal
-var modal = document.getElementById("myModal");
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-    modal.style.display = "none";
-    }
-}
-// Get the button that opens the modal
-var allocateBtn = document.getElementById("allocateBtn");
-allocateBtn.onclick = function() {
-    modal.style.display = "block";
-}
-var allocateBtnBar = document.getElementById("allocateBtnBar");
-allocateBtnBar.onclick = function() {
-    modal.style.display = "block";
-}
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-var manualBtn = document.getElementById("manualBtn");
-// When the user clicks the button, open the modal 
-manualBtn.onclick = function(){
-    window.location.href = "chair_allocatePapers.html";
-    
-}
-var autoBtn = document.getElementById("autoBtn");
-// When the user clicks the button, open the modal 
-autoBtn.onclick = function(){
-    okState = confirm("Are you sure you want to automatically assign papers?")
-    if (okState == true){
-        /*autoAllocate()*/
-        alert("Papers have been succesfully assigned.")
-    }
-    else{
-      alert("Operation has been cancelled.")
-    }
 }
 
 </script>
