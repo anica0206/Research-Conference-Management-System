@@ -55,7 +55,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
               <h2>Set the maximum number of Paper to review</h2>
             </div>
             <div class = "Create">
-              <pre label>Max Workload: <input type="number" id="username" required placeholder="Enter Number"/> </label></pre>
+              <pre label>Max Workload: <select name ="workload" id = "workload">
+                  <option value = "0">0</option>
+                  <option value = "1">1</option>
+                  <option value = "2">2</option>
+                  <option value = "3">3</option>
+                  <option value = "4">4</option>
+                  <option value = "5">5</option></select></label></pre>
 
               <br>
               </pre><button id = "createAccount" onclick="CreateAccountConfirmation()" type="submit" >Set WorkLoad</button>
@@ -136,11 +142,49 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </div>
     </div>
 
+    <!-- view bid -->
+    <div id="pg2" style="display: none">
+      <header class="w3-container w3-red w3-center" style="padding:20px 16px">
+          <h1 class="w3-margin w3-jumbo">View Bid</h1>
+      </header>    
+          
+      <!-- First Grid -->
+      <div class="">
+        <div style="text-align:center">
+          <h1>PAPERS HERE</h1>
+          <h5 class="w3-padding-32">Bid HERE</h5>
+
+          <p class="w3-text-grey">. . . . ..  .</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- bidforpapers block -->
+    <div id="pg3" style="display: none">
+      <header class="w3-container w3-red w3-center" style="padding:20px 16px">
+          <h1 class="w3-margin w3-jumbo">Rate Paper</h1>
+      </header>    
+          
+      <!-- First Grid -->
+      <div class="">
+        <div style="text-align:center">
+          <h1>PAPERS HERE</h1>
+          <h5 class="w3-padding-32">Rate</h5>
+
+          <p class="w3-text-grey">. . . . ..  .</p>
+        </div>
+
+      </div>
+    </div>
+
 <script>
   function ChangeEffect(func) {
     const navInfo = [
       "dashboard",
       "bidforpapers",
+      "viewbids",
+      "ratepaper"
     ];
     document.getElementById(func).classList.add("w3-white");
 
