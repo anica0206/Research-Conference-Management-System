@@ -13,6 +13,7 @@ header{background-image: url("images/authorbg.jpg"); background-size: cover;}
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+
 </style>
 </head>
 <body>
@@ -122,13 +123,6 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
-var manualBtn = document.getElementById("manualBtn");
-// When the user clicks the button, open the modal 
-manualBtn.onclick = function(){
-    alert("Please select papers until the quantity fits the max numbers of papers that the reviewer required")
-
-}
-
 
 function CreatePageConfirmation() {
   var text = "Are you sure you want to upload the Paper?";
