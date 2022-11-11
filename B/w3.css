@@ -307,10 +307,11 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
   .modal-header {
     padding: 2px 16px;
     background-color: #f44336;
+    text-align:center;
     color: white;
   }
   
-  .modal-body {padding: 2px 16px;}
+  .modal-body {padding: 2px 16px;text-align-last:center}
   
   .modal-footer {
     padding: 2px 16px;

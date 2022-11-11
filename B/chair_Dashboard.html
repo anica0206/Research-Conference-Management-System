@@ -39,6 +39,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
   </div>
 
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Select Paper Allocation Method</h2>
+      </div>
+      <div class="modal-body">
+        <button id="autoBtn" class="w3-buttonMODAL w3-hide-small w3-hover-red">Automatic</button>
+        <button id="manualBtn" class="w3-buttonMODAL w3-hide-small w3-hover-red">Manual</button>
+      </div>
+      <div class="modal-footer">
+        <h3></h3>
+      </div>
+    </div>
+  </div>
 
   <!--Chair dashboard block ################################################################################################################-->
   <div id="pg0">
@@ -48,24 +64,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <p class="w3-xlarge"></p>
         <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Allocate</button>
         <button  id="reallocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Reallocate</button>
-
-        <div id="myModal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <div class="modal-header">
-              <span class="close">&times;</span>
-              <h2>Select Paper Allocation Method</h2>
-            </div>
-            <div class="modal-body">
-              <button id="autoBtn" class="w3-buttonMODAL w3-hide-small w3-hover-red">Automatic</button>
-              <button id="manualBtn" class="w3-buttonMODAL w3-hide-small w3-hover-red">Manual</button>
-            </div>
-            <div class="modal-footer">
-              <h3></h3>
-            </div>
-          </div>
-        </div>
       </header>
+        
 
       <!-- First Grid -->
       <div class="w3-row-padding w3-padding-64 w3-container">
@@ -126,7 +126,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     </div>>
 
     <!-- Chair Allocate Paper ####################################################################################################################-->
-    <div id="pg1" style="display:hidden">
+    <div id="pg1" style="display:none">
       <header class="w3-container w3-red w3-center" style="padding:20px 16px">
         <p class="w3-xlarge w3-left-align">Important: Choose papers until the quantity fits the number of papers that the reviewer required !!!</p>
         <h1 class="w3-margin w3-jumbo">Allocate Papers</h1>
@@ -140,6 +140,36 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <p class="w3-xlarge"></p>
         <button  id="finishBtn" class="w3-button w3-black w3-padding-large w3-large">Finish</button>
         <button  id="cancelBtn" class="w3-button w3-black w3-padding-large w3-large">Cancel</button>
+        <span style="float:right; margin-left:-20%">aaaaaaaaaaaREVIEWER X HAS THIS PREFERENCES</span>
+      </header>    
+        
+      <!-- First Grid -->
+      <div class="">
+          <div style="text-align:center">
+              <h1>PAPERS HERE</h1>
+              <h5 class="w3-padding-32">PAPERS HERE</h5>
+      
+              <p class="w3-text-grey">. . . . ..  .</p>
+          </div>
+      </div>
+    </div>
+
+
+    <!--CHAIR REALLOCATION PAGE-->
+    <div id="pg2" style="display:none">
+      <header class="w3-container w3-red w3-center" style="padding:20px 16px">
+        <p class="w3-xlarge w3-left-align">Important: Choose papers until the quantity fits the number of papers that the reviewer required !!!</p>
+        <h1 class="w3-margin w3-jumbo">Reallocate Papers</h1>
+        <label class ="w3-xlarge" for="cars">Choose a reviewer:</label>
+            <select name="reviewerList" id="reviewerList">
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+            <option value="d">d</option>
+            </select>
+        <p class="w3-xlarge"></p>
+        <button  id="reallocateUpdateBtn" class="w3-button w3-black w3-padding-large w3-large">Finish</button>
+        <button  id="reallocateCancelBtn" class="w3-button w3-black w3-padding-large w3-large">Cancel</button>
         <span style="float:right; margin-left:-20%">aaaaaaaaaaaREVIEWER X HAS THIS PREFERENCES</span>
       </header>    
         
@@ -176,8 +206,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     const navInfo = [
       "dashboard",
       "allocate",
+      "reallocate",
     ];
     document.getElementById(func).classList.add("w3-white");
+    document.getElementById(func).classList.remove("w3-button");
 
     for (const e in navInfo) {
       if (navInfo[e] == func) {
@@ -186,9 +218,26 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         continue;
       }
       document.getElementById(navInfo[e]).classList.remove("w3-white")
+      document.getElementById(navInfo[e]).classList.add("w3-button", "w3-hover-white")
       document.getElementById(`pg${e}`).style.display = "none";
     }
   }
+
+  //NAVBAR FUNCTIONS
+    document
+    .getElementById("dashboard")
+    .addEventListener("click", function () {
+        alert("Do you want to go to the dashboard? (any unsaved changes will be lost)")
+        ChangeEffect("dashboard");
+    });
+
+    document
+    .getElementById("reallocate")
+    .addEventListener("click", function () {
+        alert("Do you want to go to the reallocation page? (any unsaved changes in the current will be lost)")
+        ChangeEffect("reallocate");
+    });
+
       //DASHBOARD FUNCTIONS ############################################################################
       //GET THE MODAL BLOCK
       var modal = document.getElementById("myModal");
@@ -251,8 +300,32 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
               alert("Operation has been cancelled.")
               ChangeEffect("dashboard");
           }
-      }      
-    
+      }   
+      
+      
+      //REALLOCATE PAPERS FUNCTION
+      var reallocateUpdateBtn = document.getElementById("reallocateUpdateBtn");
+      // When the user clicks the button
+      reallocateUpdateBtn.onclick = function(){
+          okState = confirm("Are you sure with your choices?")
+          if (okState == true){
+              /*reallocatePapers()*/
+              alert("Papers have been successfully reallocated.");
+              ChangeEffect("dashboard");
+          }
+      }
+
+      var reallocateCancelBtn = document.getElementById("reallocateCancelBtn");
+      // When the user clicks the button
+      reallocateCancelBtn.onclick = function(){
+          okState = confirm("Cancel selecting papers?")
+          if (okState == true){
+              /*exit()*/
+              alert("Operation has been cancelled.")
+              ChangeEffect("dashboard");
+          }
+      }   
+       
   
 
 // Get the <span> element that closes the modal
@@ -261,24 +334,6 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
-
-  document
-    .getElementById("dashboard")
-    .addEventListener("click", function () {
-        ChangeEffect("dashboard");
-    });
-
-  document
-    .getElementById("reallocate")
-    .addEventListener("click", function () {
-        ChangeEffect("reallocate");
-    });
-
-  document
-    .getElementById("makeDecision")
-    .addEventListener("click", function () {
-        ChangeEffect("makeDecision");
-    });
 
   document
   .getElementById("listOfSubmissions")
