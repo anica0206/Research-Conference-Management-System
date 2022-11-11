@@ -55,7 +55,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
               <h2>Set the maximum number of Paper to review</h2>
             </div>
             <div class = "Create">
-              <pre label>Max Workload: <input type="number" id="username" required placeholder="Enter Number"/> </label></pre>
+              <pre label>Max Workload: <select name ="workload" id = "workload">
+                  <option value = "1">1</option>
+                  <option value = "2">2</option>
+                  <option value = "3">3</option>
+                  <option value = "4">4</option>
+                  <option value = "5">5</option></select></label></pre>
 
               <br>
               </pre><button id = "createAccount" onclick="CreateAccountConfirmation()" type="submit" >Set WorkLoad</button>

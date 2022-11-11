@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Update Paper</title>
+<title>Delete Paper</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="w3.css">
@@ -12,10 +12,9 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
-
 </style>
 </head>
-<body class = "scollbody">
+<body>
     <!-- Navbar -->
     <div class="w3-top">
         <div class="w3-bar w3-red w3-card w3-left-align w3-large">
@@ -24,7 +23,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <a href="authorCreatePapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit Paper</a>
         <a href="authorViewPapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>
         <div class = "dropdown">
-            <a class="w3-bar-item w3-padding-large w3-white" id = "update">Update Paper</a>
+            <a class="w3-bar-item w3-padding-large w3-white">Update Paper</a>
             <div class="dropdown-content">
                 <a href= "authorDeletePapers.html" >Delete Paper</a>
                 <a href= "authorUpdatePapers.html">Update Paper</a>
@@ -34,20 +33,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
         </div>
 
-
     <header class="w3-container w3-red w3-center" style="padding:20px 16px">
-        <h1 class="w3-margin w3-jumbo">Update Paper</h1>
+        <h1 class="w3-margin w3-jumbo">Delete Paper</h1>
     </header>    
         
     <!-- First Grid -->
     <div class="">
         <div style="text-align:center">
-            <div class="update menu">
-                <label>ID: <input type="text" id="umTopic" style = "width: 200px"placeholder="Enter Exisitng Topic"/> </label> <br/>
-                <br>
-                <label>New Name: <input type="text" id="umNewTopic" placeholder="Enter New Name "/></label> <br/>
-                <br>
-                <button onclick="UpdateMenu()">Update</button>
+            <div>
+                <label>Name: <input type="text" id="name" placeholder="Enter Name"/></label>
+                <button onclick="DeleteMenu()">Delete</button>
             </div>
     
             <p class="w3-text-grey">. . . . ..  .</p>
