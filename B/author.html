@@ -47,16 +47,14 @@ th, td {
 
 <!-- DashBoard -->
 <div id = "pg0">
-    <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-        <h1 class="w3-margin w3-jumbo" style="color:black;"><b>Author</b></h1>
+  <header class="w3-container w3-red w3-center" style="padding:128px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style="color:black;"><b>Author</b></h1>
         <p class="w3-xlarge"></p>
-        <button  id="authorCreatePapers" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit Paper</button>
+        <button  id="authorCreatePaper1" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit Paper</button>
         
         <div id="myModal" class="modal" style ="color: black">
       </div>
-            <div class="modal-footer">
-      
-        </div>
+
       </header>
       
       <!-- First Grid -->
@@ -64,8 +62,8 @@ th, td {
         <div class="w3-content">
           <div class="w3-twothird">
             <h2>Want to view or search for your Papers?</h2>
-            <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >View</button>
-            <button  id="authorSearchPaper" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Search</button>
+            <button  id="authorViewPaper1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >View</button>
+            <button  id="authorSearchPaper1" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Search</button>
       
             <p class="w3-text-grey w3-justify" style="padding-right:10%">We will show you all the papers that have been uploaded.
               You will be able see which paper have been submitted and can search for the paper you needed </p>
@@ -86,8 +84,8 @@ th, td {
       
           <div class="w3-twothird">
             <h6 style = "position: relative; left:80px; font-size: 30px; font-weight: 400;">Want to Update or delete your Papers?</h6>
-            <button  id="authorUpdatePaper" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >Update</button>
-            <button  id="authorDeletePaper" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Delete Paper</button>
+            <button  id="authorUpdatePaper1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >Update</button>
+            <button  id="authorDeletePaper1" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Delete Paper</button>
 
             <p class="w3-text-grey" style = "position: relative; left:80px;">We will show you all the papers that have been uploaded.
               You will be able to make any amendment to the paper you uploaded or remove the papers from the system.</p>
@@ -103,8 +101,8 @@ th, td {
 
 <!-- Submit Paper -->
 <div id = "pg1" style = "display: none">
-    <header class="w3-container w3-red w3-center" style="padding:50px 16px">
-        <h1 class="w3-margin w3-jumbo">Submit Paper</h1>
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Submit Paper</b></h1>
     </header>    
         
     <!-- First Grid -->
@@ -128,8 +126,8 @@ th, td {
 
 <!--View Paper-->
 <div id = "pg2" style = "display: none">
-    <header class="w3-container w3-red w3-center" style="padding:50px 16px">
-        <h1 class="w3-margin w3-jumbo">View Paper</h1>
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>View Paper</b></h1>
     </header>    
         
     <!-- First Grid -->
@@ -149,8 +147,8 @@ th, td {
 </div>
 <!--Update Paper-->
 <div id = "pg3" style = "display: none">
-    <header class="w3-container w3-red w3-center" style="padding:50px 16px">
-        <h1 class="w3-margin w3-jumbo">Update Paper</h1>
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Update Paper</b></h1>
     </header>    
         
     <!-- First Grid -->
@@ -171,8 +169,8 @@ th, td {
 </div>
 <!--Update Paper-->
 <div id = "pg4" style = "display: none">
-    <header class="w3-container w3-red w3-center" style="padding:50px 16px">
-        <h1 class="w3-margin w3-jumbo">Delete Paper</h1>
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Delete Paper</b></h1>
     </header>    
         
     <!-- First Grid -->
@@ -191,8 +189,8 @@ th, td {
 
 <!--Search Paper -->>
 <div id = "pg5" style="display: none">
-  <header class="w3-container w3-red w3-center" style="padding:50px 16px">
-    <h1 class="w3-margin w3-jumbo">Search Paper</h1>
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Search Paper</b></h1>
 </header>   
   <div >
       <input type="text" id="search value" placeholder="Enter Name to Search for" style = "width: 200px;"/>
@@ -263,6 +261,38 @@ document
     .addEventListener("click", function () {
         ChangeEffect("authorSearchPaper");
     });    
+
+  
+  //dashboard mini-button
+  document
+    .getElementById("authorCreatePaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorSubmitPaper");
+    });
+
+  document
+    .getElementById("authorViewPaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorViewPaper");
+    });
+
+    document
+    .getElementById("authorSearchPaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorSearchPaper");
+    });    
+
+    document
+    .getElementById("authorUpdatePaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorUpdatePaper");
+    });
+
+    document
+    .getElementById("authorDeletePaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorDeletePaper");
+    });
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
