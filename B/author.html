@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Dashboard(Author)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.w3-top,.w3-bottom{position:absolute; width:100%;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+
+th, td {
+      border: 1px solid #444444;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a id = "authorDashboard" class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
+    <a id="authorSubmitPaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit Paper</a>
+    <a id="authorViewPaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>
+    <a id="authorSearchPaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Paper</a>
+    <a id="authorUpdatePaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Paper</a>
+    <a id="authorDeletePaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Paper</a>
+    <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
+      <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
+  </div>
+</div>
+  
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div>
+
+<!-- DashBoard -->
+<div id = "pg0">
+  <header class="w3-container w3-red w3-center" style="padding:128px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style="color:black;"><b>Author</b></h1>
+        <p class="w3-xlarge"></p>
+        <button  id="authorCreatePaper1" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit Paper</button>
+        
+        <div id="myModal" class="modal" style ="color: black">
+      </div>
+
+      </header>
+      
+      <!-- First Grid -->
+      <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+          <div class="w3-twothird">
+            <h2>Want to view or search for your Papers?</h2>
+            <button  id="authorViewPaper1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >View</button>
+            <button  id="authorSearchPaper1" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Search</button>
+      
+            <p class="w3-text-grey w3-justify" style="padding-right:10%">We will show you all the papers that have been uploaded.
+              You will be able see which paper have been submitted and can search for the paper you needed </p>
+          </div>
+      
+          <div class="w3-third w3-center">
+            <img src="images/file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Second Grid -->
+      <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-content">
+          <div class="w3-third w3-center">
+            <img src="images/book1.jpg" width="150%" class="boxShadow" style="float: right"></i>
+          </div>
+      
+          <div class="w3-twothird">
+            <h6 style = "position: relative; left:80px; font-size: 30px; font-weight: 400;">Want to Update or delete your Papers?</h6>
+            <button  id="authorUpdatePaper1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >Update</button>
+            <button  id="authorDeletePaper1" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Delete Paper</button>
+
+            <p class="w3-text-grey" style = "position: relative; left:80px;">We will show you all the papers that have been uploaded.
+              You will be able to make any amendment to the paper you uploaded or remove the papers from the system.</p>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
+      </div>
+</div>
+
+<!-- Submit Paper -->
+<div id = "pg1" style = "display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Submit Paper</b></h1>
+    </header>    
+        
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div style="text-align:left">
+                <form method="post" action = "/author_create">
+                    <label for="topic">Topic: </label>
+                    <input type="text" id="topic" name="topic"><br>
+                    <br>
+                    <label for="message">Paper: </label>
+                    <input type ="text " class = "message" name="message" id="message"></label><br><br>
+                    <input type="submit" value="Submit">
+                </form> 
+        
+                <p class="w3-text-grey">. . . . ..  .</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--View Paper-->
+<div id = "pg2" style = "display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>View Paper</b></h1>
+    </header>    
+        
+    <!-- First Grid -->
+    <div class="">
+        <div style="text-align:center">
+            <table class = "author_table" id="search MenuList">
+                <tr>
+                    <th>ID</th></th><th>NAME</th><th>PAPER</th>
+                </tr>
+            </table>
+            <h5 class="w3-padding-32">PAPERS HERE</h5>
+    
+            <p class="w3-text-grey">. . . . ..  .</p>
+        </div>
+
+        </div>
+</div>
+<!--Update Paper-->
+<div id = "pg3" style = "display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Update Paper</b></h1>
+    </header>    
+        
+    <!-- First Grid -->
+    <div class="">
+        <div style="text-align:center">
+            <div class="update menu">
+                <label>ID: <input type="text" id="umTopic" style = "width: 200px"placeholder="Enter Exisitng Topic"/> </label> <br/>
+                <br>
+                <label>New Name: <input type="text" id="umNewTopic" placeholder="Enter New Name "/></label> <br/>
+                <br>
+                <button onclick="UpdateMenu()">Update</button>
+            </div>
+    
+            <p class="w3-text-grey">. . . . ..  .</p>
+        </div>
+
+        </div>
+</div>
+<!--Update Paper-->
+<div id = "pg4" style = "display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Delete Paper</b></h1>
+    </header>    
+        
+    <!-- First Grid -->
+    <div class="">
+        <div style="text-align:center">
+            <div>
+                <label>Name: <input type="text" id="name" placeholder="Enter Name"/></label>
+                <button onclick="DeleteMenu()">Delete</button>
+            </div>
+    
+            <p class="w3-text-grey">. . . . ..  .</p>
+        </div>
+
+        </div>
+</div>
+
+<!--Search Paper -->>
+<div id = "pg5" style="display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Search Paper</b></h1>
+</header>   
+  <div >
+      <input type="text" id="search value" placeholder="Enter Name to Search for" style = "width: 200px;"/>
+      <button onclick="SearchPaper()">Search</button>
+  </div>
+  <table id="search Paper" class = "author_table">
+      <tr>
+          <th>NAME</th><th>PRICE</th><th>IMAGE</th>
+      </tr>
+  </table>
+</div>
+<script>
+  //function to change page
+  function ChangeEffect(func) {
+    const navInfo = [
+      "authorDashboard",
+      "authorSubmitPaper",
+      "authorViewPaper",
+      "authorUpdatePaper",
+      "authorDeletePaper",
+      "authorSearchPaper"
+    ];
+    document.getElementById(func).classList.add("w3-white");
+
+    for (const e in navInfo) {
+      if (navInfo[e] == func) {
+        document.getElementById(`pg${e}`).style.display =
+            "block";
+        continue;
+      }
+      document.getElementById(navInfo[e]).classList.remove("w3-white")
+      document.getElementById(`pg${e}`).style.display = "none";
+    }
+  }
+
+  document
+    .getElementById("authorDashboard")
+    .addEventListener("click", function () {
+        ChangeEffect("authorDashboard");
+    });
+
+  document
+    .getElementById("authorSubmitPaper")
+    .addEventListener("click", function () {
+        ChangeEffect("authorSubmitPaper");
+    });
+
+  document
+    .getElementById("authorViewPaper")
+    .addEventListener("click", function () {
+        ChangeEffect("authorViewPaper");
+    });
+
+  document
+    .getElementById("authorUpdatePaper")
+    .addEventListener("click", function () {
+        ChangeEffect("authorUpdatePaper");
+    });
+
+document
+    .getElementById("authorDeletePaper")
+    .addEventListener("click", function () {
+        ChangeEffect("authorDeletePaper");
+    });
+
+document
+    .getElementById("authorSearchPaper")
+    .addEventListener("click", function () {
+        ChangeEffect("authorSearchPaper");
+    });    
+
+  
+  //dashboard mini-button
+  document
+    .getElementById("authorCreatePaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorSubmitPaper");
+    });
+
+  document
+    .getElementById("authorViewPaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorViewPaper");
+    });
+
+    document
+    .getElementById("authorSearchPaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorSearchPaper");
+    });    
+
+    document
+    .getElementById("authorUpdatePaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorUpdatePaper");
+    });
+
+    document
+    .getElementById("authorDeletePaper1")
+    .addEventListener("click", function () {
+        ChangeEffect("authorDeletePaper");
+    });
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var allocateBtn = document.getElementById("allocateBtn");
+allocateBtn.onclick = function() {
+    modal.style.display = "block";
+}
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+var manualBtn = document.getElementById("manualBtn");
+// When the user clicks the button, open the modal 
+manualBtn.onclick = function(){
+    alert("Please select papers until the quantity fits the max numbers of papers that the reviewer required")
+
+}
+
+
+
+</script>
+</body>
+</html>
