@@ -23,15 +23,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
-    <a href="authorCreatePapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit Paper</a>
-    <a href="authorViewPapers.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>
-    <div class = "dropdown">
-      <a class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" id = "update">Update Paper</a>
-      <div class="dropdown-content">
-          <a href= "authorDeletePapers.html" >Delete Paper</a>
-          <a href= "authorUpdatePapers.html">Update Paper</a>
-      </div>
-  </div>
+    <a id= "authorDashboard" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit Paper</a>
+    <a id="adminSubmitPaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>
+    <a id="adminUpdatePaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Paper</a>
+    <a id="adminDeletePaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Paper</a>
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
   </div>
@@ -47,6 +42,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Header -->
+<div id = "pg0">
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
   <h1 class="w3-margin w3-jumbo" style="color:black;"><b>Author</b></h1>
   <p class="w3-xlarge"></p>
@@ -55,9 +51,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div id="myModal" class="modal" style ="color: black">
 </div>
       <div class="modal-footer">
-        <h3></h3>
-      </div>
-    </div>
+
   </div>
 </header>
 
@@ -96,16 +90,86 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   </div>
 </div>
 
-<!--
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
-</div>-->
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
   <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
 </div>
+</div>
+
+<div id = "pg1" style = "display: none">
+  <div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div style="text-align:left">
+            <form method="post" action = "/author_create">
+                <label for="topic">Topic: </label>
+                <input type="text" id="topic" name="topic"><br>
+                <br>
+                <label for="message">Paper: </label>
+                <input type ="text " class = "message" name="message" id="message"></label><br><br>
+                <input type="submit" value="Submit">
+            </form> 
+    
+            <p class="w3-text-grey">. . . . ..  .</p>
+        </div>
+    </div>
+</div>
+</div>
+
 
 <script>
+  //function to change page
+  function ChangeEffect(func) {
+    const navInfo = [
+      "adminDashboard",
+      "adminSubmitPaper",
+      "adminViewPaper",
+      "adminUpdatePaper",
+      "adminDeletePaper"
+    ];
+    document.getElementById(func).classList.add("w3-white");
+
+    for (const e in navInfo) {
+      if (navInfo[e] == func) {
+        document.getElementById(`pg${e}`).style.display =
+            "block";
+        continue;
+      }
+      document.getElementById(navInfo[e]).classList.remove("w3-white")
+      document.getElementById(`pg${e}`).style.display = "none";
+    }
+  }
+
+  document
+    .getElementById("authorDashboard")
+    .addEventListener("click", function () {
+        ChangeEffect("authorDashboard");
+    });
+
+  document
+    .getElementById("adminSubmitPaper")
+    .addEventListener("click", function () {
+        ChangeEffect("adminSubmitPaper");
+    });
+
+  document
+    .getElementById("adminViewPaper")
+    .addEventListener("click", function () {
+        ChangeEffect("adminViewPaper");
+    });
+
+  document
+    .getElementById("adminUpdatePaper")
+    .addEventListener("click", function () {
+        ChangeEffect("adminUpdatePaper");
+    });
+
+    document
+    .getElementById("adminDeletePaper")
+    .addEventListener("click", function () {
+        ChangeEffect("adminDeletePaper");
+    });
+
+
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
   var x = document.getElementById("navDemo");
