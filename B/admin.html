@@ -53,21 +53,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <span class="close">&times;</span>
           <h2>New User Account</h2>
         </div>
-        <div class = "Create">
-          <pre label>Name:          <input type="text" id="name" required placeholder="Enter username"/> </label></pre>
-          <pre label>Username:      <input type="text" id="userid" required placeholder="Enter password"/> </label></pre>
-          <pre label>Password:      <input type="text" id="password" required placeholder="Enter email"/> </label></pre>
-          <pre label>Role:          <select name ="role" id = "role">
-            <option value = "Admin">Admin</option>
-            <option value = "Author">Author</option>
-            <option value = "Reviewer">Reviewer</option>
-            <option value = "Chair">Conference Chair</option></select>
-          </label></pre>
-
+        <form method="post" action="/B/createUser">
+          <div class = "Create">
+            <pre label>Name:          <input type="text" name="name" required placeholder="Enter username"/> </label></pre>
+            <pre label>Username:      <input type="text" name="userid" required placeholder="Enter password"/> </label></pre>
+            <pre label>Password:      <input type="text" name="password" required placeholder="Enter email"/> </label></pre>
+            <pre label>Role:          <select name ="role" name = "role">
+              <option value = "admin">Admin</option>
+              <option value = "author">Author</option>
+              <option value = "reviewer">Reviewer</option>
+              <option value = "chair">Conference Chair</option></select>
+            </label></pre>
           <br>
-          </pre><button id = "createAccount" onclick="CreateAccountConfirmation()" type="submit" >Create New Account</button></div><br>
-        </div>
-          <h3></h3>
+          </pre><button id = "createAccount" type="submit">Create New Account</button></div><br>
+        </form>
         </div>
   </header>
 
@@ -252,7 +251,7 @@ function CreateAccountConfirmation() {
     
     //else{
     text = alert("Account has been created successfully");
-    window.location.href = "adminDashboard.html";
+    window.location.href = "admin.html";
     //}
 }
 
