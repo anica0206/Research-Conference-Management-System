@@ -133,10 +133,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <!-- First Grid -->
       <div class="">
         <div style="text-align:center">
-          <h1>PAPERS HERE</h1>
-          <h5 class="w3-padding-32">PAPERS HERE</h5>
-
-          <p class="w3-text-grey">. . . . ..  .</p>
+          <!-- <h1>PAPERS HERE</h1>
+          <h5 class="w3-padding-32">PAPERS HERE</h5> -->
+          <div class="search w3-padding-32">
+            <form method="post" action="/B/bidPaper">
+                <input type="txt" name="paperid" placeholder="paper num" required="">
+                <input type="email" name="userid" placeholder="email type user ID" required="">
+                <button type="submit">Bid paper</button>
+            </form>
+          </div>
         </div>
 
       </div>
