@@ -16,6 +16,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 th, td {
       border: 1px solid #444444;
   }
+
+.selectWrapper{
+  border-radius:36px;
+  display:inline-block;
+  overflow:hidden;
+  background: transparent;
+  border:1px solid #444444;
+}
+.selectBox{
+  width:140px;
+  height:40px;
+}
 </style>
 </head>
 <body>
@@ -65,7 +77,7 @@ th, td {
           <pre label>Name:      <input type="text" name="name" required placeholder="Enter Name"/> </label></pre>
           <pre label>Username:  <input type="email" name="userid" required placeholder="Enter Email"/> </label></pre>
           <pre label>Password:  <input type="Password" name="password" required placeholder="Enter Password"/> </label></pre>
-          <pre label>Role:      <select name ="role">
+          <pre label>Role:       <select class = "selectWrapper selectBox" name ="role">
             <option value = "admin">Admin</option>
             <option value = "author">Author</option>
             <option value = "reviewer">Reviewer</option>
@@ -89,10 +101,10 @@ th, td {
         <form method="post" action="/B/createUser">
           <div class = "Create">
             <pre label>Username: <input type="text" name="userId" required placeholder="Enter Email"/> </label></pre>
-            <pre label>DOB:      <input type="text" name="birthday" required placeholder="Enter Date-of-Birth"/> </label></pre>
-            <pre label>Role:     <select name ="gender">
-              <option value = "Male">Male</option>
-              <option value = "Female">Female</option></select></pre>
+            <pre label>DOB:      <input type="date" class = "selectWrapper selectBox" name="birthday" required placeholder="Enter Date-of-Birth"/> </label></pre>
+            <pre label>Role:     <select class = "selectWrapper selectBox" name ="gender">
+              <option value = "male">Male</option>
+              <option value = "female">Female</option></select></pre>
           <br></pre><button class = "buttonSpecial" id = "createAccount" type="submit">Create New Profile</button></div><br>
         </form>
         </div>
@@ -215,10 +227,12 @@ th, td {
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
   <h1 class="w3-margin w3-jumbo">Search User Account</h1>
   </header>   
-  <div>
-      <input type="text" id="SearchName" name = "name" placeholder="Enter Name" style = "width: 200px;"/>
-      <button type ="submit">Search</button>
-  </div>
+  <form method="post" action="/B/searchUser">
+    <div>
+        <input type="text" name = "name" placeholder="Enter Name" style = "width: 200px;"/>
+        <button type ="submit">Search</button>
+    </div>
+  </form>
   <table id="search Paper" class = "author_table"> 
       <tr>
         <th>ID</th>
@@ -293,15 +307,20 @@ th, td {
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">Update User Profile</h1>
   </header>    
-  
-<div class="">
   <div style="text-align:center">
-      <h1>Profile here</h1>
-      <h5 class="w3-padding-32">PROFILE HERE</h5>
-
-      <p class="w3-text-grey">. . . . ..  .</p>
-  </div>
-
+    <div class="update">
+      <form method="post" action="/B/updateUserProfile">
+        <pre>
+          <label>UserID:     <input type="email" name="userId" style = "width: 300px"placeholder="Enter Email"/> </label>
+          <label>Update DOB: <input type="date" class = "selectWrapper selectBox" name="birthday" style = "width: 300px" placeholder="Enter Date-of-Birth"/></label></br>
+          <label>Update Gender:</label> <select class = "selectWrapper selectBox" name="gender" id="gender">
+            <option value="make">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </pre>
+        <button type ="submit" class = "buttonSpecial" style = "width:30%" >Update Profile</button>
+      </form>
+    </div>
   </div>
 </div>
 
