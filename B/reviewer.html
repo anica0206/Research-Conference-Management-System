@@ -73,7 +73,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <div class="w3-twothird" style="margin-left:-17%;">
           <h2>Central Hub for all your paper bidding needs.
           </h2>
-          <button  id="managereviewsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my biddings</button>
+          <button  id="managebidsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my biddings</button>
 
 
           <p class="w3-text-grey w3-justify" style="padding-right:10%">As a reviewer, normally you would like to review papers that interest you the most. Here you can bid for papers that fit your personal preferences and manage them on the go.
@@ -95,7 +95,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         
         <div class="w3-twothirdPAPERLIST" style="margin-left:78%">
           <h2>Want to manage all your reviews?</h2>
-          <button  id="listOfSubmissionsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow" style="margin-left: 20%">Manage Reviews</button>
+          <button  id="managereviewsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow" style="margin-left: 20%">Manage Reviews</button>
 
 
           <p class="w3-text-grey w3-justify" style="padding-right:10%;width:70%">All of your reviewing needs are compiled into 1 single quick access tab in this section. Not only can you create reviews with ease, all of the other functions such as updating, deleting, searching and much more are just one click away. </p>
@@ -110,7 +110,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <div class="w3-twothird" style="margin-left:-17%;">
           <h2>Want to manage all of your comments?
           </h2>
-          <button  id="managereviewsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my comments</button>
+          <button  id="managecommentsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my comments</button>
 
 
           <p class="w3-text-grey w3-justify" style="padding-right:10%">You may have expressed your opinions on certain papers after they have been reviewed, and now you think there might be stuff you need to add on top of what you had thought initially, this is the perfect place to manage all of your comments.
@@ -465,7 +465,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
           </div>
         </div>
-        <!-- DELETE REVIEW BLOCK-->
+        <!-- DELETE COMMENT BLOCK-->
         <div id="pg3-3" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>DELETE COMMENT</b></h1>
           <div class="tempBox">
@@ -485,7 +485,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
           </div>
         </div>
-        <!--SEARCH REVIEW BLOCK-->
+        <!--SEARCH COMMENT BLOCK-->
         <div id="pg3-4" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH COMMENTS</b></h1>
           <div class="tempBox">
@@ -539,18 +539,33 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       .addEventListener("click", function () {
           ChangeEffect("managebids");
       });
+          document
+          .getElementById("managebidsBtn")
+          .addEventListener("click", function () {
+              ChangeEffect("managebids");
+          });
  
     document
       .getElementById("managereviews")
       .addEventListener("click", function () {
           ChangeEffect("managereviews");
       });
+          document
+            .getElementById("managereviewsBtn")
+            .addEventListener("click", function () {
+                ChangeEffect("managereviews");
+            });
 
     document
       .getElementById("managecomments")
       .addEventListener("click", function () {
           ChangeEffect("managecomments");
-      });  
+      }); 
+          document
+            .getElementById("managecommentsBtn")
+            .addEventListener("click", function () {
+                ChangeEffect("managecomments");
+            }); 
 
     function ChangeEffect2(func) {
       const navInfo = [
