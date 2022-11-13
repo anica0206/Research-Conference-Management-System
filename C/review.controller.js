@@ -541,7 +541,8 @@ const viewMyReview = (req, res, next) => {
                     //view review
                     for (var i = 0; i < result.length; i++) {
                         res.write("<h1>" + "ID : " + result[i].ID + " | UserId : " + result[i].uId + " | PaperId : "
-                            + result[i].pId + " | Rating : " + result[i].rating + " | Content : " + result[i].content + "</h1><br>");
+                            + result[i].pId + " | Rating : " + result[i].rating + " | Content : " + result[i].content +
+                            +" | Author Rating : " + result[i].aRating + "</h1><br>");
                     }
 
                 } else {
@@ -752,7 +753,8 @@ const searchMyReview = (req, res, next) => {
 
                     for (var i = 0; i < rows.length; i++) {
                         res.write("<h1>" + "ID : " + rows[i].ID + " | UserID : " + rows[i].uId + " | PaperId : "
-                            + rows[i].pId + " | Rating : " + rows[i].rating + " | Content : " + rows[i].content + "</h1><br>");
+                            + rows[i].pId + " | Rating : " + rows[i].rating + " | Content : " + rows[i].content +
+                            " | Author Review : " + rows[i].aRating + "</h1><br>");
                     }
 
                     res.end();
@@ -838,7 +840,8 @@ const viewOtherReview = (req, res, next) => {
 
                                     for (var i = 0; i < rows.length; i++) {
                                         res.write("<h1>" + "ID : " + rows[i].ID + " | UserId : " + rows[i].uId + " | PaperId : "
-                                            + rows[i].pId + " | Rating : " + rows[i].rating + " | Content : " + rows[i].content + "</h1><br>");
+                                            + rows[i].pId + " | Rating : " + rows[i].rating + " | Content : " + rows[i].content +
+                                            + " | Author Rating : " + rows[i].aRating + "</h1><br>");
                                     }
 
 
@@ -1198,6 +1201,83 @@ const searchMyComment = (req, res) => {
     });
 };
 
+const updateMaxPaperNum = (req, res) => {
+    console.log("/B/UpdateMaxPaperNum" + req);
+
+    const paramUid = req.body.userid;
+    const paramPnum = req.body.maxpaper;
+
+    pool.getConnection((err, conn) => {
+        if (err) {
+            conn.release();
+            console.log("Mysql getConnetion error.");
+            return;
+        }
+
+        console.log("Database connection success");
+
+        const exec = conn.query(
+            "select * from users where userId = ?",
+            [paramUid],
+            (err, result) => {
+                conn.release();
+                console.log("sql worked" + exec.sql);
+
+                if (err) {
+                    console.log("sql error happen");
+                    console.dir(err);
+                    return;
+                }
+
+                if (result.length > 0) {
+                    console.dir(result);
+                    console.log("Paper found");
+
+                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
+                    res.write("<h1>User found success</h1>");
+
+                    // update comment start
+                    pool.getConnection((err, conn) => {
+                        if (err) {
+                            conn.release();
+                            console.log("Mysql getConnetion error.");
+                            return;
+                        }
+                        const exec = conn.query(
+                            "update users set maxPaper = ? where userId = ?",
+                            [(Number(result[0].maxPaper) + Number(paramPnum)), paramUid],
+                            (err, result) => {
+                                conn.release();
+                                console.log("sql worked" + exec.sql);
+
+                                if (err) {
+                                    console.log("sql error happen");
+                                    console.dir(err);
+                                } else {
+                                    console.dir(result);
+                                    console.log("update success");
+
+                                    res.write("<h2>Paper update success</h2>");
+                                    res.end();
+                                }
+
+                            }
+                        );
+                    })
+
+                    res.end();
+                } else {
+                    console.log("user not found");
+
+                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
+                    res.write("<h1>user found failed</h1>");
+                    res.end();
+                }
+            }
+        );
+    });
+};
+
 
 
 
@@ -1206,5 +1286,5 @@ module.exports = {
     createBid, viewBid, updateBid, deleteBid, searchBid,
     createReviewRate, viewMyReview, updateMyReview, deleteMyReview,
     searchMyReview, viewOtherReview, createComment, viewMyComment,
-    updateMyComment, deleteMyComment, searchMyComment
+    updateMyComment, deleteMyComment, searchMyComment, updateMaxPaperNum
 };
