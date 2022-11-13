@@ -22,7 +22,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-bar w3-red w3-card w3-left-align w3-large">
       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
       <a id="dashboard" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Dashboard</a>
-      <a id="bidforpapers" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Bid for Papers</a>
       <a id="managebids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Bids</a>
       <a id="ratepaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Rate Paper</a>
       <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
@@ -124,34 +123,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     </footer>
   </div>
 
-    <!-- bidforpapers block -->
-    <div id="pg1" style="display: none" >
-      <header class="w3-container w3-red w3-center" style="padding:50px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
-        <h1 class="w3-margin w3-jumbo" style ="color: black"><b>Paper Bidding</b></h1>
-      </header>    
-          
-      <!-- First Grid -->
-      <div class="w3-light-grey" style="text-align:center">
-        <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1>
-          <h5 class="w3-padding-32">PAPERS HERE</h5> -->
-          <div class="search">
-            <form method="post" action="/B/bidPaper">
-                <br>
-                <input class="w3-animate-input" type="text" name="paperid" required="">
-                <label alt="Paper's Number" placeholder="Paper's Number" style="font-family:Montserrat"></label>
-                <input type="email" name="userid" required="">
-                <label alt="Enter your email" placeholder="Email" style="font-family:Montserrat"></label>
-                <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>Bid paper</b></button>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
     <!-- MANAGE BID BLOCKS-->
-    <div id="pg2" style="display: none">
+    <div id="pg1" style="display: none">
       <div style="display:block; position:fixed; top:5.5%; z-index:2">
         <div class="w3-bar w3-red w3-card w3-left-align w3-large">
           <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
@@ -165,7 +138,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <h1 class="w3-margin w3-jumbo" style ="color: black"><b>Bid Manager</b></h1>
       </header>  
         <!--CREATE BID BLOCK-->
-        <div id="pg2-0" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg1-0" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>CREATE BID</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -185,7 +158,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
         </div>
         <!-- VIEW BID BLOCK-->
-        <div id="pg2-1" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg1-1" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE BID</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -203,7 +176,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
         </div>
         <!-- UPDATE BID BLOCK-->
-        <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BIDS</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -225,7 +198,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
         </div>
         <!-- DELETE BID BLOCK-->
-        <div id="pg2-3" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>DELETE BID</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -245,7 +218,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
         </div>
         <!--SEARCH BID BLOCK-->
-        <div id="pg2-4" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -265,7 +238,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     </div>
 
     <!-- ratepaper block -->
-    <div id="pg3" style="display: none">
+    <div id="pg2" style="display: none">
       <header class="w3-container w3-red w3-center" style="padding:50px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
         <h1 class="w3-margin w3-jumbo" style ="color: black"><b>Rate Paper</b></h1>
       </header>    
@@ -286,7 +259,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   function ChangeEffect(func) {
     const navInfo = [
       "dashboard",
-      "bidforpapers",
       "managebids",
       "ratepaper",
       "updatebid"
@@ -315,12 +287,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
       for (const e in navInfo) {
         if (navInfo[e] == func) {
-          document.getElementById(`pg2-${e}`).style.display =
+          document.getElementById(`pg1-${e}`).style.display =
               "block";
           continue;
         }
         document.getElementById(navInfo[e]).classList.remove("w3-white")
-        document.getElementById(`pg2-${e}`).style.display = "none";
+        document.getElementById(`pg1-${e}`).style.display = "none";
       }
     }
 
@@ -328,12 +300,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .getElementById("dashboard")
     .addEventListener("click", function () {
         ChangeEffect("dashboard");
-    });
-
-  document
-    .getElementById("bidforpapers")
-    .addEventListener("click", function () {
-        ChangeEffect("bidforpapers");
     });
 
   document
