@@ -24,6 +24,12 @@ router.post('/B/searchUser', userController.searchUser);
 //admin - user's profile
 router.post('/B/createUserProfile', userController.createUserProfile);
 
+router.get('/B/viewUserProfile', userController.viewUserProfile);
+
+router.post('/B/updateUserProfile', userController.updateUserProfile);
+
+router.post('/B/searchUserProfile', userController.searchUserProfile);
+
 //reviewer - bid
 router.post('/B/bidPaper', reviewController.createBid);
 

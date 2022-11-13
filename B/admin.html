@@ -103,7 +103,7 @@ th, td {
           <h2>New User Profile</h2>
         </div>
         <div class="tempBox">
-        <form method="post" action="/B/createUser">
+        <form method="post" action="/B/createUserProfile">
           <div class = "Create">
             <br>
             <input class="w3-animate-input" type="text" name="name" required="">
@@ -213,18 +213,17 @@ th, td {
   </header>    
   <div class="">
     <div style="text-align:center">
-        <table class = "author_table" id="search MenuList">
+        <table id = "view userList" class = "author_table" id="search MenuList">
             <tr>
               <th>ID</th>
-              </th><th>Name</th>
+              <th>Name</th>
               <th>UserID</th>
               <th>Password</th>
               <th>Role</th>
             </tr>
+          <tbody id="userList">
+          </tbody>
         </table>
-        <h5 class="w3-padding-32">PAPERS HERE</h5>
-
-        <p class="w3-text-grey">. . . . ..  .</p>
     </div>
   </div>
 </div>
@@ -241,13 +240,13 @@ th, td {
             <br>
             <input class="w3-animate-input" type="text" name="name" required="">
             <label alt="Enter Name" placeholder="Enter Name" style="font-family:Montserrat"></label>
-            <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>Search</b></button>
+            <button type="submit" onclick="SearchUser()" class="buttonSpecial" style="--slist: red, #ccc"><b>Search User</b></button>
         </form>
       </div>
     </div>
   </div>
   
-  <table id="search Paper" class = "author_table"> 
+  <table id="search userList" class = "author_table"> 
       <tr>
         <th>ID</th>
         <th>Name</th>
@@ -255,6 +254,8 @@ th, td {
         <th>Password</th>
         <th>Role</th>
     </tr>
+    <tbody id="searchList">
+    </tbody>
   </table>
 </div>
 
@@ -282,18 +283,20 @@ th, td {
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">View User Profile</h1>
   </header>    
+
   <div class="">
     <div style="text-align:center">
-      <table class = "author_table" id="search MenuList">
+      <table class = "author_table" id="search profileList">
         <tr>
-          <th>ID</th>
-          <th>UserID</th>
-          <th>DOB</th>
+          <th>Name</th>
+          <th>Email</th>
           <th>Role</th>
+          <th>Date of Birth</th>
+          <th>Gender</th>
         </tr>
+        <tbody id="profileList">
+        </tbody>
       </table>
-      <h5 class="w3-padding-32">PAPERS HERE</h5>
-    <p class="w3-text-grey">. . . . ..  .</p>
     </div>
   </div>
 </div>
@@ -308,9 +311,9 @@ th, td {
       <div class = "search">
         <form method = "post" action="/B/searchUserProfile">
             <br>
-            <input class = "w3-animate-input" type = "text" name = "name" required = "">
+            <input id = "searchProfile" class = "w3-animate-input" type = "text" name = "name" required = "">
             <label alt = "Enter Name" placeholder = "Enter Name" style = "font-family:Montserrat"></label>
-            <button type = "submit" class = "buttonSpecial" style = "--slist: red, #ccc"><b>Search</b></button>
+            <button type = "submit" onclick="SearchUserProfile()" class = "buttonSpecial" style = "--slist: red, #ccc"><b>Search</b></button>
         </form>
       </div>
     </div>
@@ -318,11 +321,14 @@ th, td {
 
  <table id = "search Paper" class = "author_table"> 
     <tr>
-      <th>ID</th>
-      <th>UserID</th>
-      <th>DOB</th>
+      <th>Name</th>
+      <th>Email</th>
       <th>Role</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
     </tr>
+    <tbody id="searchProfileList">
+    </tbody>
   </table>
 </div>
 
@@ -333,8 +339,7 @@ th, td {
   </header>    
   <div class = "tempBox">
     <div class = "update">
-      <form method="post" action="/B/updateUser">
-        
+      <form method="post" action="/B/updateUser">    
         <br>
         <input type = "email" name = "userId" required="">
         <label alt = "Enter Email" placeholder = "Enter Email" style = "font-family:Montserrat"></label>
@@ -386,11 +391,53 @@ th, td {
         ChangeEffect("adminDashboard");
     });
 
+  // document
+  //   .getElementById("adminViewAccount")
+  //   .addEventListener("click", function () {
+  //       ChangeEffect("adminViewAccount");
+  //   });
+
+  let info = null;
+  let viewLength = 0;
+
   document
     .getElementById("adminViewAccount")
     .addEventListener("click", function () {
-        ChangeEffect("adminViewAccount");
+      fetch("/B/viewUser", {
+      method: "GET",
+      })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("User not found");
+            else
+            {
+              info = data;
+              ViewUser(info);
+            }
+          });
+          ChangeEffect("adminViewAccount")
     });
+
+  function ViewUser(data) {
+
+    var tbl = document.getElementById("view userList"); // Get the table
+    tbl.removeChild(tbl.getElementsByTagName("tbody")[1]);
+
+    const infoList = ["id", "name", "userId", "password", "role"];
+    const table = document.getElementById("view userList");
+
+    for (const element of info) {
+        const row = table.insertRow();
+        for (const e of infoList) {
+            const cell = row.insertCell();
+            cell.innerText = element[e];
+        }
+    }
+  }
 
     document
     .getElementById("adminSearchAccount")
@@ -398,17 +445,100 @@ th, td {
         ChangeEffect("adminSearchAccount");
     });
 
+    function SearchUser() {
+
+    for (var i = document.getElementById("search userList").rows.length; i > 1; i--) {
+          document.getElementById("search userList").deleteRow(i - 1);
+      } 
+
+    const name = document.getElementById("searchID").value;
+
+    fetch("/B/searchUser", {  
+        method : "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name: name
+        }),               
+    })
+    .then(response => {
+          return response.json();
+
+    })
+    .then(data => {
+      
+        if(data == "")
+          alert("Search user account failed");
+        else 
+        {
+
+          const infoList = ["id", "name", "userId", "password", "role"];
+          const table = document.getElementById("searchList");
+
+          for (const element of data) {
+              const row = table.insertRow();
+              for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+              }
+            }
+        }   
+    });
+  }
+
   document
     .getElementById("adminUpdateAccount")
     .addEventListener("click", function () {
         ChangeEffect("adminUpdateAccount");
     });
 
+  let info1 = null;
+
   document
     .getElementById("adminViewProfile")
     .addEventListener("click", function () {
+      fetch("/B/viewUserProfile", {
+      method: "GET",
+      })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("User profile not found");
+            else
+            {
+              info1 = data;
+              ViewUserProfile(info1);
+            }
+          });
         ChangeEffect("adminViewProfile");
     });
+
+  // document
+  //   .getElementById("adminViewProfile")
+  //   .addEventListener("click", function () {
+  //       ChangeEffect("adminViewProfile");
+  //   });
+
+  function ViewUserProfile(data) {
+
+  var tbl = document.getElementById("view profileList"); // Get the table
+  tbl.removeChild(tbl.getElementsByTagName("tbody")[1]);
+
+  const infoList = ["name", "userId", "role", "DATE_FORMAT(dob, '%d/%m/%Y')", "gender"];
+
+  for (const element of data) {
+      const row = tbl.insertRow();
+      for (const e of infoList) {
+          const cell = row.insertCell();
+          cell.innerText = element[e];
+      }
+  }
+
+  }
 
    document
     .getElementById("adminSearchProfile")
@@ -416,12 +546,53 @@ th, td {
         ChangeEffect("adminSearchProfile");
     });
 
+  function SearchUserProfile() {
+
+  for (var i = document.getElementById("search profileList").rows.length; i > 1; i--) {
+        document.getElementById("search profileList").deleteRow(i - 1);
+    } 
+
+  const name = document.getElementById("searchProfile").value;
+
+  fetch("/B/searchUserProfile", {  
+      method : "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          name: name
+      }),               
+  })
+      .then(response => {
+            return response.json();
+
+      })
+      .then(data => {
+        
+          if(data == "")
+            alert("Search user profile failed");
+          else 
+          {
+
+            const infoList = ["name", "userId", "role", "DATE_FORMAT(dob, '%d/%m/%Y')", "gender"];
+            const table = document.getElementById("searchProfileList");
+
+            for (const element of data) {
+                const row = table.insertRow();
+                for (const e of infoList) {
+                    const cell = row.insertCell();
+                    cell.innerText = element[e];
+                }
+              }
+          }   
+      });
+  }
+
   document
     .getElementById("adminUpdateProfile")
     .addEventListener("click", function () {
         ChangeEffect("adminUpdateProfile");
     });
-
 
   //Dashboard mini-buttons
   document
@@ -513,18 +684,6 @@ span.onclick = function() {
     modal1.style.display = "none";
 }
 
-
-
-
-function CreateAccountConfirmation() {
-    //if (username.exist(database)){}
-    var text = alert("Username already exist");
-    
-    //else{
-    text = alert("Account has been created successfully");
-    window.location.href = "admin.html";
-    //}
-}
 
 
 </script>
