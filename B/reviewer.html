@@ -19,126 +19,131 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <body>
   <!-- Navbar -->
   <div class="w3-top">
-    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-      <a id="dashboard" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Dashboard</a>
+    <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+      <a id="dashboard" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Dashboard</a>
       <a id="managebids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Bids</a>
-      <a id="ratepaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Rate Paper</a>
+      <a id="managereviews" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Reviews</a>
+      <a id="managecomments" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Comments</a>
       <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
     </div>
   </div>  
-  
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  <!--MODAL BLOCK-->
+  <div id="myModal" class="modal" style ="color: black">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Set the maximum number of Paper to review</h2>
+      </div>
+      <div style="text-align:center">
+        <div class="tempBox">
+            <form method="post" action="/B/updateMaxPaperNum">
+                <br>
+                <input type="email" name="userid" required=""/>
+                <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                <label for="" class="selectLabel" style="font-family:Montserrat;">Number of paper: </label>
+                <select class="selectSpecial" name="maxpaper" id="maxpaper" required="">
+                  <option value="" selected disabled hidden></option>
+                  <option value=1>1</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5</option>
+                </select>
+                <button class="buttonSpecial" type="submit">Update</button>
+            </form>
+        </div>      
+      </div>
+    </div>
   </div>
 
-  <!-- dashboard block -->
+  <!-- dashboard block ##################################################################- -->
   <div id="pg0">
     <!-- Header -->
-      <header class="w3-container w3-red w3-center" style="padding:128px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
-        <h1 class="w3-margin w3-jumbo" style="color:rgb(0, 0, 0);"><b>Reviewer</b></h1>
+      <header class="w3-container w3-teal w3-center" style="padding:128px 16px; background-image:url(images/reviewer.jpg); background-size:cover;">
+        <h1 class="w3-margin w3-jumbo textShadow" style="color:rgb(0, 0, 0);"><b>Reviewer</b></h1>
         <p class="w3-xlarge"></p>
-        <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Set Workload</button>
-        
-        <div id="myModal" class="modal" style ="color: black">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <div class="modal-header">
-              <span class="close">&times;</span>
-              <h2>Set the maximum number of Paper to review</h2>
-            </div>
-            <div class = "Create">
-              <pre label>Max Workload: <select name ="workload" id = "workload">
-                  <option value = "0">0</option>
-                  <option value = "1">1</option>
-                  <option value = "2">2</option>
-                  <option value = "3">3</option>
-                  <option value = "4">4</option>
-                  <option value = "5">5</option></select></label></pre>
-
-              <br>
-              </pre><button id = "createAccount" onclick="CreateAccountConfirmation()" type="submit" >Set WorkLoad</button>
-            </div><br>
-          </div>
-              <h3></h3>
-        </div>
+        <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Set Workload</button>
       </header>
     <!-- First Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
       <div class="w3-content">
-        <div class="w3-twothird">
-          <h2>Rate Paper
+        <div class="w3-twothird" style="margin-left:-17%;">
+          <h2>Central Hub for all your paper bidding needs.
           </h2>
-          <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" onClick = "location.href = 'adminViewAccount.html'" >Lets Go</button>
+          <button  id="managereviewsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my biddings</button>
 
 
-          <p class="w3-text-grey w3-justify" style="padding-right:10%">As a Reviewer, you will have to start by setting the maximum number
-            of paper you like to review and start bidding. Paper will then be allocated based on your bidding and preferred workload for you to review on.
+          <p class="w3-text-grey w3-justify" style="padding-right:10%">As a reviewer, normally you would like to review papers that interest you the most. Here you can bid for papers that fit your personal preferences and manage them on the go.
         </p>
         </div>
 
         <div class="w3-third w3-center">
-          <img src="images/review.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
+          <img src="images/review.jpg" width="200%" style="margin-left:10px"class="boxShadow"></i>
         </div>
       </div>
     </div>
 
     <!-- Second Grid -->
     <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-      <div class="w3-content">
+      <div class="w3-contentTHIRD">
         <div class="w3-third w3-center">
-          <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+          <img src="images/reviewmanagement.jpg" width="200%" class="boxShadow" style="margin-left:15%; margin-right:10px"></i>
         </div>
+        
+        <div class="w3-twothirdPAPERLIST" style="margin-left:78%">
+          <h2>Want to manage all your reviews?</h2>
+          <button  id="listOfSubmissionsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow" style="margin-left: 20%">Manage Reviews</button>
 
-        <div class="w3-twothird">
-          <h1>title 2</h1>
-          <h5 class="w3-padding-32">something here....</h5>
 
-          <p class="w3-text-grey">something here.....</p>
+          <p class="w3-text-grey w3-justify" style="padding-right:10%;width:70%">All of your reviewing needs are compiled into 1 single quick access tab in this section. Not only can you create reviews with ease, all of the other functions such as updating, deleting, searching and much more are just one click away. </p>
+
+        </div>
+      </div>
+  </div>
+
+    <!-- Third Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-twothird" style="margin-left:-17%;">
+          <h2>Want to manage all of your comments?
+          </h2>
+          <button  id="managereviewsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my comments</button>
+
+
+          <p class="w3-text-grey w3-justify" style="padding-right:10%">You may have expressed your opinions on certain papers after they have been reviewed, and now you think there might be stuff you need to add on top of what you had thought initially, this is the perfect place to manage all of your comments.
+        </p>
+        </div>
+        <div class="w3-third w3-center">
+          <img src="images/managecomments.png" width="200%" style="margin-left:10px"class="boxShadow"></i>
         </div>
       </div>
     </div>
 
-    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-        <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
-    </div>
 
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-      <div class="w3-xlarge w3-padding-32">
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-        <i class="fa fa-snapchat w3-hover-opacity"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </div>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </footer>
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+      <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
+  </div>
   </div>
 
-    <!-- MANAGE BID BLOCKS-->
+    <!-- MANAGE BID BLOCKS ##################################################################--->
     <div id="pg1" style="display: none">
-      <div style="display:block; position:fixed; top:5.5%; z-index:2">
-        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-          <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-          <a id="createbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create Bid</a>
+      <div style="display:inline-block; position:fixed; z-index:2">
+        <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+          <a id="createbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create Bid</a>
           <a id="viewbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
           <a id="updatebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Bid</a>
           <a id="deletebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Bid</a>
-          <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>        </div>
+          <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>        
+        </div>
       </div>  
-      <header class="w3-container w3-red w3-center" style="padding:50px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
-        <h1 class="w3-margin w3-jumbo" style ="color: black"><b>Bid Manager</b></h1>
+      <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:50px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
+        <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Bid Manager</b></h1>
       </header>  
         <!--CREATE BID BLOCK-->
-        <div id="pg1-0" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg1-0" class="w3-light-grey" style="text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>CREATE BID</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -159,7 +164,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         </div>
         <!-- VIEW BID BLOCK-->
         <div id="pg1-1" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE BID</b></h1>
+          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BIDS</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
           <div class="update">
@@ -177,7 +182,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         </div>
         <!-- UPDATE BID BLOCK-->
         <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BIDS</b></h1>
+          <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE BID</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
           <div class="update">
@@ -237,31 +242,278 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </div>
     </div>
 
-    <!-- ratepaper block -->
+    <!-- MANAGE REVIEWS BLOCKS ##################################################################-->
     <div id="pg2" style="display: none">
-      <header class="w3-container w3-red w3-center" style="padding:50px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
-        <h1 class="w3-margin w3-jumbo" style ="color: black"><b>Rate Paper</b></h1>
-      </header>    
-          
-      <!-- First Grid -->
-      <div class="">
-        <div style="text-align:center">
-          <h1>PAPERS HERE</h1>
-          <h5 class="w3-padding-32">Rate</h5>
-
-          <p class="w3-text-grey">. . . . ..  .</p>
+      <div style="display:inline-block; position:fixed; z-index:2">
+        <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+          <a id="createreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create Review</a>
+          <a id="viewreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Reviews</a>
+          <a id="updatereview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Review</a>
+          <a id="deletereview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Review</a>
+          <a id="searchreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Reviews</a>   
+          <a id="viewotherreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Other Reviews</a>
+        </div> 
+      </div>   
+      <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:50px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
+        <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Review Manager</b></h1>
+      </header>  
+        <!--CREATE REVIEW BLOCK-->
+        <div id="pg2-0" class="w3-light-grey" style="text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>CREATE REVIEW</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+          <div class="create">
+              <form method="post" action="/B/createReview">
+                  <br>
+                  <input type="email" name="userid" required="">
+                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                  <input type="number" name="paperid" required="">
+                  <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
+                  <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
+                  <select class="selectSpecial" name="rating" id="rating" required="">
+                    <option value="" selected disabled hidden></option>
+                    <option value=-3>-3</option>
+                    <option value=-2>-2</option>
+                    <option value=-1>-1</option>
+                    <option value=0>0</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                  </select>
+                  <input type="text" name="content" required="">
+                  <label alt="Content" placeholder="Content" style="font-family:Montserrat"></label>
+                  
+                  <button class="buttonSpecial" type="submit">Create</button>
+              </form>
+          </div>
+          </div>
         </div>
+        <!-- VIEW REVIEW BLOCK-->
+        <div id="pg2-1" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW REVIEWS</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+          <div class="update">
+            <div class="update">
+                <form method="post" action="/B/viewMyReview">
+                    <br>
+                    <input type="email" name="userid" required="">
+                    <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
 
-      </div>
+                    <button class="buttonSpecial" type="submit">View</button>
+                </form>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- UPDATE REVIEW BLOCK-->
+        <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE REVIEW</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+          <div class="update">
+            <div class="update">
+                <form method="post" action="/B/updateMyReview">
+                    <br>
+                    <input type="email" name="userid" required="">
+                    <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                    <input type="number" name="reviewid" required="">
+                    <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
+                    <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
+                    <select class="selectSpecial" name="rating" id="rating" required="">
+                      <option value="" selected disabled hidden></option>
+                      <option value=-3>-3</option>
+                      <option value=-2>-2</option>
+                      <option value=-1>-1</option>
+                      <option value=0>0</option>
+                      <option value=1>1</option>
+                      <option value=2>2</option>
+                      <option value=3>3</option>
+                    </select>
+                    <input type="text" name="content"required="">
+                    <label alt="Content" placeholder="Content" style="font-family:Montserrat"></label>
+
+                    <button class="buttonSpecial" type="submit">Update</button>
+                </form>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- DELETE REVIEW BLOCK-->
+        <div id="pg2-3" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>DELETE REVIEW</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+          <div class="update">
+            <div class="delete">
+                <form method="post" action="/B/deleteMyReview">
+                  <br>
+                  <input type="email" name="userid" required="">
+                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                  <input type="number" name="reviewid" required="">
+                  <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
+
+                  <button class="buttonSpecial" type="submit">Delete</button>
+                </form>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!--SEARCH REVIEW BLOCK-->
+        <div id="pg2-4" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH REVIEWS</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+            <div class="delete">
+              <form method="post" action="/B/searchMyReview">
+                <br>
+                <input type="email" name="userid" required="">
+                <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                <input type="number" name="reviewid" required="">
+                <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
+
+                <button class="buttonSpecial" type="submit">Search</button>
+              </form>
+            </div>
+         </div>
+        </div>
+        <!--VIEW OTHER REVIEWS BLOCK-->
+        <div id="pg2-5" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW OTHER REVIEWS</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+            <div class="delete">
+              <form method="post" action="/B/viewOtherReview">
+                <br>
+                <input type="email" name="userid" required="">
+                <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
+                <input type="number" name="paperid" required="">
+                <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
+                <button class="buttonSpecial" type="submit">View</button>
+              </form>
+            </div>
+         </div>
+        </div>
     </div>
+
+
+    <!-- MANAGE COMMENTS BLOCKS ##################################################################-->
+    <div id="pg3" style="display: none">
+      <div style="display:inline-block; position:fixed; z-index:2">
+        <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+          <a id="createcomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create Comment</a>
+          <a id="viewcomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Comments</a>
+          <a id="updatecomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Comment</a>
+          <a id="deletecomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Comment</a>
+          <a id="searchcomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Comments</a>   
+        </div> 
+      </div>   
+      <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:50px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
+        <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Comment Manager</b></h1>
+      </header>  
+        <!--CREATE REVIEW BLOCK-->
+        <div id="pg3-0" class="w3-light-grey" style="text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>CREATE COMMENT</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+              <form method="post" action="/B/createComment">
+                  <br>
+                  <input type="email" name="userid" required="">
+                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                  <input type="number" name="reviewid" required="">
+                  <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
+                  <input type="text" name="comment" required="">
+                  <label alt="Comment" placeholder="Comment" style="font-family:Montserrat"></label>
+                  
+                  <button class="buttonSpecial" type="submit">Create</button>
+              </form>
+          </div>
+        </div>
+        <!-- VIEW COMMENTS BLOCK-->
+        <div id="pg3-1" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW COMMENTS</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+              <form method="post" action="/B/viewMyComment">
+                  <br>
+                  <input type="email" name="userid" required="">
+                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+
+                  <button class="buttonSpecial" type="submit">View</button>
+              </form>
+          </div>
+        </div>
+        <!-- UPDATE COMMENT BLOCK-->
+        <div id="pg3-2" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE COMMENT</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+          <div class="update">
+            <div class="update">
+                <form method="post" action="/B/updateMyReview">
+                    <br>
+                    <input type="email" name="userid" required="">
+                    <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                    <input type="number" name="reviewid" required="">
+                    <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
+                    <input type="text" name="comment" required="">
+                    <label alt="Edit Comment" placeholder="Edit Comment" style="font-family:Montserrat"></label>
+
+                    <button class="buttonSpecial" type="submit">Update</button>
+                </form>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- DELETE REVIEW BLOCK-->
+        <div id="pg3-3" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>DELETE COMMENT</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+          <div class="update">
+            <div class="delete">
+                <form method="post" action="/B/deleteMyComment">
+                  <br>
+                  <input type="email" name="userid" required="">
+                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                  <input type="number" name="commentid" required="">
+                  <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
+
+                  <button class="buttonSpecial" type="submit">Delete</button>
+                </form>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!--SEARCH REVIEW BLOCK-->
+        <div id="pg3-4" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH COMMENTS</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+            <div class="delete">
+              <form method="post" action="/B/searchMyComment">
+                <br>
+                <input type="email" name="userid" required="">
+                <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                <input type="number" name="reviewid" required="">
+                <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
+
+                <button class="buttonSpecial" type="submit">Search</button>
+              </form>
+            </div>
+         </div>
+        </div>
+    </div>
+
+
 
 <script>
   function ChangeEffect(func) {
     const navInfo = [
       "dashboard",
       "managebids",
-      "ratepaper",
-      "updatebid"
+      "managereviews",
+      "managecomments"
     ];
     document.getElementById(func).classList.add("w3-white");
 
@@ -275,6 +527,31 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       document.getElementById(`pg${e}`).style.display = "none";
     }
   }
+
+    document
+      .getElementById("dashboard")
+      .addEventListener("click", function () {
+          ChangeEffect("dashboard");
+      });
+
+    document
+      .getElementById("managebids")
+      .addEventListener("click", function () {
+          ChangeEffect("managebids");
+      });
+ 
+    document
+      .getElementById("managereviews")
+      .addEventListener("click", function () {
+          ChangeEffect("managereviews");
+      });
+
+    document
+      .getElementById("managecomments")
+      .addEventListener("click", function () {
+          ChangeEffect("managecomments");
+      });  
+
     function ChangeEffect2(func) {
       const navInfo = [
         "createbid",
@@ -295,18 +572,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         document.getElementById(`pg1-${e}`).style.display = "none";
       }
     }
-
-  document
-    .getElementById("dashboard")
-    .addEventListener("click", function () {
-        ChangeEffect("dashboard");
-    });
-
-  document
-    .getElementById("managebids")
-    .addEventListener("click", function () {
-        ChangeEffect("managebids");
-    });
 
       document
       .getElementById("createbid")
@@ -338,11 +603,115 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           ChangeEffect2("searchbid");
       });
 
-  document
-    .getElementById("ratepaper")
-    .addEventListener("click", function () {
-        ChangeEffect("ratepaper");
-    });
+    function ChangeEffect3(func) {
+      const navInfo = [
+        "createreview",
+        "viewreview",
+        "updatereview",
+        "deletereview",
+        "searchreview",
+        "viewotherreview"
+      ];
+      document.getElementById(func).classList.add("w3-white");
+
+      for (const e in navInfo) {
+        if (navInfo[e] == func) {
+          document.getElementById(`pg2-${e}`).style.display =
+              "block";
+          continue;
+        }
+        document.getElementById(navInfo[e]).classList.remove("w3-white")
+        document.getElementById(`pg2-${e}`).style.display = "none";
+      }
+    }
+
+      document
+      .getElementById("createreview")
+      .addEventListener("click", function () {
+          ChangeEffect3("createreview");
+      });
+
+      document
+      .getElementById("viewreview")
+      .addEventListener("click", function () {
+          ChangeEffect3("viewreview");
+      });
+
+      document
+      .getElementById("updatereview")
+      .addEventListener("click", function () {
+          ChangeEffect3("updatereview");
+      });
+
+      document
+      .getElementById("deletereview")
+      .addEventListener("click", function () {
+          ChangeEffect3("deletereview");
+      });
+
+      document
+      .getElementById("searchreview")
+      .addEventListener("click", function () {
+          ChangeEffect3("searchreview");
+      });
+
+      document
+      .getElementById("viewotherreview")
+      .addEventListener("click", function () {
+          ChangeEffect3("viewotherreview");
+      });
+
+    function ChangeEffect4(func) {
+    const navInfo = [
+      "createcomment",
+      "viewcomment",
+      "updatecomment",
+      "deletecomment",
+      "searchcomment",
+    ];
+    document.getElementById(func).classList.add("w3-white");
+
+    for (const e in navInfo) {
+      if (navInfo[e] == func) {
+        document.getElementById(`pg3-${e}`).style.display =
+            "block";
+        continue;
+      }
+      document.getElementById(navInfo[e]).classList.remove("w3-white")
+      document.getElementById(`pg3-${e}`).style.display = "none";
+    }
+    }
+
+      document
+      .getElementById("createcomment")
+      .addEventListener("click", function () {
+          ChangeEffect4("createcomment");
+      });
+
+      document
+      .getElementById("viewcomment")
+      .addEventListener("click", function () {
+          ChangeEffect4("viewcomment");
+      });
+
+      document
+      .getElementById("updatecomment")
+      .addEventListener("click", function () {
+          ChangeEffect4("updatecomment");
+      });
+
+      document
+      .getElementById("deletecomment")
+      .addEventListener("click", function () {
+          ChangeEffect4("deletecomment");
+      });
+
+      document
+      .getElementById("searchcomment")
+      .addEventListener("click", function () {
+          ChangeEffect4("searchcomment");
+      });
+
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {

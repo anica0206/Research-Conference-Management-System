@@ -54,7 +54,7 @@ const createUser = (req, res, next) => {
                     //res.send("<script>alert(" + "User created" + "); window.location.href =" + "../B/admin.html" + "; </script>");
                     //res.json({success: true});
                 } else {
-                    console.log("inserted failed");
+                    console.log("inserted faile");
 
                     res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
                     res.write("<h1>사용자 추가 실패</h1>");
