@@ -131,15 +131,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </header>    
           
       <!-- First Grid -->
-      <div class="">
-        <div style="text-align:center">
+      <div class="w3-light-grey" style="text-align:center">
+        <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1>
           <h5 class="w3-padding-32">PAPERS HERE</h5> -->
-          <div class="search w3-padding-32">
+          <div class="search">
             <form method="post" action="/B/bidPaper">
-                <input type="txt" name="paperid" placeholder="paper num" required="">
-                <input type="email" name="userid" placeholder="email type user ID" required="">
-                <button type="submit">Bid paper</button>
+                <br>
+                <input class="w3-animate-input" type="text" name="paperid" required="">
+                <label alt="Paper's Number" placeholder="Paper's Number" style="font-family:Montserrat"></label>
+                <input type="email" name="userid" required="">
+                <label alt="Enter your email" placeholder="Email" style="font-family:Montserrat"></label>
+                <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>Bid paper</b></button>
             </form>
           </div>
         </div>
@@ -154,18 +157,33 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </header>    
           
       <!-- First Grid -->
-      <div class="">
-        <div style="text-align:center">
-          <h1>PAPERS HERE</h1>
-          <h5 class="w3-padding-32">Bid HERE</h5>
-
-          <p class="w3-text-grey">. . . . ..  .</p>
+        <div class="w3-light-grey" style="text-align:center">
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+          <div class="update">
+            <input type="checkbox" id="chk" aria-hidden="true">
+            <label for="chk" aria-hidden="true">Update Bid</label>
+            <div class="update">
+                <form method="post" action="/B/updateBid">
+                    <br>
+                    <input type="email" name="userid" required="">
+                    <label placeholder="User's Email" style="font-family:Montserrat"></label>
+                    <input type="number" name="bidid" required="">
+                    <label placeholder="Bid's ID" style="font-family:Montserrat"></label>
+                    <input type="text" name="paperid" required="">
+                    <label for="chk" aria-hidden="true" placeholder="Paper's Number" style="font-family:Montserrat"></label>
+                    
+                    <button class="buttonSpecial" type="submit">Update Bid</button>
+                </form>
+            </div>
+          </div>
+          </div>
         </div>
 
       </div>
     </div>
 
-    <!-- bidforpapers block -->
+    <!-- ratepaper block -->
     <div id="pg3" style="display: none">
       <header class="w3-container w3-red w3-center" style="padding:50px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
         <h1 class="w3-margin w3-jumbo" style ="color: black"><b>Rate Paper</b></h1>

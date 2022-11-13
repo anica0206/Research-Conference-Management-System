@@ -369,3 +369,80 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     color: #FFFFFF;
     background-color: black;  
   }
+
+
+
+
+
+/* INPUT BOXES AND BUTTONS */
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"]{
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(3em + 2px);
+  margin: 0 0 1em 5px;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1.5em;
+  background: #fff;
+  resize: none;
+  outline: none;
+}
+input[type="text"][required]:focus, input[type="email"][required]:focus, input[type="password"][required]:focus, input[type="number"][required]:focus {
+  border-color: #00bafa;
+}
+input[type="text"][required]:focus + label[placeholder]:before, input[type="email"][required]:focus + label[placeholder]:before, input[type="password"][required]:focus + label[placeholder]:before, input[type="number"][required]:focus + label[placeholder]:before {
+  color: #00bafa;
+}
+input[type="text"][required]:focus + label[placeholder]:before, input[type="email"][required]:focus + label[placeholder]:before, input[type="password"][required]:focus + label[placeholder]:before, input[type="number"][required]:focus + label[placeholder]:before,
+input[type="text"][required]:valid + label[placeholder]:before, input[type="email"][required]:valid + label[placeholder]:before, input[type="password"][required]:valid + label[placeholder]:before, input[type="number"][required]:valid + label[placeholder]:before {
+  transition-duration: 0.2s;
+  transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+input[type="text"][required]:invalid + label[placeholder][alt]:before, input[type="email"][required]:invalid + label[placeholder][alt]:before, input[type="password"][required]:invalid + label[placeholder][alt]:before, input[type="number"][required]:invalid + label[placeholder][alt]:before {
+  content: attr(alt);
+}
+input[type="text"][required] + label[placeholder], input[type="email"][required] + label[placeholder], input[type="password"][required] + label[placeholder], input[type="number"][required] + label[placeholder] {
+  display: block;
+  pointer-events: none;
+  line-height: 1.25em;
+  margin-top: calc(-3em - 2px);
+  margin-bottom: calc((3em - 1em) + 2px);
+}
+input[type="text"][required] + label[placeholder]:before, input[type="email"][required] + label[placeholder]:before, input[type="password"][required] + label[placeholder]:before, input[type="number"][required] + label[placeholder]:before  {
+  content: attr(placeholder);
+  display: inline-block;
+  margin: 0 0 0 8%;
+  padding: 0 0 0 0;
+  color: #898989;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+  background-image: linear-gradient(to bottom, #fff, #fff);
+  background-size: 100% 5px;
+  background-repeat: no-repeat;
+  background-position:center;
+}
+
+.tempBox{
+  display: inline-block;
+  width:250px;
+  vertical-align: middle;
+  position: sticky;
+  text-align:left;
+}
+
+.buttonSpecial {
+  --full: linear-gradient(red 0 0);
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 0.5em;
+  margin: 1em auto;
+  border: 3px solid #ccc;
+  padding: 7px;
+  border-radius: 9em;
+  width:60%
+}
+
+.buttonSpecial:hover {
+  border: 3px solid #00bafa;;
+}
