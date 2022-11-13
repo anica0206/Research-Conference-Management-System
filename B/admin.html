@@ -129,7 +129,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-third w3-center">
-      <img src="images/book1.jpg" width="150%" class="boxShadow" style="float: right"></i>
+      <img src="images/account.png" width="150%" class="boxShadow" style="float: right"></i>
     </div>
 
     <div class="w3-twothird">
@@ -142,7 +142,43 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   </div>
 </div>
 
+<!-- Third Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h2>Want to View or Search for Account?</h2>
+      <button  id="adminViewProfile1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >View</button>
+      <button  id="adminSearchProfile1" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Search</button>
 
+
+      <p class="w3-text-grey w3-justify" style="padding-right:10%">As a System Admin, you will be able to view and search for all the user profile in this system. 
+        You will be able to see the existing profile that is stored in the server.</p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <img src="images/account1.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
+    </div>
+  </div>
+</div>
+
+  <!-- Fourth Grid -->
+  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-third w3-center">
+        <img src="images/profile.png" width="150%" class="boxShadow" style="float: right"></i>
+      </div>
+  
+      <div class="w3-twothird">
+        <h6 style = "position: relative; left:80px; font-size: 30px; font-weight: 400;">Want to Update a Profile?</h6>
+        <button  id="adminUpdateProfile1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >Update</button>
+  
+        <p class="w3-text-grey" style = "position: relative; left:80px;">We will show you all the profile that have been created.
+          You will have the rights to change the details of the profile.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- Most Bottom Tab -->
   <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
   </div>
@@ -252,6 +288,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 
 
+
 <script>
   //function to change page
   function ChangeEffect(func) {
@@ -277,6 +314,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     }
   }
 
+  //Dashboard header-tab buttons
   document
     .getElementById("adminDashboard")
     .addEventListener("click", function () {
@@ -320,7 +358,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     });
 
 
-  //Dashboard mini-button
+  //Dashboard mini-buttons
   document
     .getElementById("Create1")
     .addEventListener("click", function () {
@@ -340,16 +378,34 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         ChangeEffect("adminViewAccount");
     });
 
-    document
+  document
     .getElementById("adminSearchAccount1")
     .addEventListener("click", function () {
         ChangeEffect("adminSearchAccount");
     });
 
-    document
+  document
     .getElementById("adminUpdateAccount1")
     .addEventListener("click", function () {
         ChangeEffect("adminUpdateAccount");
+    });
+
+  document
+    .getElementById("adminViewProfile1")
+    .addEventListener("click", function () {
+        ChangeEffect("adminViewProfile");
+    });
+
+  document
+    .getElementById("adminSearchProfile1")
+    .addEventListener("click", function () {
+        ChangeEffect("adminSearchProfile");
+    });
+
+  document
+    .getElementById("adminUpdateProfile1")
+    .addEventListener("click", function () {
+        ChangeEffect("adminUpdateProfile");
     });
 
 
