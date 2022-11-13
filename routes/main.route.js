@@ -6,6 +6,7 @@ const router = express.Router();
 const loginController = require('../C/login.controller.js');
 const userController = require('../C/user.controller.js');
 const reviewController = require('../C/review.controller');
+const authorController = require('../C/author.controller');
 // 3.
 //login
 router.post('/B/login_page', loginController.login);
@@ -22,6 +23,12 @@ router.post('/B/searchUser', userController.searchUser);
 
 //admin - user's profile
 router.post('/B/createUserProfile', userController.createUserProfile);
+
+router.get('/B/viewUserProfile', userController.viewUserProfile);
+
+router.post('/B/updateUserProfile', userController.updateUserProfile);
+
+router.post('/B/searchUserProfile', userController.searchUserProfile);
 
 //reviewer - bid
 router.post('/B/bidPaper', reviewController.createBid);
@@ -54,6 +61,22 @@ router.post('/B/updateMyComment', reviewController.updateMyComment);
 router.post('/B/deleteMyComment', reviewController.deleteMyComment);
 
 router.post('/B/searchMyComment', reviewController.searchMyComment);
+
+router.post('/B/updateMaxPaperNum', reviewController.updateMaxPaperNum);
+
+router.post('/B/authorCreatePaper', authorController.createPaper);
+
+router.post('/B/authorViewPaper', authorController.authorViewPaper);
+
+router.post('/B/authorUpdateMyPaper', authorController.authorUpdatePaper);
+
+router.post('/B/deleteMyPaper', authorController.deleteMyPaper);
+
+router.post('/B/searchMyPaper', authorController.searchMyPaper);
+
+router.post('/B/viewReviewOnPaper', authorController.viewReviewOnPaper);
+
+router.post('/B/rateOnReview', authorController.rateOnReview);
 
 // 4. 
 module.exports = router; // export to use in server.js

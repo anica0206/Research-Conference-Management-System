@@ -41,12 +41,10 @@ const createUser = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    console.dir(err);
-                    return;
+                    res.send("<script>alert('Create user account failed');location.href='/B/adminDashboard.html';</script>");
                 }
 
                 if (result) {
-                    console.dir(result);
                     console.log("inserted success");
                     res.redirect("/B/admin.html");
                     //res.send("alert("user created"); window.location.href = "./page_location"; ");
@@ -54,12 +52,13 @@ const createUser = (req, res, next) => {
                     //res.send("<script>alert(" + "User created" + "); window.location.href =" + "../B/admin.html" + "; </script>");
                     //res.json({success: true});
                 } else {
-                    console.log("inserted faile");
+                    console.log("inserted failed");
 
                     res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
                     res.write("<h1>사용자 추가 실패</h1>");
                     res.end();
                 }
+
             }
         )
     })
@@ -77,23 +76,15 @@ const viewUser = (req, res, next) => {
         console.log("Database connection success");
 
         const exec = conn.query(
-            "select * from users",
+            "select id, name, userId, password, role  from users",
 
             (err, rows) => {
 
                 if (!err) {
-                    for (var i = 0; i < rows.length; i++) {
-                        res.write("<h1>" + "ID : " + rows[i].ID + " | Name : " + rows[i].name + " | UserId : "
-                            + rows[i].userId + " | Password : " + rows[i].password + " | Role : " + rows[i].role + "</h1><br>");
-
-                    }
-                    res.end();
+                    res.json(rows);
                 } else {
-                    console.log(err);
+                    res.json();
                 }
-
-                console.log('The data from user table : \n', rows);
-
             }
         );
     });
@@ -102,7 +93,7 @@ const viewUser = (req, res, next) => {
 const updateUser = (req, res, next) => {
 
      // 유저가 있는지 확인
-     const paramUid = req.body.userid;
+     const paramUid = req.body.userId;
      const paramPassword = req.body.password;
  
      pool.getConnection((err, conn) => {
@@ -123,13 +114,10 @@ const updateUser = (req, res, next) => {
  
                  if (err) {
                      console.log("sql error happen");
-                     console.dir(err);
-                     return;
+                     res.send("<script>alert('Update user account failed');location.href='/B/adminDashboard.html';</script>");
                  }
  
                  if (rows.length > 0) {
- 
-                     console.dir(rows);
                      console.log("user found success");
  
                      //유저 업데이트 시작
@@ -149,13 +137,14 @@ const updateUser = (req, res, next) => {
                                  if (err) {
                                      console.log("sql error happen");
                                      console.dir(err);
+                                     res.send("<script>alert('Update user account failed');location.href='/B/adminDashboard.html';</script>");
+
                                  } else {
                                      console.dir(result);
                                      console.log("update success");
  
-                                     res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                                     res.write("<h2>User update success</h2>");
-                                     res.end();
+                                     res.send("<script>alert('Update user account successed');location.href='/B/adminDashboard.html';</script>");
+
                                  }
  
                              }
@@ -165,10 +154,8 @@ const updateUser = (req, res, next) => {
                  }
                  else {
                      console.log("no user found");
- 
-                     res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                     res.write("<h1>User search faile no user match</h1>");
-                     res.end();
+                     res.send("<script>alert('Update user account failed');location.href='/B/adminDashboard.html';</script>");
+
                  }
  
              }
@@ -201,33 +188,20 @@ const searchUser = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    console.dir(err);
-                    return;
+                    res.send("<script>alert('Search user account failed');location.href='/B/adminDashboard.html';</script>");
                 }
 
                 if (rows.length > 0) {
                     
                     console.dir(rows);
                     console.log("search success");
-                    
 
-                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                    res.write("<h2>User search success</h2>");
-
-                    for (var i = 0; i < rows.length; i++) {
-                        res.write("<h1>" + "ID : " + rows[i].ID + " | Name : " + rows[i].name + " | UserId : "
-                            + rows[i].userId + " | Password : " + rows[i].password + " | Role : " + rows[i].role + "</h1><br>");
-                    }
-
-                    res.end();
-                    return;
+                    res.json(rows);
+                                
                 }
                 else {
-                    console.log("search faile");
-
-                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                    res.write("<h1>User search faile no user match</h1>");
-                    res.end();
+                    console.log("search failed");
+                    res.json("");
                 }
 
             }
@@ -264,22 +238,13 @@ const createUserProfile = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    console.dir(err);
-                    return;
+                    res.send("<script>alert('Create user profile failed');location.href='/B/adminDashboard.html';</script>");
                 }
 
                 if (result) {
                     console.dir(result);
                     console.log("inserted success");
-                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                    res.write("<h1>user profile created</h1>");
-                    res.end();
-                } else {
-                    console.log("inserted failed");
-
-                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                    res.write("<h1>사용자 추가 실패</h1>");
-                    res.end();
+                    res.send("<script>alert('User profile created!');location.href='/B/adminDashboard.html';</script>");
                 }
             }
         )
@@ -294,29 +259,19 @@ const viewUserProfile = (req, res, next) => {
             return;
         }
 
-        console.log("Database connection success");
-
-        res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
+        console.log("Database connection success 11");
 
         const exec = conn.query(
-            "select * from users where dob IS NOT NULL and gender IS NOT NULL",
+            "select name, userId, role, DATE_FORMAT(dob, '%d/%m/%Y'), gender from users where dob IS NOT NULL and gender IS NOT NULL",
 
             (err, rows) => {
 
                 if (!err) {
-                    for (var i = 0; i < rows.length; i++) {
-                        res.write("<h1>" + "ID : " + rows[i].ID + " | Name : " + rows[i].name + " | UserId : "
-                            + rows[i].userId + " | Password : " + rows[i].password + " | Role : " + rows[i].role + 
-                            " | Date Of Birth : " + rows[i].dob + " | Gender : " + rows[i].gender + "</h1><br>");
-
-                    }
-                    res.end();
+                    console.log(rows);
+                    res.json(rows);
                 } else {
-                    console.log(err);
+                    res.json();
                 }
-
-                console.log('The data from user table : \n', rows);
-
             }
         );
     });
@@ -347,32 +302,26 @@ const updateUserProfile = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    console.dir(err);
-                    return;
+                    res.send("<script>alert('update user profile failed');location.href='/B/adminDashboard.html';</script>");
                 }
 
                 if (result) {
                     console.dir(result);
                     console.log("inserted success");
-                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                    res.write("<h1>user profile created</h1>");
-                    res.end();
+                    res.send("<script>alert('update user profile successed');location.href='/B/adminDashboard.html';</script>");
                 } else {
                     console.log("inserted failed");
-
-                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                    res.write("<h1>사용자 추가 실패</h1>");
-                    res.end();
+                    res.send("<script>alert('update user profile failed');location.href='/B/adminDashboard.html';</script>");
                 }
             }
         )
     })
 }
 
-const deleteUserProfile = (req, res, next) => {
-    console.log("/B/deleteUserProfile called" + req);
+const searchUserProfile = (req, res, next) => {
+    console.log("/B/searchUserProfile called" + req);
 
-    const paramUid = req.body.userid;
+    const paramName = req.body.name;
 
     pool.getConnection((err, conn) => {
         if (err) {
@@ -384,67 +333,38 @@ const deleteUserProfile = (req, res, next) => {
         console.log("Database connection success");
 
         const exec = conn.query(
-            "select  from review where ID = ? and uId = ?",
-            [paramRid, paramUid],
-            (err, result) => {
+            "select name, userId, role, DATE_FORMAT(dob, '%d/%m/%Y'), gender from users where name = ? and dob is not null and gender is not null",
+            [paramName],
+            (err, rows) => {
                 conn.release();
                 console.log("sql worked" + exec.sql);
 
                 if (err) {
                     console.log("sql error happen");
-                    console.dir(err);
-                    return;
+                    res.send("<script>alert('search user profile failed');location.href='/B/adminDashboard.html';</script>");
                 }
 
-                if (result.length > 0) {
-                    console.dir(result);
-                    console.log("review found success");
+                if (rows.length > 0) {
+                    
+                    console.dir(rows);
+                    console.log("search success");
 
-
-                    // bid add start
-                    pool.getConnection((err, conn) => {
-                        if (err) {
-                            conn.release();
-                            console.log("Mysql getConnetion error.");
-                            return;
-                        }
-                        const exec = conn.query(
-                            "delete from review where ID = ? and uId = ?",
-                            [paramRid, paramUid],
-                            (err, result) => {
-                                conn.release();
-                                console.log("sql worked" + exec.sql);
-
-                                if (err) {
-                                    console.log("sql error happen");
-                                    console.dir(err);
-                                } else {
-                                    console.dir(result);
-                                    console.log("review delete success");
-
-                                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                                    res.write("<h2>review delete success</h2>");
-                                    res.end();
-                                }
-
-                            }
-                        );
-                    })
-
-
-                } else {
-                    console.log("review delete faile");
-
-                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                    res.write("<h1>delete review faile</h1>");
-                    res.end();
+                    res.json(rows);
+                                
                 }
+                else {
+                    console.log("search failed");
+                    res.json("");
+                }
+
             }
+
+
         );
     });
 }
 
 module.exports = {
                     createUser, viewUser, updateUser, searchUser,
-                    createUserProfile, viewUserProfile, updateUserProfile
+                    createUserProfile, viewUserProfile, updateUserProfile, searchUserProfile
                 };
