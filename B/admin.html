@@ -20,11 +20,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <!-- Create User Account -->
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a id = "adminDashboard" class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
+    <a id="Create1" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create Account</a>
     <a id="adminViewAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Account</a>
-    <a id="adminUpdateAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Account</a>
-    <a id="adminDeleteAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Account</a>
+    <a id="adminSearchAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Account</a>
+    <a id="adminUpdateAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Account</a>  
+    <!-- Create User Profile -->
+    <a id="CreateProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create Profile</a>
+    <a id="adminViewProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Profile</a>
+    <a id="adminViewProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Profile</a>
+    <a id="adminViewProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Profile</a>
+
+    <!-- Logout -->
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
   </div>
@@ -39,12 +48,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
   </div>
 
-<!-- DashBoard -->
+<!-- DashBoard Page-->
 <div id = "pg0">
   <header class="w3-container w3-red w3-center" style="padding:128px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo" style="color:rgb(255, 255, 255);"><b>System Admin</b></h1>
     <p class="w3-xlarge"></p>
-    <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Create an new Account</button>
+    <button  id="CreateNewAccount" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Create an new Account</button>
     
     <div id="myModal" class="modal" style ="color: black">
       <!-- Modal content -->
@@ -64,22 +73,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
               <option value = "reviewer">Reviewer</option>
               <option value = "chair">Conference Chair</option></select>
             </label></pre>
-          <br>
-          </pre><button id = "createAccount" type="submit">Create New Account</button></div><br>
+          <br></pre><button id = "createAccount" type="submit">Create New Account</button></div><br>
         </form>
         </div>
+      </div>   
   </header>
+
 
   <!-- First Grid -->
   <div class="w3-row-padding w3-padding-64 w3-container">
     <div class="w3-content">
       <div class="w3-twothird">
-        <h2>View Account
-        </h2>
-        <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" onClick = "location.href = 'adminViewAccount.html'" >Lets Go</button>
+        <h2>Want to View or Search for Account?</h2>
+        <button  id="adminViewAccount1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >View</button>
+        <button  id="adminSearchAccount1" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Search</button>
 
-
-        <p class="w3-text-grey w3-justify" style="padding-right:10%">As a System Admin, you will be able to view all the account in this system. 
+        <p class="w3-text-grey w3-justify" style="padding-right:10%">As a System Admin, you will be able to view and search for all the account in this system. 
+          You will be able to see the existing account that is stored in the server.
           You will have the rights to make any amendment to user account. </p>
       </div>
 
@@ -90,38 +100,34 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   </div>
 
   <!-- Second Grid -->
-  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-    <div class="w3-content">
-      <div class="w3-third w3-center">
-        <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
-      </div>
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <img src="images/book1.jpg" width="150%" class="boxShadow" style="float: right"></i>
+    </div>
 
-      <div class="w3-twothird">
-        <h1>title 2</h1>
-        <h5 class="w3-padding-32">something here....</h5>
+    <div class="w3-twothird">
+      <h6 style = "position: relative; left:80px; font-size: 30px; font-weight: 400;">Want to Update an Account?</h6>
+      <button  id="adminUpdateAccount1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >Update</button>
 
-        <p class="w3-text-grey">something here.....</p>
-      </div>
+      <p class="w3-text-grey" style = "position: relative; left:80px;">We will show you all the account that have been created.
+        You will have the rights to change the details of the account.</p>
     </div>
   </div>
+</div>
 
-  <!--
-  <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-      <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
-  </div>-->
 
   <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
   </div>
 </div>
 
-<!-- View Account -->
+<!-- View Account Page-->
 <div id = "pg1" style = "display: none">
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">View User Account</h1>
   </header>    
   
-<!-- First Grid -->
 <div class="">
   <div style="text-align:center">
       <h1>Account here</h1>
@@ -133,29 +139,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   </div>
 </div>
 
+<!-- Search Account Page -->
 <div id = "pg2" style = "display: none">
-  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
-    <h1 class="w3-margin w3-jumbo">Update User Account</h1>
-  </header>    
-  
-<!-- Update Account -->
-<div class="">
-  <div style="text-align:center">
-      <h1>Account here</h1>
-      <h5 class="w3-padding-32">ACCOUNT HERE</h5>
-
-      <p class="w3-text-grey">. . . . ..  .</p>
-  </div>
-
-  </div>
-</div>
-
-<div id = "pg3" style = "display: none">
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
   <h1 class="w3-margin w3-jumbo">Search User Account</h1>
   </header>    
   
-<!-- First Grid -->
 <div class="">
   <div style="text-align:center">
       <h1>Account here</h1>
@@ -166,6 +155,26 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
   </div>
 </div>
+
+<!-- Update Account Page -->
+<div id = "pg3" style = "display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo">Update User Account</h1>
+  </header>    
+  
+<div class="">
+  <div style="text-align:center">
+      <h1>Account here</h1>
+      <h5 class="w3-padding-32">ACCOUNT HERE</h5>
+
+      <p class="w3-text-grey">. . . . ..  .</p>
+  </div>
+
+  </div>
+</div>
+
+
+
 
 <script>
   //function to change page
@@ -173,8 +182,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     const navInfo = [
       "adminDashboard",
       "adminViewAccount",
+      "adminSearchAccount",
       "adminUpdateAccount",
-      "adminDeleteAccount"
+      
     ];
     document.getElementById(func).classList.add("w3-white");
 
@@ -201,16 +211,42 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         ChangeEffect("adminViewAccount");
     });
 
+    document
+    .getElementById("adminSearchAccount")
+    .addEventListener("click", function () {
+        ChangeEffect("adminSearchAccount");
+    });
+
   document
     .getElementById("adminUpdateAccount")
     .addEventListener("click", function () {
         ChangeEffect("adminUpdateAccount");
     });
 
+
+  //Dashboard mini-button
   document
-    .getElementById("adminDeleteAccount")
+    .getElementById("Create1")
     .addEventListener("click", function () {
-        ChangeEffect("adminDeleteAccount");
+        modal.style.display="block"
+    });
+
+  document
+    .getElementById("adminViewAccount1")
+    .addEventListener("click", function () {
+        ChangeEffect("adminViewAccount");
+    });
+
+    document
+    .getElementById("adminSearchAccount1")
+    .addEventListener("click", function () {
+        ChangeEffect("adminSearchAccount");
+    });
+
+    document
+    .getElementById("adminUpdateAccount1")
+    .addEventListener("click", function () {
+        ChangeEffect("adminUpdateAccount");
     });
 
 
@@ -227,8 +263,8 @@ function myFunction() {
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var allocateBtn = document.getElementById("allocateBtn");
-allocateBtn.onclick = function() {
+var CreateNewAccount = document.getElementById("CreateNewAccount");
+CreateNewAccount.onclick = function() {
     modal.style.display = "block";
 }
 // Get the <span> element that closes the modal
@@ -241,7 +277,6 @@ var manualBtn = document.getElementById("manualBtn");
 // When the user clicks the button, open the modal 
 manualBtn.onclick = function(){
     alert("Please select papers until the quantity fits the max numbers of papers that the reviewer required")
-
 }
 
 
