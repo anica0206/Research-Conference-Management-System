@@ -217,7 +217,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                   <input type="email" name="userid" required="">
                   <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                   <input type="number" name="bidid" required="">
-                  <label placeholder="Bid's ID" style="font-family:Montserrat"></label>
+                  <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
 
                   <button class="buttonSpecial" type="submit">Delete Bid</button>
                 </form>
@@ -225,7 +225,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
           </div>
         </div>
+        <!--SEARCH BID BLOCK-->
+        <div id="pg2-3" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+            <div class="delete">
+                <form method="post" action="/B/searchBid">
+                  <br>
+                  <input type="email" name="userid" required="">
+                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
+                  <input type="number" name="bidid" required="">
+                  <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
 
+                  <button class="buttonSpecial" type="submit">Delete Bid</button>
+                </form>
+            </div>
+        </div>
       </div>
     </div>
 
@@ -272,7 +288,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       const navInfo = [
         "createbid",
         "updatebid",
-        "deletebid"
+        "deletebid",
+        "searchbid"
       ];
       document.getElementById(func).classList.add("w3-white");
 
@@ -322,6 +339,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       .getElementById("deletebid")
       .addEventListener("click", function () {
           ChangeEffect2("deletebid");
+      });
+
+      document
+      .getElementById("searchbid")
+      .addEventListener("click", function () {
+          ChangeEffect2("searchbid");
       });
 
   document
