@@ -13,6 +13,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 
+th, td {
+      border: 1px solid #444444;
+  }
 </style>
 </head>
 <body>
@@ -51,7 +54,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <!-- Create Account Tab -->
   <div id="myModal" class="modal" style ="color: black">
     <!-- Modal content -->
-    <div class="modal-content w3-center" >
+    <div class="modal-content w3-center">
       <div class="modal-header">
         <span class="close">&times;</span>
         <h2>New User Account</h2>
@@ -60,8 +63,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <form method="post" action="/B/createUser">
         <div class = "Create">
           <pre label>Name:      <input type="text" name="name" required placeholder="Enter Name"/> </label></pre>
-          <pre label>Username:  <input type="text" name="userid" required placeholder="Enter Email"/> </label></pre>
-          <pre label>Password:  <input type="text" name="password" required placeholder="Enter Password"/> </label></pre>
+          <pre label>Username:  <input type="email" name="userid" required placeholder="Enter Email"/> </label></pre>
+          <pre label>Password:  <input type="Password" name="password" required placeholder="Enter Password"/> </label></pre>
           <pre label>Role:      <select name ="role">
             <option value = "admin">Admin</option>
             <option value = "author">Author</option>
@@ -82,12 +85,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <span class="close">&times;</span>
           <h2>New User Profile</h2>
         </div>
-        <div class="tempBox" >
+        <div class="tempBox">
         <form method="post" action="/B/createUser">
           <div class = "Create">
             <pre label>Username: <input type="text" name="userId" required placeholder="Enter Email"/> </label></pre>
             <pre label>DOB:      <input type="text" name="birthday" required placeholder="Enter Date-of-Birth"/> </label></pre>
-            <pre label>Role:      <select name ="gender">
+            <pre label>Role:     <select name ="gender">
               <option value = "Male">Male</option>
               <option value = "Female">Female</option></select></pre>
           <br></pre><button class = "buttonSpecial" id = "createAccount" type="submit">Create New Profile</button></div><br>
@@ -189,15 +192,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">View User Account</h1>
   </header>    
-  
-<div class="">
-  <div style="text-align:center">
-      <h1>Account here</h1>
-      <h5 class="w3-padding-32">ACCOUNT HERE</h5>
+  <div class="">
+    <div style="text-align:center">
+        <table class = "author_table" id="search MenuList">
+            <tr>
+              <th>ID</th>
+              </th><th>Name</th>
+              <th>UserID</th>
+              <th>Password</th>
+              <th>Role</th>
+            </tr>
+        </table>
+        <h5 class="w3-padding-32">PAPERS HERE</h5>
 
-      <p class="w3-text-grey">. . . . ..  .</p>
-  </div>
-
+        <p class="w3-text-grey">. . . . ..  .</p>
+    </div>
   </div>
 </div>
 
@@ -205,34 +214,38 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div id = "pg2" style = "display: none">
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
   <h1 class="w3-margin w3-jumbo">Search User Account</h1>
-  </header>    
-  
-<div class="">
-  <div style="text-align:center">
-      <h1>Account here</h1>
-      <h5 class="w3-padding-32">ACCOUNT HERE</h5>
-
-      <p class="w3-text-grey">. . . . ..  .</p>
+  </header>   
+  <div>
+      <input type="text" id="SearchName" name = "name" placeholder="Enter Name" style = "width: 200px;"/>
+      <button type ="submit">Search</button>
   </div>
-
-  </div>
+  <table id="search Paper" class = "author_table"> 
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>UserID</th>
+        <th>Password</th>
+        <th>Role</th>
+    </tr>
+  </table>
 </div>
 
 <!-- Update Account Page -->
 <div id = "pg3" style = "display: none">
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">Update User Account</h1>
-  </header>    
-  
-<div class="">
-  <div style="text-align:center">
-      <h1>Account here</h1>
-      <h5 class="w3-padding-32">ACCOUNT HERE</h5>
-
-      <p class="w3-text-grey">. . . . ..  .</p>
-  </div>
-
-  </div>
+  </header>        
+    <div style="text-align:center">
+      <div class="update">
+        <form method="post" action="/B/updateUser">
+          <pre>
+            <label>UserID:       <input type="email" name="userId" style = "width: 300px"placeholder="Enter UserID"/> </label>
+            <label>New Password: <input type="Password" name="password" style = "width: 300px" placeholder="Enter New Password "/></label> 
+          </pre>
+          <button type ="submit" class = "buttonSpecial" style = "width:30%" >Update Password</button>
+        </form>
+      </div>
+    </div>
 </div>
 
 <!-- View Profile Page -->
@@ -240,15 +253,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">View User Profile</h1>
   </header>    
-  
-<div class="">
-  <div style="text-align:center">
-      <h1>Profile here</h1>
-      <h5 class="w3-padding-32">Profile HERE</h5>
-
-      <p class="w3-text-grey">. . . . ..  .</p>
-  </div>
-
+  <div class="">
+    <div style="text-align:center">
+      <table class = "author_table" id="search MenuList">
+        <tr>
+          <th>ID</th>
+          <th>UserID</th>
+          <th>DOB</th>
+          <th>Role</th>
+        </tr>
+      </table>
+      <h5 class="w3-padding-32">PAPERS HERE</h5>
+    <p class="w3-text-grey">. . . . ..  .</p>
+    </div>
   </div>
 </div>
 
@@ -257,16 +274,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
   <h1 class="w3-margin w3-jumbo">Search User Profile</h1>
   </header>    
-  
-<div class="">
-  <div style="text-align:center">
-      <h1>Profile here</h1>
-      <h5 class="w3-padding-32">PROFILE HERE</h5>
-
-      <p class="w3-text-grey">. . . . ..  .</p>
-  </div>
-
-  </div>
+<div>
+    <input type="text" id="SearchName" name = "name" placeholder="Enter name" style = "width: 200px;"/>
+    <button type ="submit">Search</button>
+</div>
+<table id="search Paper" class = "author_table"> 
+    <tr>
+      <th>ID</th>
+      <th>UserID</th>
+      <th>DOB</th>
+      <th>Role</th>
+  </tr>
+</table>
 </div>
 
 <!-- Update Profile Page -->
