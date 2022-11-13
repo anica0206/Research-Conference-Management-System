@@ -23,19 +23,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <!-- Create User Account -->
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a id = "adminDashboard" class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
-    <a id="Create1" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create Account</a>
+    <a id="Create1" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Create Account</b></a>
     <a id="adminViewAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Account</a>
     <a id="adminSearchAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Account</a>
     <a id="adminUpdateAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Account</a>  
     <!-- Create User Profile -->
-    <a id="CreateProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create Profile</a>
+    <a id="Create2" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Create Profile</b></a>
     <a id="adminViewProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Profile</a>
-    <a id="adminViewProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Profile</a>
-    <a id="adminViewProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Profile</a>
+    <a id="adminSearchProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Profile</a>
+    <a id="adminUpdateProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Profile</a>
 
     <!-- Logout -->
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
-      <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
+      <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b>Logout</b></a>
   </div>
 </div>
   
@@ -48,35 +48,61 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
   </div>
 
+  <!-- Create Account Tab -->
+  <div id="myModal" class="modal" style ="color: black">
+    <!-- Modal content -->
+    <div class="modal-content w3-center" >
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>New User Account</h2>
+      </div>
+      <div class="tempBox" >
+      <form method="post" action="/B/createUser">
+        <div class = "Create">
+          <pre label>Name:      <input type="text" name="name" required placeholder="Enter Name"/> </label></pre>
+          <pre label>Username:  <input type="text" name="userid" required placeholder="Enter Email"/> </label></pre>
+          <pre label>Password:  <input type="text" name="password" required placeholder="Enter Password"/> </label></pre>
+          <pre label>Role:      <select name ="role">
+            <option value = "admin">Admin</option>
+            <option value = "author">Author</option>
+            <option value = "reviewer">Reviewer</option>
+            <option value = "chair">Conference Chair</option></select></pre>
+        <br></pre><button class = "buttonSpecial" id = "createAccount" type="submit">Create New Account</button></div><br>
+      </form>
+      </div>
+    </div>
+    </header>
+    </div> 
+
+    <!-- Create Profile Tab -->
+    <div id="myModal1" class="modal" style ="color: black">
+      <!-- Modal content -->
+      <div class="modal-content w3-center" >
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>New User Profile</h2>
+        </div>
+        <div class="tempBox" >
+        <form method="post" action="/B/createUser">
+          <div class = "Create">
+            <pre label>Username: <input type="text" name="userId" required placeholder="Enter Email"/> </label></pre>
+            <pre label>DOB:      <input type="text" name="birthday" required placeholder="Enter Date-of-Birth"/> </label></pre>
+            <pre label>Role:      <select name ="gender">
+              <option value = "Male">Male</option>
+              <option value = "Female">Female</option></select></pre>
+          <br></pre><button class = "buttonSpecial" id = "createAccount" type="submit">Create New Profile</button></div><br>
+        </form>
+        </div>
+      </div>
+      </header>
+      </div> 
+
 <!-- DashBoard Page-->
 <div id = "pg0">
   <header class="w3-container w3-red w3-center" style="padding:128px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo" style="color:rgb(255, 255, 255);"><b>System Admin</b></h1>
-    <p class="w3-xlarge"></p>
     <button  id="CreateNewAccount" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Create an new Account</button>
-    
-    <div id="myModal" class="modal" style ="color: black">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">&times;</span>
-          <h2>New User Account</h2>
-        </div>
-        <form method="post" action="/B/createUser">
-          <div class = "Create">
-            <pre label>Name:          <input type="text" name="name" required placeholder="Enter username"/> </label></pre>
-            <pre label>Username:      <input type="text" name="userid" required placeholder="Enter password"/> </label></pre>
-            <pre label>Password:      <input type="text" name="password" required placeholder="Enter email"/> </label></pre>
-            <pre label>Role:          <select name ="role" name = "role">
-              <option value = "admin">Admin</option>
-              <option value = "author">Author</option>
-              <option value = "reviewer">Reviewer</option>
-              <option value = "chair">Conference Chair</option></select>
-            </label></pre>
-          <br></pre><button id = "createAccount" type="submit">Create New Account</button></div><br>
-        </form>
-        </div>
-      </div>   
+    <button  id="CreateNewProfile" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Create a new Profile</button>
   </header>
 
 
@@ -173,6 +199,56 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   </div>
 </div>
 
+<!-- View Profile Page -->
+<div id = "pg4" style = "display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo">View User Profile</h1>
+  </header>    
+  
+<div class="">
+  <div style="text-align:center">
+      <h1>Profile here</h1>
+      <h5 class="w3-padding-32">Profile HERE</h5>
+
+      <p class="w3-text-grey">. . . . ..  .</p>
+  </div>
+
+  </div>
+</div>
+
+<!-- Search Profile Page -->
+<div id = "pg5" style = "display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+  <h1 class="w3-margin w3-jumbo">Search User Profile</h1>
+  </header>    
+  
+<div class="">
+  <div style="text-align:center">
+      <h1>Profile here</h1>
+      <h5 class="w3-padding-32">PROFILE HERE</h5>
+
+      <p class="w3-text-grey">. . . . ..  .</p>
+  </div>
+
+  </div>
+</div>
+
+<!-- Update Profile Page -->
+<div id = "pg6" style = "display: none">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo">Update User Profile</h1>
+  </header>    
+  
+<div class="">
+  <div style="text-align:center">
+      <h1>Profile here</h1>
+      <h5 class="w3-padding-32">PROFILE HERE</h5>
+
+      <p class="w3-text-grey">. . . . ..  .</p>
+  </div>
+
+  </div>
+</div>
 
 
 
@@ -184,7 +260,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       "adminViewAccount",
       "adminSearchAccount",
       "adminUpdateAccount",
-      
+      "adminViewProfile",
+      "adminSearchProfile",
+      "adminUpdateProfile"     
     ];
     document.getElementById(func).classList.add("w3-white");
 
@@ -223,6 +301,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         ChangeEffect("adminUpdateAccount");
     });
 
+  document
+    .getElementById("adminViewProfile")
+    .addEventListener("click", function () {
+        ChangeEffect("adminViewProfile");
+    });
+
+   document
+    .getElementById("adminSearchProfile")
+    .addEventListener("click", function () {
+        ChangeEffect("adminSearchProfile");
+    });
+
+  document
+    .getElementById("adminUpdateProfile")
+    .addEventListener("click", function () {
+        ChangeEffect("adminUpdateProfile");
+    });
+
 
   //Dashboard mini-button
   document
@@ -230,6 +326,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .addEventListener("click", function () {
         modal.style.display="block"
     });
+
+    document
+    .getElementById("Create2")
+    .addEventListener("click", function () {
+        modal1.style.display="block"
+    });
+    
 
   document
     .getElementById("adminViewAccount1")
@@ -261,23 +364,35 @@ function myFunction() {
 }
 // Get the modal
 var modal = document.getElementById("myModal");
+var modal1 = document.getElementById("myModal1");
 
-// Get the button that opens the modal
+// Get the button that opens the CreateNewAccount modal
 var CreateNewAccount = document.getElementById("CreateNewAccount");
 CreateNewAccount.onclick = function() {
     modal.style.display = "block";
 }
-// Get the <span> element that closes the modal
+
+// Get the button that opens the CreateNewProfile modal
+var CreateNewProfile = document.getElementById("CreateNewProfile");
+CreateNewProfile.onclick = function() {
+    modal1.style.display = "block";
+}
+
+// Get the <span> element that closes the modal of createAccount
 var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
 }
-var manualBtn = document.getElementById("manualBtn");
-// When the user clicks the button, open the modal 
-manualBtn.onclick = function(){
-    alert("Please select papers until the quantity fits the max numbers of papers that the reviewer required")
+
+// Get the <span> element that closes the modal of createProfile
+  var span = document.getElementsByClassName("close")[1];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal1.style.display = "none";
 }
+
+
 
 
 function CreateAccountConfirmation() {
