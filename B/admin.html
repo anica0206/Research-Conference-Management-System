@@ -25,7 +25,7 @@ th, td {
   border:1px solid #444444;
 }
 .selectBox{
-  width:140px;
+  width:130px;
   height:40px;
 }
 </style>
@@ -74,9 +74,12 @@ th, td {
       <div class="tempBox" >
       <form method="post" action="/B/createUser">
         <div class = "Create">
-          <pre label>Name:      <input type="text" name="name" required placeholder="Enter Name"/> </label></pre>
-          <pre label>Username:  <input type="email" name="userid" required placeholder="Enter Email"/> </label></pre>
-          <pre label>Password:  <input type="Password" name="password" required placeholder="Enter Password"/> </label></pre>
+          <br>
+          <input class="w3-animate-input" type="text" name="name" required="">
+          <label alt="Enter Name" placeholder="Enter Name" style="font-family:Montserrat"></label>
+          <input type="email" name="userid" required="">
+          <label alt="Enter Email" placeholder="Enter Email" style="font-family:Montserrat"></label>
+
           <pre label>Role:       <select class = "selectWrapper selectBox" name ="role">
             <option value = "admin">Admin</option>
             <option value = "author">Author</option>
@@ -87,7 +90,7 @@ th, td {
       </div>
     </div>
     </header>
-    </div> 
+  </div> 
 
     <!-- Create Profile Tab -->
     <div id="myModal1" class="modal" style ="color: black">
@@ -100,7 +103,9 @@ th, td {
         <div class="tempBox">
         <form method="post" action="/B/createUser">
           <div class = "Create">
-            <pre label>Username: <input type="text" name="userId" required placeholder="Enter Email"/> </label></pre>
+            <br>
+            <input class="w3-animate-input" type="text" name="name" required="">
+            <label alt="Enter Username" placeholder="Enter Username" style="font-family:Montserrat"></label>
             <pre label>DOB:      <input type="date" class = "selectWrapper selectBox" name="birthday" required placeholder="Enter Date-of-Birth"/> </label></pre>
             <pre label>Role:     <select class = "selectWrapper selectBox" name ="gender">
               <option value = "male">Male</option>
@@ -225,14 +230,21 @@ th, td {
 <!-- Search Account Page -->
 <div id = "pg2" style = "display: none">
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
-  <h1 class="w3-margin w3-jumbo">Search User Account</h1>
+   <h1 class="w3-margin w3-jumbo">Search User Account</h1>
   </header>   
-  <form method="post" action="/B/searchUser">
-    <div>
-        <input type="text" name = "name" placeholder="Enter Name" style = "width: 200px;"/>
-        <button type ="submit">Search</button>
+  <div class="w3-light-grey" style="text-align:center">
+    <div class="tempBox">
+      <div class="search">
+        <form method="post" action="/B/searchUser">
+            <br>
+            <input class="w3-animate-input" type="text" name="name" required="">
+            <label alt="Enter Name" placeholder="Enter Name" style="font-family:Montserrat"></label>
+            <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>Search</b></button>
+        </form>
+      </div>
     </div>
-  </form>
+  </div>
+  
   <table id="search Paper" class = "author_table"> 
       <tr>
         <th>ID</th>
@@ -245,21 +257,22 @@ th, td {
 </div>
 
 <!-- Update Account Page -->
-<div id = "pg3" style = "display: none">
+<div id = "pg3" class="w3-light-grey" style="display:none; text-align:center">
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">Update User Account</h1>
   </header>        
-    <div style="text-align:center">
-      <div class="update">
-        <form method="post" action="/B/updateUser">
-          <pre>
-            <label>UserID:       <input type="email" name="userId" style = "width: 300px"placeholder="Enter UserID"/> </label>
-            <label>New Password: <input type="Password" name="password" style = "width: 300px" placeholder="Enter New Password "/></label> 
-          </pre>
-          <button type ="submit" class = "buttonSpecial" style = "width:30%" >Update Password</button>
-        </form>
-      </div>
+  <div class = "tempBox">
+    <div class = "update">
+      <form method="post" action="/B/updateUser">
+          <br>
+          <input type = "email" name = "userId" required="">
+          <label alt = "Enter UserID" placeholder = "Enter UserID" style = "font-family:Montserrat"></label>
+          <input type = "Password" name = "password" required="">
+          <label alt = "Enter New Password" placeholder = "Enter New Password" style = "font-family:Montserrat"></label>
+          <button class="buttonSpecial" type="submit">Update Password</button>
+      </form>
     </div>
+  </div>
 </div>
 
 <!-- View Profile Page -->
@@ -288,44 +301,56 @@ th, td {
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
   <h1 class="w3-margin w3-jumbo">Search User Profile</h1>
   </header>    
-<div>
-    <input type="text" id="SearchName" name = "name" placeholder="Enter name" style = "width: 200px;"/>
-    <button type ="submit">Search</button>
-</div>
-<table id="search Paper" class = "author_table"> 
+  <div class = "w3-light-grey" style = "text-align:center">
+    <div class = "tempBox">
+      <div class = "search">
+        <form method = "post" action="/B/searchUserProfile">
+            <br>
+            <input class = "w3-animate-input" type = "text" name = "name" required = "">
+            <label alt = "Enter Name" placeholder = "Enter Name" style = "font-family:Montserrat"></label>
+            <button type = "submit" class = "buttonSpecial" style = "--slist: red, #ccc"><b>Search</b></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+ <table id = "search Paper" class = "author_table"> 
     <tr>
       <th>ID</th>
       <th>UserID</th>
       <th>DOB</th>
       <th>Role</th>
-  </tr>
-</table>
+    </tr>
+  </table>
 </div>
 
 <!-- Update Profile Page -->
-<div id = "pg6" style = "display: none">
+<div id = "pg6" class="w3-light-grey" style="display:none; text-align:center">
   <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">Update User Profile</h1>
   </header>    
-  <div style="text-align:center">
-    <div class="update">
-      <form method="post" action="/B/updateUserProfile">
+  <div class = "tempBox">
+    <div class = "update">
+      <form method="post" action="/B/updateUser">
+        
+        <br>
+        <input type = "email" name = "userId" required="">
+        <label alt = "Enter Email" placeholder = "Enter Email" style = "font-family:Montserrat"></label>
         <pre>
-          <label>UserID:     <input type="email" name="userId" style = "width: 300px"placeholder="Enter Email"/> </label>
-          <label>Update DOB:    <input type="date" class = "selectWrapper selectBox" name="birthday" placeholder="Enter Date-of-Birth"/></label></br>
-          <label>Update Gender:</label> <select class = "selectWrapper selectBox" name="gender" id="gender">
-            <option value="make">Male</option>
-            <option value="female">Female</option>
-          </select>
+        <label>Update DOB:</label>
+        <input type="date" class = "selectWrapper selectBox" name="birthday" placeholder="Enter Date-of-Birth"/>
+      
+        <label><select class = "selectWrapper selectBox" name="gender" id="gender"></label>
         </pre>
-        <button type ="submit" class = "buttonSpecial" style = "width:30%" >Update Profile</button>
+          <option value="" disabled selected hidden>Update Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>  
+        <button class="buttonSpecial" type="submit">Update Profile</button>
       </form>
     </div>
   </div>
 </div>
-
-
-
 
 <script>
   //function to change page
