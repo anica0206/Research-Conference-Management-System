@@ -1,6 +1,6 @@
 {
     "host": "localhost",
     "user": "root",
-    "password": "root",
-    "database": "314_testdb"
+    "password": "0000",
+    "database": "db"
 }

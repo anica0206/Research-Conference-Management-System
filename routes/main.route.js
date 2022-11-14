@@ -9,7 +9,7 @@ const reviewController = require('../C/review.controller');
 const authorController = require('../C/author.controller');
 // 3.
 //login
-router.post('/B/login_page', loginController.login);
+router.post('/B/login', loginController.login);
 router.get('/B/logout', loginController.logout);
 
 //admin - user's account

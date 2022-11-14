@@ -28,12 +28,12 @@ app.use("/B", static(path.join(__dirname, "B")));
 
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/B/login_page.html");
-  });
+    res.send("<script>location.href='/B/login.html';</script>");
+});
 
 app.use("/", routes);
 
 
-app.listen(5500, () => {
-    console.log("Listening on port 5500");
+app.listen(3000, () => {
+    console.log("Listening on port 3000");
 });

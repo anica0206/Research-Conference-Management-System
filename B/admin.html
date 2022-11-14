@@ -34,9 +34,9 @@ th, td {
 
 <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <!-- Create User Account -->
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-teal" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a id = "adminDashboard" class="w3-bar-item w3-padding-large w3-white">Dashboard</a>
     <a id="Create1" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Create Account</b></a>
     <a id="adminViewAccount" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Account</a>
@@ -49,7 +49,7 @@ th, td {
     <a id="adminUpdateProfile" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Profile</a>
 
     <!-- Logout -->
-    <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
+    <a id="logout" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b>Logout</b></a>
   </div>
 </div>
@@ -106,8 +106,8 @@ th, td {
         <form method="post" action="/B/createUserProfile">
           <div class = "Create">
             <br>
-            <input class="w3-animate-input" type="text" name="name" required="">
-            <label alt="Enter Username" placeholder="Enter Username" style="font-family:Montserrat"></label>
+            <input class="w3-animate-input" type="text" name="userId" required="">
+            <label alt="Enter Email" placeholder="Enter Email" style="font-family:Montserrat"></label>
             <pre label>DOB:      <input type="date" class = "selectWrapper selectBox" name="birthday" required placeholder="Enter Date-of-Birth"/> </label></pre>
             <pre label>Role:     <select class = "selectWrapper selectBox" name ="gender">
               <option value = "male">Male</option>
@@ -121,7 +121,7 @@ th, td {
 
 <!-- DashBoard Page-->
 <div id = "pg0">
-  <header class="w3-container w3-teal w3-center" style="padding:128px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+  <header class="w3-container w3-red w3-center" style="padding:128px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo" style="color:rgb(255, 255, 255);"><b>System Admin</b></h1>
     <button  id="CreateNewAccount" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Create an new Account</button>
     <button  id="CreateNewProfile" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Create a new Profile</button>
@@ -168,7 +168,7 @@ th, td {
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-twothird">
-      <h2>Want to View or Search for Account?</h2>
+      <h2>Want to View or Search for Profile?</h2>
       <button  id="adminViewProfile1" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" >View</button>
       <button  id="adminSearchProfile1" class="w3-button w3-black w3-padding-large w3-large boxShadow" >Search</button>
 
@@ -208,7 +208,7 @@ th, td {
 
 <!-- View Account Page-->
 <div id = "pg1" style = "display: none">
-  <header class="w3-container w3-teal w3-center" style="padding:75px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">View User Account</h1>
   </header>    
   <div class="">
@@ -230,18 +230,16 @@ th, td {
 
 <!-- Search Account Page -->
 <div id = "pg2" style = "display: none">
-  <header class="w3-container w3-teal w3-center" style="padding:75px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
    <h1 class="w3-margin w3-jumbo">Search User Account</h1>
   </header>   
   <div class="w3-light-grey" style="text-align:center">
     <div class="tempBox">
-      <div class="search">
-        <form method="post" action="/B/searchUser">
-            <br>
-            <input class="w3-animate-input" type="text" name="name" required="">
-            <label alt="Enter Name" placeholder="Enter Name" style="font-family:Montserrat"></label>
-            <button type="submit" onclick="SearchUser()" class="buttonSpecial" style="--slist: red, #ccc"><b>Search User</b></button>
-        </form>
+      <div class="search">            
+        <br>
+          <input class="w3-animate-input" id="searchID" type="text" name="name" required="">
+          <label alt="Enter Name" placeholder="Enter Name" style="font-family:Montserrat"></label>
+          <button type="submit" onclick="SearchUser()" class="buttonSpecial" style="--slist: red, #ccc"><b>Search User</b></button>
       </div>
     </div>
   </div>
@@ -261,7 +259,7 @@ th, td {
 
 <!-- Update Account Page -->
 <div id = "pg3" class="w3-light-grey" style="display:none; text-align:center">
-  <header class="w3-container w3-teal w3-center" style="padding:75px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">Update User Account</h1>
   </header>        
   <div class = "tempBox">
@@ -280,13 +278,13 @@ th, td {
 
 <!-- View Profile Page -->
 <div id = "pg4" style = "display: none">
-  <header class="w3-container w3-teal w3-center" style="padding:75px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">View User Profile</h1>
   </header>    
 
   <div class="">
     <div style="text-align:center">
-      <table class = "author_table" id="search profileList">
+      <table class = "author_table" id="view profileList">
         <tr>
           <th>Name</th>
           <th>Email</th>
@@ -303,23 +301,20 @@ th, td {
 
 <!-- Search Profile Page -->
 <div id = "pg5" style = "display: none">
-  <header class="w3-container w3-teal w3-center" style="padding:75px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
   <h1 class="w3-margin w3-jumbo">Search User Profile</h1>
   </header>    
   <div class = "w3-light-grey" style = "text-align:center">
     <div class = "tempBox">
-      <div class = "search">
-        <form method = "post" action="/B/searchUserProfile">
-            <br>
-            <input id = "searchProfile" class = "w3-animate-input" type = "text" name = "name" required = "">
-            <label alt = "Enter Name" placeholder = "Enter Name" style = "font-family:Montserrat"></label>
-            <button type = "submit" onclick="SearchUserProfile()" class = "buttonSpecial" style = "--slist: red, #ccc"><b>Search</b></button>
-        </form>
+      <div class = "search"><br>
+          <input id = "searchProfile" class = "w3-animate-input" type = "text" name = "name" required = "">
+          <label alt = "Enter Name" placeholder = "Enter Name" style = "font-family:Montserrat"></label>
+          <button type = "submit" onclick="SearchUserProfile()" class = "buttonSpecial" style = "--slist: red, #ccc"><b>Search</b></button>
       </div>
     </div>
   </div>
 
- <table id = "search Paper" class = "author_table"> 
+ <table id = "search profileList" class = "author_table"> 
     <tr>
       <th>Name</th>
       <th>Email</th>
@@ -334,22 +329,21 @@ th, td {
 
 <!-- Update Profile Page -->
 <div id = "pg6" class="w3-light-grey" style="display:none; text-align:center">
-  <header class="w3-container w3-teal w3-center" style="padding:75px 16px;background-image: url(images/admin.jpg); background-size: cover;">
+  <header class="w3-container w3-red w3-center" style="padding:50px 16px;background-image: url(images/admin.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo">Update User Profile</h1>
   </header>    
   <div class = "tempBox">
     <div class = "update">
-      <form method="post" action="/B/updateUser">    
+      <form method="post" action="/B/updateUserProfile">    
         <br>
         <input type = "email" name = "userId" required="">
         <label alt = "Enter Email" placeholder = "Enter Email" style = "font-family:Montserrat"></label>
         <pre>
         <label>Update DOB:</label>
-        <input type="date" class = "selectWrapper selectBox" name="birthday" placeholder="Enter Date-of-Birth"/>
+        <input type="date" class = "selectWrapper selectBox" name="birthday" required placeholder="Enter Date-of-Birth"/>
       
         <label><select class = "selectWrapper selectBox" name="gender" id="gender"></label>
         </pre>
-          <option value="" disabled selected hidden>Update Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>  
@@ -430,7 +424,7 @@ th, td {
     const infoList = ["id", "name", "userId", "password", "role"];
     const table = document.getElementById("view userList");
 
-    for (const element of info) {
+    for (const element of data) {
         const row = table.insertRow();
         for (const e of infoList) {
             const cell = row.insertCell();
@@ -611,6 +605,22 @@ th, td {
   document
     .getElementById("adminViewAccount1")
     .addEventListener("click", function () {
+      fetch("/B/viewUser", {
+      method: "GET",
+      })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("User not found");
+            else
+            {
+              info = data;
+              ViewUser(info);
+            }
+          });
         ChangeEffect("adminViewAccount");
     });
 
@@ -629,6 +639,23 @@ th, td {
   document
     .getElementById("adminViewProfile1")
     .addEventListener("click", function () {
+      fetch("/B/viewUserProfile", {
+      method: "GET",
+      })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("User profile not found");
+            else
+            {
+              info1 = data;
+              ViewUserProfile(info1);
+            }
+          });
+        ChangeEffect("adminViewProfile");
         ChangeEffect("adminViewProfile");
     });
 
@@ -684,7 +711,13 @@ span.onclick = function() {
     modal1.style.display = "none";
 }
 
-
+    document
+      .getElementById("logout")
+      .addEventListener("click", function () {
+          fetch("/B/logout", {
+              method: "get",
+          })
+      });
 
 </script>
 </body>

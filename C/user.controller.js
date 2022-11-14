@@ -41,22 +41,13 @@ const createUser = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    res.send("<script>alert('Create user account failed');location.href='/B/adminDashboard.html';</script>");
+                    res.send("<script>alert('Create user account failed');location.href='/B/admin.html';</script>");
                 }
 
                 if (result) {
                     console.log("inserted success");
-                    res.redirect("/B/admin.html");
-                    //res.send("alert("user created"); window.location.href = "./page_location"; ");
-                    //res.sendFile(b + "/login_page.html");
-                    //res.send("<script>alert(" + "User created" + "); window.location.href =" + "../B/admin.html" + "; </script>");
-                    //res.json({success: true});
-                } else {
-                    console.log("inserted failed");
-
-                    res.writeHead("200", { "Content-Type": "text/html; charset=utf8" });
-                    res.write("<h1>사용자 추가 실패</h1>");
-                    res.end();
+                    // res.redirect("/B/admin.html");
+                    res.send("<script>alert('User account created!');location.href='/B/admin.html';</script>");
                 }
 
             }
@@ -114,7 +105,7 @@ const updateUser = (req, res, next) => {
  
                  if (err) {
                      console.log("sql error happen");
-                     res.send("<script>alert('Update user account failed');location.href='/B/adminDashboard.html';</script>");
+                     res.send("<script>alert('Update user account failed');location.href='/B/admin.html';</script>");
                  }
  
                  if (rows.length > 0) {
@@ -137,13 +128,13 @@ const updateUser = (req, res, next) => {
                                  if (err) {
                                      console.log("sql error happen");
                                      console.dir(err);
-                                     res.send("<script>alert('Update user account failed');location.href='/B/adminDashboard.html';</script>");
+                                     res.send("<script>alert('Update user account failed');location.href='/B/admin.html';</script>");
 
                                  } else {
                                      console.dir(result);
                                      console.log("update success");
  
-                                     res.send("<script>alert('Update user account successed');location.href='/B/adminDashboard.html';</script>");
+                                     res.send("<script>alert('Update user account successed');location.href='/B/admin.html';</script>");
 
                                  }
  
@@ -154,7 +145,7 @@ const updateUser = (req, res, next) => {
                  }
                  else {
                      console.log("no user found");
-                     res.send("<script>alert('Update user account failed');location.href='/B/adminDashboard.html';</script>");
+                     res.send("<script>alert('Update user account failed');location.href='/B/admin.html';</script>");
 
                  }
  
@@ -188,7 +179,7 @@ const searchUser = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    res.send("<script>alert('Search user account failed');location.href='/B/adminDashboard.html';</script>");
+                    res.send("<script>alert('Search user account failed');location.href='/B/admin.html';</script>");
                 }
 
                 if (rows.length > 0) {
@@ -238,13 +229,13 @@ const createUserProfile = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    res.send("<script>alert('Create user profile failed');location.href='/B/adminDashboard.html';</script>");
+                    res.send("<script>alert('Create user profile failed');location.href='/B/admin.html';</script>");
                 }
 
                 if (result) {
                     console.dir(result);
                     console.log("inserted success");
-                    res.send("<script>alert('User profile created!');location.href='/B/adminDashboard.html';</script>");
+                    res.send("<script>alert('User profile created!');location.href='/B/admin.html';</script>");
                 }
             }
         )
@@ -287,8 +278,7 @@ const updateUserProfile = (req, res, next) => {
     pool.getConnection((err, conn) => {
         if (err) {
             conn.release();
-            console.log("Mysql getConnetion error.");
-            return;
+            res.send("<script>alert('update user profile failed');location.href='/B/admin.html';</script>");
         }
 
         console.log("Database connection success");
@@ -302,16 +292,16 @@ const updateUserProfile = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    res.send("<script>alert('update user profile failed');location.href='/B/adminDashboard.html';</script>");
+                    res.send("<script>alert('update user profile failed');location.href='/B/admin.html';</script>");
                 }
 
                 if (result) {
                     console.dir(result);
                     console.log("inserted success");
-                    res.send("<script>alert('update user profile successed');location.href='/B/adminDashboard.html';</script>");
+                    res.send("<script>alert('update user profile successed');location.href='/B/admin.html';</script>");
                 } else {
                     console.log("inserted failed");
-                    res.send("<script>alert('update user profile failed');location.href='/B/adminDashboard.html';</script>");
+                    res.send("<script>alert('update user profile failed');location.href='/B/admin.html';</script>");
                 }
             }
         )
@@ -341,7 +331,7 @@ const searchUserProfile = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    res.send("<script>alert('search user profile failed');location.href='/B/adminDashboard.html';</script>");
+                    res.send("<script>alert('search user profile failed');location.href='/B/admin.html';</script>");
                 }
 
                 if (rows.length > 0) {
