@@ -31,6 +31,8 @@ th, td {
     <a id="authorSearchPaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Paper</a>
     <a id="authorUpdatePaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Paper</a>
     <a id="authorDeletePaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Paper</a>
+    <a id="authorViewReview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Review</a>
+    <a id="authorRateReview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Rate Review</a>
     <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
   </div>
@@ -182,15 +184,17 @@ th, td {
     <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Update Paper</b></h1>
     </header>    
     <form method="post" action="/B/authorUpdatePaper">
-      <div class="w3-light-grey" style="text-align:center">
-        <div class="tempBox">
-          <div class="search"><br>
-            <input class="w3-animate-input" id="paperid" type="number" name="paperid" required="">
-            <label alt="PaperID" placeholder="PaperID" style="font-family:Montserrat"></label>
-            <h2><label for="message"><b>Paper: </b></label></h2>
-            <input type ="text " class = "message" name="paper" id="paper"></label><br>
-  
-            <button type="submit" onclick="UpdatePaper()" class="buttonSpecial" style="--slist: red, #ccc"><b>Update Paper</b></button>
+      <div class="w3-light-grey">
+        <div class="w3-content">
+          <div class="tempBox">
+            <div class="search"><br>
+              <input class="w3-animate-input" id="paperid" type="number" name="paperid" required="">
+              <label alt="PaperID" placeholder="PaperID" style="font-family:Montserrat"></label>
+              <h2><label for="message"><b>Paper: </b></label></h2>
+              <input type ="text " class = "message" name="paper" id="paper"></label><br>
+
+              <button type="submit" onclick="UpdatePaper()" class="buttonSpecial" style="--slist: red, #ccc"><b>Update Paper</b></button>
+            </div>
           </div>
         </div>
       </div>
@@ -221,6 +225,59 @@ th, td {
   </form>
 </div>
 
+<!--View Review-->
+<div id = "pg6" style = "display: none">
+  <header class="w3-container w3-teal w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>View Review</b></h1>
+  </header>    
+      
+    <div class="w3-light-grey" style="text-align:center">
+      <div class="tempBox">
+        <div class="search"><br>
+          <form method="post" action="/B/viewReviewOnPaper">
+            <input class="w3-animate-input" id="userid" type="email" name="userid" required="">
+            <label alt="UserID" placeholder="UserID" style="font-family:Montserrat"></label>
+            <input class="w3-animate-input" id="paperid" type="number" name="paperid" required="">
+            <label alt="Paper ID" placeholder="Paper ID" style="font-family:Montserrat"></label>
+            <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>View Review on Paper</b></button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!--Rate Review-->
+<div id = "pg7" style = "display: none">
+  <header class="w3-container w3-teal w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
+    <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Rate Review</b></h1>
+  </header>    
+      
+  <form method="post" action="/B/rateOnReview">
+    <div class="w3-light-grey" style="text-align:center">
+      <div class="tempBox">
+        <div class="search"><br>
+          <input class="w3-animate-input" id="reviewid" type="number" name="reviewid" required="">
+          <label alt="Rewiew ID" placeholder="Rewiew ID" style="font-family:Montserrat"></label>
+          <input class="w3-animate-input" id="reviewerid" type="number" name="reviewerid" required="">
+          <label alt="Rewiew ID" placeholder="Rewiew ID" style="font-family:Montserrat"></label>
+          <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
+          <select class="selectSpecial" name="rating" id="rating" required="">
+            <option value="" selected disabled hidden></option>
+            <option value=-3>-3</option>
+            <option value=-2>-2</option>
+            <option value=-1>-1</option>
+            <option value=0>0</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+          </select>
+          <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>Rate Review</b></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
 <script>
   //function to change page
   function ChangeEffect(func) {
@@ -231,8 +288,10 @@ th, td {
       "authorSearchPaper",
       "authorUpdatePaper",
       "authorDeletePaper",
-      
+      "authorViewReview",
+      "authorRateReview" 
     ];
+
     document.getElementById(func).classList.add("w3-white");
 
     for (const e in navInfo) {
@@ -275,6 +334,18 @@ document
     .addEventListener("click", function () {
         ChangeEffect("authorDeletePaper");
     });
+
+document
+    .getElementById("authorViewReview")
+    .addEventListener("click", function () {
+        ChangeEffect("authorViewReview");
+    });    
+
+document
+    .getElementById("authorRateReview")
+    .addEventListener("click", function () {
+        ChangeEffect("authorRateReview");
+    });    
 
 document
     .getElementById("authorSearchPaper")
