@@ -134,7 +134,7 @@ const updateUser = (req, res, next) => {
                                      console.dir(result);
                                      console.log("update success");
  
-                                     res.send("<script>alert('Update user account successed');location.href='/B/admin.html';</script>");
+                                     res.send("<script>alert('Password Updated!');location.href='/B/admin.html';</script>");
 
                                  }
  
@@ -145,7 +145,7 @@ const updateUser = (req, res, next) => {
                  }
                  else {
                      console.log("no user found");
-                     res.send("<script>alert('Update user account failed');location.href='/B/admin.html';</script>");
+                     res.send("<script>alert('Account not found, Update failed');location.href='/B/admin.html';</script>");
 
                  }
  
