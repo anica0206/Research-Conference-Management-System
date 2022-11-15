@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Dashboard(Reviewer)</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-header .p1{background-image: url("images/reviewer.jpg"); background-size: cover;}
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
 
-</style>
+<head>
+  <title>Dashboard(Reviewer)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    header .p1 {
+      background-image: url("images/reviewer.jpg");
+      background-size: cover;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lato", sans-serif
+    }
+
+    .w3-bar,
+    h1,
+    button {
+      font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+      font-size: 200px
+    }
+  </style>
+
 </head>
+
 <body>
   <!-- Navbar -->
   <div class="w3-top">
@@ -27,10 +50,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <a id = "logout" href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
     </div>
-  </div>  
+  </div>
 
   <!--MODAL BLOCK-->
-  <div id="myModal" class="modal" style ="color: black">
+  <div id="myModal" class="modal" style="color: black">
     <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-header">
@@ -74,12 +97,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <button  id="managebidsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my biddings</button>
 
 
-          <p class="w3-text-grey w3-justify" style="padding-right:10%">As a reviewer, normally you would like to review papers that interest you the most. Here you can bid for papers that fit your personal preferences and manage them on the go.
-        </p>
+          <p class="w3-text-grey w3-justify" style="padding-right:10%">As a reviewer, normally you would like to review
+            papers that interest you the most. Here you can bid for papers that fit your personal preferences and manage
+            them on the go.
+          </p>
         </div>
 
         <div class="w3-third w3-center">
-          <img src="images/review.jpg" width="200%" style="margin-left:10px"class="boxShadow"></i>
+          <img src="images/review.jpg" width="200%" style="margin-left:10px" class="boxShadow"></i>
         </div>
       </div>
     </div>
@@ -88,19 +113,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
       <div class="w3-contentTHIRD">
         <div class="w3-third w3-center">
-          <img src="images/reviewmanagement.jpg" width="200%" class="boxShadow" style="margin-left:15%; margin-right:10px"></i>
+          <img src="images/reviewmanagement.jpg" width="200%" class="boxShadow"
+            style="margin-left:15%; margin-right:10px"></i>
         </div>
-        
+
         <div class="w3-twothirdPAPERLIST" style="margin-left:78%">
           <h2>Want to manage all your reviews?</h2>
-          <button  id="managereviewsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow" style="margin-left: 20%">Manage Reviews</button>
+          <button id="managereviewsBtn"
+            class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow"
+            style="margin-left: 20%">Manage Reviews</button>
 
 
-          <p class="w3-text-grey w3-justify" style="padding-right:10%;width:70%">All of your reviewing needs are compiled into 1 single quick access tab in this section. Not only can you create reviews with ease, all of the other functions such as updating, deleting, searching and much more are just one click away. </p>
+          <p class="w3-text-grey w3-justify" style="padding-right:10%;width:70%">All of your reviewing needs are
+            compiled into 1 single quick access tab in this section. Not only can you create reviews with ease, all of
+            the other functions such as updating, deleting, searching and much more are just one click away. </p>
 
         </div>
       </div>
-  </div>
+    </div>
 
     <!-- Third Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
@@ -108,14 +138,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <div class="w3-twothird" style="margin-left:-17%;">
           <h2>Want to manage all of your comments?
           </h2>
-          <button  id="managecommentsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my comments</button>
+          <button id="managecommentsBtn"
+            class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow"
+            style="margin-left: 25%">Manage my comments</button>
 
 
-          <p class="w3-text-grey w3-justify" style="padding-right:10%">You may have expressed your opinions on certain papers after they have been reviewed, and now you think there might be stuff you need to add on top of what you had thought initially, this is the perfect place to manage all of your comments.
-        </p>
+          <p class="w3-text-grey w3-justify" style="padding-right:10%">You may have expressed your opinions on certain
+            papers after they have been reviewed, and now you think there might be stuff you need to add on top of what
+            you had thought initially, this is the perfect place to manage all of your comments.
+          </p>
         </div>
         <div class="w3-third w3-center">
-          <img src="images/managecomments.png" width="200%" style="margin-left:10px"class="boxShadow"></i>
+          <img src="images/managecomments.png" width="200%" style="margin-left:10px" class="boxShadow"></i>
         </div>
       </div>
     </div>
@@ -123,7 +157,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
     <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
       <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
-  </div>
+    </div>
   </div>
 
     <!-- MANAGE BID BLOCKS ##################################################################--->
@@ -569,55 +603,55 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     ];
     document.getElementById(func).classList.add("w3-white");
 
-    for (const e in navInfo) {
-      if (navInfo[e] == func) {
-        document.getElementById(`pg${e}`).style.display =
+      for (const e in navInfo) {
+        if (navInfo[e] == func) {
+          document.getElementById(`pg${e}`).style.display =
             "block";
-        continue;
+          continue;
+        }
+        document.getElementById(navInfo[e]).classList.remove("w3-white")
+        document.getElementById(`pg${e}`).style.display = "none";
       }
-      document.getElementById(navInfo[e]).classList.remove("w3-white")
-      document.getElementById(`pg${e}`).style.display = "none";
     }
-  }
 
     document
       .getElementById("dashboard")
-      .addEventListener("click", function () {
-          ChangeEffect("dashboard");
+      .addEventListener("click", function dashboard () {
+        ChangeEffect("dashboard");
       });
 
     document
       .getElementById("managebids")
-      .addEventListener("click", function () {
-          ChangeEffect("managebids");
+      .addEventListener("click", function manageBids () {
+        ChangeEffect("managebids");
       });
-          document
-          .getElementById("managebidsBtn")
-          .addEventListener("click", function () {
-              ChangeEffect("managebids");
-          });
- 
+      document
+        .getElementById("managebidsBtn")
+        .addEventListener("click", function manageBids () {
+          ChangeEffect("managebids");
+        });
+
     document
       .getElementById("managereviews")
-      .addEventListener("click", function () {
-          ChangeEffect("managereviews");
+      .addEventListener("click", function manageReviews () {
+        ChangeEffect("managereviews");
       });
-          document
-            .getElementById("managereviewsBtn")
-            .addEventListener("click", function () {
-                ChangeEffect("managereviews");
-            });
+      document
+        .getElementById("managereviewsBtn")
+        .addEventListener("click", function manageReviews () {
+          ChangeEffect("managereviews");
+        });
 
     document
       .getElementById("managecomments")
-      .addEventListener("click", function () {
+      .addEventListener("click", function manageComments () {
+        ChangeEffect("managecomments");
+      });
+      document
+        .getElementById("managecommentsBtn")
+        .addEventListener("click", function manageComments () {
           ChangeEffect("managecomments");
-      }); 
-          document
-            .getElementById("managecommentsBtn")
-            .addEventListener("click", function () {
-                ChangeEffect("managecomments");
-            }); 
+        });
 
     function ChangeEffect2(func) {
       const navInfo = [
@@ -632,7 +666,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       for (const e in navInfo) {
         if (navInfo[e] == func) {
           document.getElementById(`pg1-${e}`).style.display =
-              "block";
+            "block";
           continue;
         }
         document.getElementById(navInfo[e]).classList.remove("w3-white")
@@ -640,16 +674,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       }
     }
 
-      document
+    document
       .getElementById("createbid")
-      .addEventListener("click", function () {
-          ChangeEffect2("createbid");
+      .addEventListener("click", function createBid () {
+        ChangeEffect2("createbid");
       });
 
-      document
+    document
       .getElementById("viewbid")
-      .addEventListener("click", function () {
-          ChangeEffect2("viewbid");
+      .addEventListener("click", function viewBid () {
+        ChangeEffect2("viewbid");
       });
 
       function ViewBids() {
@@ -686,20 +720,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
       document
       .getElementById("updatebid")
-      .addEventListener("click", function () {
-          ChangeEffect2("updatebid");
+      .addEventListener("click", function updateBid () {
+        ChangeEffect2("updatebid");
       });
 
-      document
+    document
       .getElementById("deletebid")
-      .addEventListener("click", function () {
-          ChangeEffect2("deletebid");
+      .addEventListener("click", function deleteBid () {
+        ChangeEffect2("deletebid");
       });
 
-      document
+    document
       .getElementById("searchbid")
-      .addEventListener("click", function () {
-          ChangeEffect2("searchbid");
+      .addEventListener("click", function searchBid () {
+        ChangeEffect2("searchbid");
       });
 
       function SearchBids() {
@@ -758,7 +792,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       for (const e in navInfo) {
         if (navInfo[e] == func) {
           document.getElementById(`pg2-${e}`).style.display =
-              "block";
+            "block";
           continue;
         }
         document.getElementById(navInfo[e]).classList.remove("w3-white")
@@ -766,16 +800,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       }
     }
 
-      document
+    document
       .getElementById("createreview")
-      .addEventListener("click", function () {
-          ChangeEffect3("createreview");
+      .addEventListener("click", function createReview () {
+        ChangeEffect3("createreview");
       });
 
-      document
+    document
       .getElementById("viewreview")
-      .addEventListener("click", function () {
-          ChangeEffect3("viewreview");
+      .addEventListener("click", function viewReview () {
+        ChangeEffect3("viewreview");
       });
 
       function ViewReviews() {
@@ -811,20 +845,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
       document
       .getElementById("updatereview")
-      .addEventListener("click", function () {
-          ChangeEffect3("updatereview");
+      .addEventListener("click", function updateReview () {
+        ChangeEffect3("updatereview");
       });
 
-      document
+    document
       .getElementById("deletereview")
-      .addEventListener("click", function () {
-          ChangeEffect3("deletereview");
+      .addEventListener("click", function deleteReview () {
+        ChangeEffect3("deletereview");
       });
 
-      document
+    document
       .getElementById("searchreview")
-      .addEventListener("click", function () {
-          ChangeEffect3("searchreview");
+      .addEventListener("click", function searchReview () {
+        ChangeEffect3("searchreview");
       });
 
       function SearchReviews() {
@@ -869,8 +903,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
       document
       .getElementById("viewotherreview")
-      .addEventListener("click", function () {
-          ChangeEffect3("viewotherreview");
+      .addEventListener("click", function viewOtherReview () {
+        ChangeEffect3("viewotherreview");
       });
 
       function VeiwOtherReviews()
@@ -914,36 +948,36 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       }
 
     function ChangeEffect4(func) {
-    const navInfo = [
-      "createcomment",
-      "viewcomment",
-      "updatecomment",
-      "deletecomment",
-      "searchcomment",
-    ];
-    document.getElementById(func).classList.add("w3-white");
+      const navInfo = [
+        "createcomment",
+        "viewcomment",
+        "updatecomment",
+        "deletecomment",
+        "searchcomment",
+      ];
+      document.getElementById(func).classList.add("w3-white");
 
-    for (const e in navInfo) {
-      if (navInfo[e] == func) {
-        document.getElementById(`pg3-${e}`).style.display =
+      for (const e in navInfo) {
+        if (navInfo[e] == func) {
+          document.getElementById(`pg3-${e}`).style.display =
             "block";
-        continue;
+          continue;
+        }
+        document.getElementById(navInfo[e]).classList.remove("w3-white")
+        document.getElementById(`pg3-${e}`).style.display = "none";
       }
-      document.getElementById(navInfo[e]).classList.remove("w3-white")
-      document.getElementById(`pg3-${e}`).style.display = "none";
-    }
     }
 
-      document
+    document
       .getElementById("createcomment")
-      .addEventListener("click", function () {
-          ChangeEffect4("createcomment");
+      .addEventListener("click", function createComment () {
+        ChangeEffect4("createcomment");
       });
 
-      document
+    document
       .getElementById("viewcomment")
-      .addEventListener("click", function () {
-          ChangeEffect4("viewcomment");
+      .addEventListener("click", function viewComment () {
+        ChangeEffect4("viewcomment");
       });
 
       function ViewComments() {
@@ -979,20 +1013,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
       document
       .getElementById("updatecomment")
-      .addEventListener("click", function () {
-          ChangeEffect4("updatecomment");
+      .addEventListener("click", function updateComment () {
+        ChangeEffect4("updatecomment");
       });
 
-      document
+    document
       .getElementById("deletecomment")
-      .addEventListener("click", function () {
-          ChangeEffect4("deletecomment");
+      .addEventListener("click", function deleteComment () {
+        ChangeEffect4("deletecomment");
       });
 
-      document
+    document
       .getElementById("searchcomment")
-      .addEventListener("click", function () {
-          ChangeEffect4("searchcomment");
+      .addEventListener("click", function searchComment () {
+        ChangeEffect4("searchcomment");
       });
 
       function SearchComments() {
@@ -1048,24 +1082,25 @@ function myFunction() {
 // Get the modal
 var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var allocateBtn = document.getElementById("allocateBtn");
-allocateBtn.onclick = function() {
-    modal.style.display = "block";
-}
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-var manualBtn = document.getElementById("manualBtn");
-// When the user clicks the button, open the modal 
-manualBtn.onclick = function(){
-    alert("Please select papers until the quantity fits the max numbers of papers that the reviewer required")
+    // Get the button that opens the modal
+    var allocateBtn = document.getElementById("allocateBtn");
+    allocateBtn.onclick = function () {
+      modal.style.display = "block";
+    }
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    var manualBtn = document.getElementById("manualBtn");
+    // When the user clicks the button, open the modal 
+    manualBtn.onclick = function () {
+      alert("Please select papers until the quantity fits the max numbers of papers that the reviewer required")
 
-}
+    }
 
 </script>
 </body>
+
 </html>
