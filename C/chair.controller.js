@@ -526,4 +526,4 @@ const viewPaperList = (req, res) => {
 module.exports = {
     viewBidList, allocateBidAuto, allocateBidManual, viewReviewRating,
     updatePaperStatus, viewPaperList
-};
+};  
