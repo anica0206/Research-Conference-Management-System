@@ -176,7 +176,7 @@
         <a id="createbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create
           Bid</a>
         <a id="viewbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
-        <a id="updatebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Bid</a>
+        <!-- <a id="updatebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Bid</a> -->
         <a id="deletebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Bid</a>
         <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>
       </div>
@@ -195,8 +195,6 @@
             <br>
             <input type="email" name="userid" required="">
             <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-            <input type="number" name="bidid" required="">
-            <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
             <input type="text" name="paperid" required="">
             <label alt="Paper's Number" placeholder="Paper's Number" style="font-family:Montserrat"></label>
 
@@ -210,8 +208,6 @@
       <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BIDS</b></h1>
       <div class="tempBox">
         <!-- <h1>PAPERS HERE</h1> -->
-        <div class="update">
-          <div class="update">
             <form method="post" action="/B/viewBid">
               <br>
               <input type="email" name="userid" required="">
@@ -219,15 +215,13 @@
 
               <button class="buttonSpecial" type="submit">View</button>
             </form>
-          </div>
-        </div>
       </div>
     </div>
-    <!-- UPDATE BID BLOCK-->
+    <!-- UPDATE BID BLOCK
     <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
       <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE BID</b></h1>
       <div class="tempBox">
-        <!-- <h1>PAPERS HERE</h1> -->
+        <h1>PAPERS HERE</h1>
         <div class="update">
           <div class="update">
             <form method="post" action="/B/updateBid">
@@ -244,9 +238,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
     <!-- DELETE BID BLOCK-->
-    <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
+    <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
       <h1 style="margin-top:0; margin-bottom:0"><b>DELETE BID</b></h1>
       <div class="tempBox">
         <!-- <h1>PAPERS HERE</h1> -->
@@ -266,7 +261,7 @@
       </div>
     </div>
     <!--SEARCH BID BLOCK-->
-    <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
+    <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
       <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
       <div class="tempBox">
         <!-- <h1>PAPERS HERE</h1> -->
@@ -312,13 +307,13 @@
       <div class="tempBox">
         <!-- <h1>PAPERS HERE</h1> -->
         <div class="create">
-          <form method="post" action="/B/createReview">
+          <form method="post" id="createReviewTEXTBOX" action="/B/createReview">
             <br>
             <input type="email" name="userid" required="">
             <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
             <input type="number" name="paperid" required="">
             <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
-            <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
+            <label for="" class="selectLabel" style="font-family:Montserrat;">Rating: </label>
             <select class="selectSpecial" name="rating" id="rating" required="">
               <option value="" selected disabled hidden></option>
               <option value=-3>-3</option>
@@ -329,8 +324,8 @@
               <option value=2>2</option>
               <option value=3>3</option>
             </select>
-            <input type="text" name="content" required="">
-            <label alt="Content" placeholder="Content" style="font-family:Montserrat"></label>
+            <label for="" class="selectLabel" style="font-family:Montserrat;display:block">Review: </label>
+            <textarea rows="15" cols="50" type="text" name="content" form="createReviewTEXTBOX" required="" style="margin-left:-25%"></textarea>
 
             <button class="buttonSpecial" type="submit">Create</button>
           </form>
@@ -362,13 +357,13 @@
         <!-- <h1>PAPERS HERE</h1> -->
         <div class="update">
           <div class="update">
-            <form method="post" action="/B/updateMyReview">
+            <form method="post" id="updateReviewTEXTBOX" action="/B/updateMyReview">
               <br>
               <input type="email" name="userid" required="">
               <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
               <input type="number" name="reviewid" required="">
               <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
-              <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
+              <label for="" class="selectLabel" style="font-family:Montserrat;">Rating: </label>
               <select class="selectSpecial" name="rating" id="rating" required="">
                 <option value="" selected disabled hidden></option>
                 <option value=-3>-3</option>
@@ -379,8 +374,8 @@
                 <option value=2>2</option>
                 <option value=3>3</option>
               </select>
-              <input type="text" name="content" required="">
-              <label alt="Content" placeholder="Content" style="font-family:Montserrat"></label>
+              <label for="" class="selectLabel" style="font-family:Montserrat;display:block">Review: </label>
+              <textarea rows="15" cols="50" type="text" name="content" form="updateReviewTEXTBOX" required="" style="margin-left:-25%"></textarea>
 
               <button class="buttonSpecial" type="submit">Update</button>
             </form>
@@ -471,14 +466,14 @@
       <h1 style="margin-top:0; margin-bottom:0"><b>CREATE COMMENT</b></h1>
       <div class="tempBox">
         <!-- <h1>PAPERS HERE</h1> -->
-        <form method="post" action="/B/createComment">
+        <form method="post" id="createCommentTEXTBOX" action="/B/createComment">
           <br>
           <input type="email" name="userid" required="">
           <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
           <input type="number" name="reviewid" required="">
           <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
-          <input type="text" name="comment" required="">
-          <label alt="Comment" placeholder="Comment" style="font-family:Montserrat"></label>
+          <label for="" class="selectLabel" style="font-family:Montserrat;display:block">Comment: </label>
+          <textarea rows="15" cols="50" type="text" name="comment" form="createCommentTEXTBOX" required="" style="margin-left:-25%"></textarea>
 
           <button class="buttonSpecial" type="submit">Create</button>
         </form>
@@ -505,14 +500,14 @@
         <!-- <h1>PAPERS HERE</h1> -->
         <div class="update">
           <div class="update">
-            <form method="post" action="/B/updateMyReview">
+            <form method="post" id="updateCommentTEXTBOX" action="/B/updateMyReview">
               <br>
               <input type="email" name="userid" required="">
               <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
               <input type="number" name="reviewid" required="">
               <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
-              <input type="text" name="comment" required="">
-              <label alt="Edit Comment" placeholder="Edit Comment" style="font-family:Montserrat"></label>
+              <label for="" class="selectLabel" style="font-family:Montserrat;display:block">Comment: </label>
+              <textarea rows="15" cols="50" type="text" name="comment" form="updateCommentTEXTBOX" required="" style="margin-left:-25%"></textarea>
 
               <button class="buttonSpecial" type="submit">Update</button>
             </form>
@@ -626,7 +621,7 @@
       const navInfo = [
         "createbid",
         "viewbid",
-        "updatebid",
+        // "updatebid",
         "deletebid",
         "searchbid"
       ];
@@ -655,11 +650,11 @@
         ChangeEffect2("viewbid");
       });
 
-    document
-      .getElementById("updatebid")
-      .addEventListener("click", function updateBid () {
-        ChangeEffect2("updatebid");
-      });
+    // document
+    //   .getElementById("updatebid")
+    //   .addEventListener("click", function updateBid () {
+    //     ChangeEffect2("updatebid");
+    //   });
 
     document
       .getElementById("deletebid")
@@ -805,12 +800,6 @@
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
       modal.style.display = "none";
-    }
-    var manualBtn = document.getElementById("manualBtn");
-    // When the user clicks the button, open the modal 
-    manualBtn.onclick = function () {
-      alert("Please select papers until the quantity fits the max numbers of papers that the reviewer required")
-
     }
 
 

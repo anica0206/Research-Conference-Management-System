@@ -111,14 +111,14 @@ th, td {
     <div class="w3-content">
       <div class = "tempBox">
         <br>
-        <form method="post" action="/B/authorCreatePaper">
+        <form method="post" id="createPaperTEXTBOX" action="/B/authorCreatePaper">
           <input class="w3-animate-input" type="text" id="topic" name="topic" required="">
           <label alt="Paper Topic" placeholder="Paper Topic" style="font-family:Montserrat"></label>
           <input class="w3-animate-input" type="email" id="userid" name="userid" required="">
           <label alt="User Email" placeholder="User Email" style="font-family:Montserrat"></label>
 
           <h2><label for="message"><b>Paper: </b></label></h2>
-          <input type ="text " class = "message" name="paper" id="paper"></label><br>
+          <textarea rows="15" cols="90" name="paper" form="createPaperTEXTBOX"> </textarea><br>
 
           <button type="submit" value = "Submit" class="buttonSpecial" style="--slist: red, #ccc" ><b>Submit Paper</b></button>
         </form>    
