@@ -24,7 +24,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <a id="managebids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Bids</a>
       <a id="managereviews" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Reviews</a>
       <a id="managecomments" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Comments</a>
-      <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
+      <a id = "logout" href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
     </div>
   </div>  
@@ -35,14 +35,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="modal-content">
       <div class="modal-header">
         <span class="close">&times;</span>
-        <h2>Set the maximum number of Paper to review</h2>
+        <h2>Add the maximum number of Paper to review</h2>
       </div>
       <div style="text-align:center">
         <div class="tempBox">
             <form method="post" action="/B/updateMaxPaperNum">
                 <br>
-                <input type="email" name="userid" required=""/>
-                <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                 <label for="" class="selectLabel" style="font-family:Montserrat;">Number of paper: </label>
                 <select class="selectSpecial" name="maxpaper" id="maxpaper" required="">
                   <option value="" selected disabled hidden></option>
@@ -65,7 +63,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <header class="w3-container w3-teal w3-center" style="padding:128px 16px; background-image:url(images/reviewer.jpg); background-size:cover;">
         <h1 class="w3-margin w3-jumbo textShadow" style="color:rgb(0, 0, 0);"><b>Reviewer</b></h1>
         <p class="w3-xlarge"></p>
-        <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Set Workload</button>
+        <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Set workload</button>
       </header>
     <!-- First Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
@@ -148,38 +146,41 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
           <div class="create">
-              <form method="post" action="/B/createBid">
+              <form method="post" action="/B/bidPaper">
                   <br>
-                  <input type="email" name="userid" required="">
-                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-                  <input type="number" name="bidid" required="">
-                  <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
                   <input type="text" name="paperid" required="">
                   <label alt="Paper's Number" placeholder="Paper's Number" style="font-family:Montserrat"></label>
                   
                   <button class="buttonSpecial" type="submit">Create</button>
               </form>
-          </div>
+            </div>
           </div>
         </div>
         <!-- VIEW BID BLOCK-->
         <div id="pg1-1" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BIDS</b></h1>
           <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-          <div class="update">
-            <div class="update">
-                <form method="post" action="/B/viewBid">
-                    <br>
-                    <input type="email" name="userid" required="">
-                    <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-
-                    <button class="buttonSpecial" type="submit">View</button>
-                </form>
+            <!-- <h1>PAPERS HERE</h1> -->
+              <div class="update">
+                  <button onclick="ViewBids()" class="buttonSpecial" type="submit">View</button>
+              </div>
+          </div>
+          <div class="">
+            <div style="text-align:center">
+              <table class = "author_table" id="view bidList">
+                <tr>
+                  <th>Bid ID</th>
+                  <th>Paper ID</th>
+                  <th>Reviewer ID</th>
+                  <th>Status</th>
+                </tr>
+                <tbody id="bidList">
+                </tbody>
+              </table>
             </div>
           </div>
-          </div>
         </div>
+
         <!-- UPDATE BID BLOCK-->
         <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE BID</b></h1>
@@ -189,8 +190,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <div class="update">
                 <form method="post" action="/B/updateBid">
                     <br>
-                    <input type="email" name="userid" required="">
-                    <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                     <input type="number" name="bidid" required="">
                     <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
                     <input type="text" name="paperid" required="">
@@ -202,6 +201,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
           </div>
         </div>
+
+
         <!-- DELETE BID BLOCK-->
         <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>DELETE BID</b></h1>
@@ -211,8 +212,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <div class="delete">
                 <form method="post" action="/B/deleteBid">
                   <br>
-                  <input type="email" name="userid" required="">
-                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                   <input type="number" name="bidid" required="">
                   <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
 
@@ -222,23 +221,36 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
           </div>
         </div>
+
         <!--SEARCH BID BLOCK-->
         <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
           <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
+            <!-- <h1>PAPERS HERE</h1> -->
             <div class="delete">
-                <form method="post" action="/B/searchBid">
+                <!-- <form method="post" action="/B/searchBid"> -->
                   <br>
-                  <input type="email" name="userid" required="">
-                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-                  <input type="number" name="bidid" required="">
+                  <input id="searchBidid" type="number" name="bidid" required="">
                   <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
 
-                  <button class="buttonSpecial" type="submit">Search</button>
-                </form>
+                  <button onclick="SearchBids()" class="buttonSpecial" type="submit">Search</button>
+                <!-- </form> -->
             </div>
-        </div>
+          </div>
+          <div class="">
+            <div style="text-align:center">
+              <table class = "author_table" id="search bidList">
+                <tr>
+                  <th>Bid ID</th>
+                  <th>Paper ID</th>
+                  <th>Reviewer ID</th>
+                  <th>Status</th>
+                </tr>
+                <tbody id="searchbidList">
+                </tbody>
+              </table>
+            </div>
+          </div>
       </div>
     </div>
 
@@ -257,6 +269,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
         <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Review Manager</b></h1>
       </header>  
+
         <!--CREATE REVIEW BLOCK-->
         <div id="pg2-0" class="w3-light-grey" style="text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>CREATE REVIEW</b></h1>
@@ -265,8 +278,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <div class="create">
               <form method="post" action="/B/createReview">
                   <br>
-                  <input type="email" name="userid" required="">
-                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                   <input type="number" name="paperid" required="">
                   <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
                   <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
@@ -288,24 +299,32 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
           </div>
         </div>
+
         <!-- VIEW REVIEW BLOCK-->
         <div id="pg2-1" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW REVIEWS</b></h1>
           <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-          <div class="update">
+            <!-- <h1>PAPERS HERE</h1> -->
             <div class="update">
-                <form method="post" action="/B/viewMyReview">
-                    <br>
-                    <input type="email" name="userid" required="">
-                    <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-
-                    <button class="buttonSpecial" type="submit">View</button>
-                </form>
+                <button onclick = "ViewReviews()" class="buttonSpecial" type="submit">View</button>
             </div>
           </div>
+          <div class="">
+            <div style="text-align:center">
+              <table class = "author_table" id="view reviewList">
+                <tr>
+                  <th>ID</th>
+                  <th>User ID</th>
+                  <th>Paper ID</th>
+                  <th>Rating</th>
+                  <th>Contents</th>
+                  <th>Author Rating</th>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
+
         <!-- UPDATE REVIEW BLOCK-->
         <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE REVIEW</b></h1>
@@ -315,8 +334,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <div class="update">
                 <form method="post" action="/B/updateMyReview">
                     <br>
-                    <input type="email" name="userid" required="">
-                    <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                     <input type="number" name="reviewid" required="">
                     <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
                     <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
@@ -339,6 +356,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </div>
           </div>
         </div>
+
         <!-- DELETE REVIEW BLOCK-->
         <div id="pg2-3" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>DELETE REVIEW</b></h1>
@@ -348,8 +366,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <div class="delete">
                 <form method="post" action="/B/deleteMyReview">
                   <br>
-                  <input type="email" name="userid" required="">
-                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                   <input type="number" name="reviewid" required="">
                   <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
 
@@ -363,37 +379,58 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <div id="pg2-4" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH REVIEWS</b></h1>
           <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
+            <!-- <h1>PAPERS HERE</h1> -->
             <div class="delete">
-              <form method="post" action="/B/searchMyReview">
                 <br>
-                <input type="email" name="userid" required="">
-                <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-                <input type="number" name="reviewid" required="">
+                <input id ="searchReviewId" type="number" name="reviewid" required="">
                 <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
 
-                <button class="buttonSpecial" type="submit">Search</button>
-              </form>
+                <button onclick="SearchReviews()" class="buttonSpecial" type="submit">Search</button>
             </div>
-         </div>
+          </div>
+          <div class="">
+            <div style="text-align:center">
+              <table class = "author_table" id="search reviewList">
+                <tr>
+                  <th>ID</th>
+                  <th>User ID</th>
+                  <th>Paper ID</th>
+                  <th>Rating</th>
+                  <th>Contents</th>
+                  <th>Author Rating</th>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
+
         <!--VIEW OTHER REVIEWS BLOCK-->
         <div id="pg2-5" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW OTHER REVIEWS</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
             <div class="delete">
-              <form method="post" action="/B/viewOtherReview">
                 <br>
-                <input type="email" name="userid" required="">
-                <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
-                <input type="number" name="paperid" required="">
+                <input id ="pId" type="number" name="paperid" required="">
                 <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
-                <button class="buttonSpecial" type="submit">View</button>
-              </form>
+                <button onclick='VeiwOtherReviews()'class="buttonSpecial" type="submit">View</button>
             </div>
          </div>
+         <div class="">
+          <div style="text-align:center">
+            <table class = "author_table" id="view otherReviewList">
+              <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Paper ID</th>
+                <th>Rating</th>
+                <th>Contents</th>
+                <th>Author Rating</th>
+              </tr>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
 
 
@@ -411,6 +448,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
         <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Comment Manager</b></h1>
       </header>  
+
         <!--CREATE REVIEW BLOCK-->
         <div id="pg3-0" class="w3-light-grey" style="text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>CREATE COMMENT</b></h1>
@@ -418,8 +456,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <!-- <h1>PAPERS HERE</h1> -->
               <form method="post" action="/B/createComment">
                   <br>
-                  <input type="email" name="userid" required="">
-                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                   <input type="number" name="reviewid" required="">
                   <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
                   <input type="text" name="comment" required="">
@@ -433,16 +469,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <div id="pg3-1" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW COMMENTS</b></h1>
           <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-              <form method="post" action="/B/viewMyComment">
-                  <br>
-                  <input type="email" name="userid" required="">
-                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-
-                  <button class="buttonSpecial" type="submit">View</button>
-              </form>
+              <button onclick="ViewComments()" class="buttonSpecial" type="submit">View</button>
+          </div>
+          <div class="">
+            <div style="text-align:center">
+              <table class = "author_table" id="view commentList">
+                <tr>
+                  <th>ID</th>
+                  <th>User ID</th>
+                  <th>Review ID</th>
+                  <th>Comment</th>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
+
         <!-- UPDATE COMMENT BLOCK-->
         <div id="pg3-2" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE COMMENT</b></h1>
@@ -450,11 +492,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <!-- <h1>PAPERS HERE</h1> -->
           <div class="update">
             <div class="update">
-                <form method="post" action="/B/updateMyReview">
+                <form method="post" action="/B/updateMyComment">
                     <br>
-                    <input type="email" name="userid" required="">
-                    <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-                    <input type="number" name="reviewid" required="">
+                    <input type="number" name="commentid" required="">
                     <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
                     <input type="text" name="comment" required="">
                     <label alt="Edit Comment" placeholder="Edit Comment" style="font-family:Montserrat"></label>
@@ -474,8 +514,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <div class="delete">
                 <form method="post" action="/B/deleteMyComment">
                   <br>
-                  <input type="email" name="userid" required="">
-                  <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
                   <input type="number" name="commentid" required="">
                   <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
 
@@ -491,23 +529,37 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
             <div class="delete">
-              <form method="post" action="/B/searchMyComment">
-                <br>
-                <input type="email" name="userid" required="">
-                <label alt="Your Email" placeholder="Your Email" style="font-family:Montserrat"></label>
-                <input type="number" name="reviewid" required="">
+                <input id ="commentid" type="number" name="commentid" required="">
                 <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
 
-                <button class="buttonSpecial" type="submit">Search</button>
-              </form>
+                <button onclick = "SearchComments()" class="buttonSpecial" type="submit">Search</button>
             </div>
          </div>
+         <div class="">
+          <div style="text-align:center">
+            <table class = "author_table" id="search commentList">
+              <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Review ID</th>
+                <th>Comment</th>
+              </tr>
+            </table>
+          </div>
         </div>
     </div>
 
 
 
 <script>
+  document
+      .getElementById("logout")
+      .addEventListener("click", function () {
+          fetch("/B/logout", {
+              method: "get",
+          })
+      });
+  
   function ChangeEffect(func) {
     const navInfo = [
       "dashboard",
@@ -600,6 +652,38 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           ChangeEffect2("viewbid");
       });
 
+      function ViewBids() {
+
+          fetch("/B/viewBid", {  
+            method : "POST"          
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Bid not found");
+            else
+            {
+              var tbl = document.getElementById("view bidList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                        tbl.deleteRow(i);
+              }
+
+              const infoList = ["ID", "pId", "uId", "status"];
+
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+      };
+
       document
       .getElementById("updatebid")
       .addEventListener("click", function () {
@@ -617,6 +701,48 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       .addEventListener("click", function () {
           ChangeEffect2("searchbid");
       });
+
+      function SearchBids() {
+
+        const bidId = document.getElementById("searchBidid").value;
+
+          fetch("/B/searchBid", {  
+            method : "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                bidid: bidId
+            }),               
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Enter proper bid id");
+            else
+            {
+              var tbl = document.getElementById("search bidList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+
+                const infoList = ["ID", "pId", "uId", "status"];
+
+                for (const element of data) {
+                    const row = tbl.insertRow();
+                    for (const e of infoList) {
+                        const cell = row.insertCell();
+                        cell.innerText = element[e];
+                    }
+                }
+            }
+          });
+      }
+
+
 
     function ChangeEffect3(func) {
       const navInfo = [
@@ -652,6 +778,37 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           ChangeEffect3("viewreview");
       });
 
+      function ViewReviews() {
+
+        fetch("/B/viewMyReview", {  
+            method : "POST"            
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Review not found");
+            else
+            {
+              var tbl = document.getElementById("view reviewList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+              const infoList = ["ID", "uId", "pId", "rating", "content", "aRating"];
+
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+      };
+
       document
       .getElementById("updatereview")
       .addEventListener("click", function () {
@@ -670,11 +827,91 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           ChangeEffect3("searchreview");
       });
 
+      function SearchReviews() {
+
+        const reviewId = document.getElementById("searchReviewId").value;
+
+          fetch("/B/searchMyReview", {  
+            method : "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                reviewid: reviewId
+            }),               
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Review not found");
+            else
+            {
+              var tbl = document.getElementById("search reviewList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+
+              const infoList = ["ID", "uId", "pId", "rating", "content", "aRating"];
+
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+      }
+
       document
       .getElementById("viewotherreview")
       .addEventListener("click", function () {
           ChangeEffect3("viewotherreview");
       });
+
+      function VeiwOtherReviews()
+      {
+
+        const pId = document.getElementById("pId").value;
+
+        fetch("/B/viewOtherReview", {  
+            method : "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pId: pId
+            }),            
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Other review not found");
+            else
+            {
+              var tbl = document.getElementById("view otherReviewList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+              const infoList = ["ID", "uId", "pId", "rating", "content", "aRating"];
+
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+      }
 
     function ChangeEffect4(func) {
     const navInfo = [
@@ -709,6 +946,37 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           ChangeEffect4("viewcomment");
       });
 
+      function ViewComments() {
+
+        fetch("/B/viewMyComment", {  
+            method : "POST"            
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Comment not found");
+            else
+            {
+              var tbl = document.getElementById("view commentList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+              const infoList = ["ID", "uId", "rId", "comment"];
+
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+        };
+
       document
       .getElementById("updatecomment")
       .addEventListener("click", function () {
@@ -726,6 +994,46 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       .addEventListener("click", function () {
           ChangeEffect4("searchcomment");
       });
+
+      function SearchComments() {
+
+        const cId = document.getElementById("commentid").value;
+
+          fetch("/B/searchMyComment", {  
+            method : "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                cId: cId
+            }),               
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Enter proper comment id");
+            else
+            {
+              var tbl = document.getElementById("search commentList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+
+                const infoList = ["ID", "uId", "rId", "comment"];
+
+                for (const element of data) {
+                    const row = tbl.insertRow();
+                    for (const e of infoList) {
+                        const cell = row.insertCell();
+                        cell.innerText = element[e];
+                    }
+                }
+            }
+          });
+        }
 
 
 // Used to toggle the menu on small screens when clicking on the menu button
@@ -757,18 +1065,6 @@ manualBtn.onclick = function(){
     alert("Please select papers until the quantity fits the max numbers of papers that the reviewer required")
 
 }
-
-
-function CreateAccountConfirmation() {
-    //if (username.exist(database)){}
-    var text = alert("Username already exist");
-    
-    //else{
-    text = alert("Account has been created successfully");
-    window.location.href = "admin.html";
-    //}
-}
-
 
 </script>
 </body>
