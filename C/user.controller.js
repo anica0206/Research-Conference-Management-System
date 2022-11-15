@@ -278,7 +278,7 @@ const updateUserProfile = (req, res, next) => {
     pool.getConnection((err, conn) => {
         if (err) {
             conn.release();
-            res.send("<script>alert('update user profile failed');location.href='/B/admin.html';</script>");
+            res.send("<script>alert('Fail to update User Profile');location.href='/B/admin.html';</script>");
         }
 
         console.log("Database connection success");
@@ -292,16 +292,16 @@ const updateUserProfile = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    res.send("<script>alert('update user profile failed');location.href='/B/admin.html';</script>");
+                    res.send("<script>alert('Fail to update User Profile');location.href='/B/admin.html';</script>");
                 }
 
                 if (result) {
                     console.dir(result);
                     console.log("inserted success");
-                    res.send("<script>alert('update user profile successed');location.href='/B/admin.html';</script>");
+                    res.send("<script>alert('User Profile Updated!');location.href='/B/admin.html';</script>");
                 } else {
                     console.log("inserted failed");
-                    res.send("<script>alert('update user profile failed');location.href='/B/admin.html';</script>");
+                    res.send("<script>alert('Fail to update User Profile');location.href='/B/admin.html';</script>");
                 }
             }
         )
@@ -331,7 +331,7 @@ const searchUserProfile = (req, res, next) => {
 
                 if (err) {
                     console.log("sql error happen");
-                    res.send("<script>alert('search user profile failed');location.href='/B/admin.html';</script>");
+                    res.send("<script>alert('User Profile not Found!');location.href='/B/admin.html';</script>");
                 }
 
                 if (rows.length > 0) {
@@ -343,7 +343,7 @@ const searchUserProfile = (req, res, next) => {
                                 
                 }
                 else {
-                    console.log("search failed");
+                    console.log("Search Failed");
                     res.json("");
                 }
 
