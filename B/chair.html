@@ -288,6 +288,63 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </div> -->
 
     </div>
+
+    <!-- Chair Manage Bid ####################################################################################################################-->
+    <div id="pg3" style="display: none">
+      <div style="display:inline-block; position:fixed; width:100%">
+        <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+          <a id="viewbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white  w3-white">View Reviewer's Bids</a>
+          <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>
+          <a id="deletebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Bid</a> 
+        </div>
+      </div>
+      <header class="w3-container w3-teal w3-center"
+        style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
+        <h1 class="w3-margin w3-jumbo textShadow" style="color: black;"><b>Allocation Manager</b></h1>
+      </header>
+
+      <!--VIEW REVIEWS AND RATINGS BLOCK-->
+      <div id="pg3-0" class="w3-light-grey" style="text-align:center">
+        <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BID</b></h1>
+        <div class="tempBox">
+            <form method="post" action="/B/viewBidList">
+              <button class="buttonSpecial" type="submit">View</button>
+            </form>
+        </div>
+      </div>
+
+      <!-- ACCEPT REJECT PAPERS BLOCK-->
+      <div id="pg3-1" class="w3-light-grey" style="display:none; text-align:center">
+        <h1 style="margin-top:0; margin-bottom:0"><b>ACCEPT/REJECT PAPER</b></h1>
+        <div class="tempBox">
+          <form method="post" action="/B/updatePaperStatus">
+            <br>
+            <input type="number" name="id" required="">
+            <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
+            <input type="email" name="userid" required="">
+            <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
+            <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
+            <select class="selectSpecial" style="width:50%" name="status" id="status" required="">
+              <option value="" selected disabled hidden></option>
+              <option value="accept">Accept</option>
+              <option value="reject">Reject</option>
+            </select>
+            <button class="buttonSpecial" type="submit">Allocate</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- VIEW ACCEPTED/REJECTED PAPERS BLOCK-->
+      <div id="pg3-2" class="w3-light-grey" style="display:none; text-align:center">
+        <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ACCEPTED/REJECTED PAPERS</b></h1>
+        <div class="tempBox">
+            <form method="post" action="/B/">
+              <input type="email" name="userid" required="">
+              <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
+              <button class="buttonSpecial" type="submit">View</button>
+            </form>
+        </div>
+      </div>
 <script>
 
 
@@ -298,7 +355,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     const navInfo = [
       "dashboard",
       "manageallocation",
-      "managepapers"
+      "managepapers",
+      "managebids"
     ];
     document.getElementById(func).classList.add("w3-white");
 
@@ -333,22 +391,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       });
 
     document
-      .getElementById("makedecision")
+      .getElementById("managebids")
       .addEventListener("click", function () {
-          ChangeEffect("makedecision");
+          ChangeEffect("managebids");
       });
-
-    document
-    .getElementById("listofsubmissions")
-    .addEventListener("click", function () {
-        ChangeEffect("listofsubmissions");
-    });
-
-    document
-    .getElementById("viewbids")
-    .addEventListener("click", function () {
-        ChangeEffect("viewbids");
-    });
 
     function ChangeEffect2(func) {
       const navInfo = [
@@ -453,30 +499,45 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         });
 
       
-    function ChangeEffect3(func) {
+    function ChangeEffect4(func) {
       const navInfo = [
-        "viewbids",
-        "searchbids ",
-        // "rejectpaper",
-        "viewlistofpaper"
+        "viewbid",
+        "searchbid",
+        "deletebid"
       ];
       document.getElementById(func).classList.add("w3-white");
       document.getElementById(func).classList.remove("w3-button");
 
       for (const e in navInfo) {
         if (navInfo[e] == func) {
-          document.getElementById(`pg2-${e}`).style.display =
+          document.getElementById(`pg3-${e}`).style.display =
               "block";
           continue;
         }
         document.getElementById(navInfo[e]).classList.remove("w3-white")
         document.getElementById(navInfo[e]).classList.add("w3-button", "w3-hover-white")
-        document.getElementById(`pg2-${e}`).style.display = "none";
+        document.getElementById(`pg3-${e}`).style.display = "none";
       }
     }  
+
+        document
+        .getElementById("viewbid")
+        .addEventListener("click", function () {
+            ChangeEffect3("viewbid");
+        });
       
 
+        document
+        .getElementById("searchbid")
+        .addEventListener("click", function () {
+            ChangeEffect3("searchbid");
+        });
 
+        document
+        .getElementById("deletebid")
+        .addEventListener("click", function () {
+            ChangeEffect3("deletebid");
+        });
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
