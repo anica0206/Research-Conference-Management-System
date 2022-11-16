@@ -7,6 +7,7 @@ const loginController = require("../C/login.controller.js");
 const userController = require("../C/user.controller.js");
 const reviewController = require("../C/review.controller");
 const authorController = require("../C/author.controller");
+const chairController = require("../C/chair.controller")
 // 3.
 //login
 router.post("/B/login", loginController.login);
@@ -79,6 +80,20 @@ router.post("/B/searchMyPaper", authorController.searchMyPaper);
 router.post("/B/viewReviewOnPaper", authorController.viewReviewOnPaper);
 
 router.post("/B/rateOnReview", authorController.rateOnReview);
+
+//chair
+router.post('/B/viewBid', chairController.viewBid);
+
+router.post('/B/allocateBidAuto', chairController.allocateBidAuto);
+
+router.post('/B/allocateBidManual', chairController.allocateBidAuto);
+
+router.post('/B/viewReviewRating', chairController.viewReviewRating);
+
+router.post('/B/updatePaperStatus', chairController.updatePaperStatus);
+
+router.post('/B/viewPaperList', chairController.viewPaperList);
+
 
 // 4.
 module.exports = router; // export to use in server.js
