@@ -25,7 +25,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <a id="managebids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Bids</a>
       <!-- <a id="listofsubmissions" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">List of Submissions</a>
       <a id="viewbids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a> -->
-      <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
+      <a id="logout" href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
     </div>
   </div>
@@ -122,9 +122,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
           <a id="autoallocation" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Auto Allocation</a>
           <a id="manualallocation" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manual Allocation</a>
-          <a id="updateallocation" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Allocation</a>
-          <a id="viewallocation" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Allocation</a>
-          <a id="temp2" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">TEMP2</a>
+          <!-- <a id="updateallocation" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Allocation</a> -->
+          <!-- <a id="viewallocation" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Allocation</a> -->
+          <!-- <a id="temp2" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">TEMP2</a> -->
         </div>
       </div>
       <header class="w3-container w3-teal w3-center"
@@ -165,11 +165,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </form>
         </div>
       </div>
-      <!--DELETE ALLOCATION BLOCK-->
-      <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
-        <h1 style="margin-top:0; margin-bottom:0"><b>DELETE ALLOCATION</b></h1>
+      <!--UPDATE ALLOCATION BLOCK-->
+      <!-- <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
+        <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE ALLOCATION</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/">
+            <form method="post" action="/B/updatePaperStatus">
               <br>
               <input type="number" name="id" required="">
               <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
@@ -179,8 +179,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
               <button class="buttonSpecial" type="submit">Delete</button>
             </form>
         </div>
-      </div>
-      <!-- VIEW ALLOCATION BLOCK-->
+      </div> -->
+      
+      <!-- VIEW ALLOCATION BLOCK
       <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ALLOCATIONS</b></h1>
         <div class="tempBox">
@@ -188,12 +189,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                 <button class="buttonSpecial" type="submit">View</button>
               </form>
         </div>
-      </div>
+      </div> -->
+
       <!-- DELETE BID BLOCK-->
-      <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
+      <!-- <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>TEMP</b></h1>
         <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
           <div class="update">
             <div class="delete">
               <form method="post" action="/B/">
@@ -208,7 +209,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- Chair Manage Paper ####################################################################################################################-->
@@ -230,9 +231,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div id="pg2-0" class="w3-light-grey" style="text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW REVIEW AND RATINGS</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/viewReviewRating">
-              <button class="buttonSpecial" type="submit">Allocate</button>
-            </form>
+              <button onclick = "ViewReview()" class="buttonSpecial" type="submit">View</button>
+        </div>
+        <div class="">
+          <div style="text-align:center">
+            <table class = "author_table" id="view reviewList">
+              <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Paper ID</th>
+                <th>Rating</th>
+                <th>Contents</th>
+                <th>Author Rating</th>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -243,9 +256,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <form method="post" action="/B/updatePaperStatus">
             <br>
             <input type="number" name="id" required="">
-            <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
-            <input type="email" name="userid" required="">
-            <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
+            <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
             <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
             <select class="selectSpecial" style="width:50%" name="status" id="status" required="">
               <option value="" selected disabled hidden></option>
@@ -261,16 +272,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ACCEPTED/REJECTED PAPERS</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/viewAcceptPaper">
-              <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
-              <select class="selectSpecial" style="width:50%" name="status" id="status" required="">
-                <option value="" selected disabled hidden></option>
-                <option value="accept">Accept</option>
-                <option value="reject">Reject</option>
-              </select>
-              <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
-              <button class="buttonSpecial" type="submit">View</button>
-            </form>
+            <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
+            <select class="selectSpecial" style="width:50%" name="status" id="status1" required="">
+              <option value="" selected disabled hidden></option>
+              <option value="accept">Accept</option>
+              <option value="reject">Reject</option>
+            </select>
+            <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
+            <button onclick ="ViewPapers()" class="buttonSpecial" type="submit">View</button>
+        </div>
+        <div class="">
+          <div style="text-align:center">
+            <table id="view paperList" class = "author_table">
+              <tr>
+                <th>ID</th>
+                <th>Topic</th>
+                <th>Contents</th>
+                <th>Author ID</th>
+                <th>Status</th>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -296,13 +318,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
     </div>
 
-    <!-- Chair Manage Bid ####################################################################################################################-->
     <div id="pg3" style="display: none">
       <div style="display:inline-block; position:fixed; width:100%">
         <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
           <a id="viewbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white  w3-white">View Reviewer's Bids</a>
           <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>
-          <a id="deletebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Bid</a> 
         </div>
       </div>
       <header class="w3-container w3-teal w3-center"
@@ -310,41 +330,58 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <h1 class="w3-margin w3-jumbo textShadow" style="color: black;"><b>Allocation Manager</b></h1>
       </header>
 
-      <!--VIEW REVIEWS AND RATINGS BLOCK-->
+      <!--VIEW BID !-->
       <div id="pg3-0" class="w3-light-grey" style="text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BID</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/viewBid">
-              <button class="buttonSpecial" type="submit">View</button>
-            </form>
+            <button onclick="ViewBids()" class="buttonSpecial" type="submit">View</button>
+        </div>
+        <div class="">
+          <div style="text-align:center">
+            <table class = "author_table" id="view bidList">
+              <tr>
+                <th>Bid ID</th>
+                <th>Paper ID</th>
+                <th>Reviewer ID</th>
+                <th>Status</th>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
 
-      <!-- ACCEPT REJECT PAPERS BLOCK-->
+      <!-- Search Bid -->
       <div id="pg3-1" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
         <div class="tempBox">
-          <form method="post" action="/B/searchBids">
             <br>
-            <input type="email" name="userid" required="">
+            <input type="email" id="searchBidid" required="">
             <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
-            <button class="buttonSpecial" type="submit">Search</button>
-          </form>
+            <button onclick="SearchBids()" class="buttonSpecial" type="submit">Search</button>
+        </div>
+        <div class="">
+          <div style="text-align:center">
+            <table class = "author_table" id="search bidList">
+              <tr>
+                <th>Bid ID</th>
+                <th>Paper ID</th>
+                <th>Reviewer ID</th>
+                <th>Status</th>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
 
-      <!-- VIEW ACCEPTED/REJECTED PAPERS BLOCK-->
-      <div id="pg3-2" class="w3-light-grey" style="display:none; text-align:center">
-        <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ACCEPTED/REJECTED PAPERS</b></h1>
-        <div class="tempBox">
-            <form method="post" action="/B/viewAcceptPaper">
-              <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
-              <button class="buttonSpecial" type="submit">View</button>
-            </form>
-        </div>
-      </div>
 <script>
 
+    document
+      .getElementById("logout")
+      .addEventListener("click", function () {
+          fetch("/B/logout", {
+              method: "get",
+          })
+      });
 
   //DASHBOARD FUNCTIONS ############################################################################
 
@@ -397,10 +434,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     function ChangeEffect2(func) {
       const navInfo = [
         "autoallocation",
-        "manualallocation",
-        "updateallocation",
-        "viewallocation",
-        "temp2"
+        "manualallocation"
       ];
       document.getElementById(func).classList.add("w3-white");
       document.getElementById(func).classList.remove("w3-button");
@@ -429,23 +463,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             ChangeEffect2("manualallocation");
         });
 
-      document
-        .getElementById("updateallocation")
-        .addEventListener("click", function () {
-            ChangeEffect2("updateallocation");
-        });
+      // document
+      //   .getElementById("updateallocation")
+      //   .addEventListener("click", function () {
+      //       ChangeEffect2("updateallocation");
+      //   });
 
-      document
-      .getElementById("viewallocation")
-      .addEventListener("click", function () {
-          ChangeEffect2("viewallocation");
-      });
+      // document
+      // .getElementById("viewallocation")
+      // .addEventListener("click", function () {
+      //     ChangeEffect2("viewallocation");
+      // });
 
-      document
-      .getElementById("temp2")
-      .addEventListener("click", function () {
-          ChangeEffect2("temp2");
-      });
+      // document
+      // .getElementById("temp2")
+      // .addEventListener("click", function () {
+      //     ChangeEffect2("temp2");
+      // });
 
 
       function ChangeEffect3(func) {
@@ -470,13 +504,43 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       }
     }
 
-
-    
       document
       .getElementById("viewreviewsandratings")
       .addEventListener("click", function () {
           ChangeEffect3("viewreviewsandratings");
       });
+
+      function ViewReview()
+      {
+          fetch("/B/viewReviewRating", {  
+              method : "POST"          
+          })
+            .then(response =>{ 
+                    return response.json();                               
+                })
+            .then (data =>
+            {   
+              if(data == "")
+                  alert("Review not found");
+              else
+              {
+                var tbl = document.getElementById("view reviewList"); // Get the table
+                for(var i = 1;i<tbl.rows.length;){
+                          tbl.deleteRow(i);
+                }
+
+                const infoList = ["ID", "uId", "pId", "rating", "content", "aRating"];
+
+                for (const element of data) {
+                    const row = tbl.insertRow();
+                    for (const e of infoList) {
+                        const cell = row.insertCell();
+                        cell.innerText = element[e];
+                    }
+                }
+              }
+            });
+          }
 
       document
         .getElementById("accrejpaper")
@@ -496,12 +560,54 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             ChangeEffect3("viewlistofpaper");
         });
 
+        function ViewPapers()
+        {
+          // const status = document.getElementById("status").value;
+          var select = document.getElementById('status1');
+          var status = select.options[select.selectedIndex].value;
+
+          fetch("/B/viewAcceptPaper", {  
+              method : "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  status: status
+              }),
+
+          })
+            .then(response =>{ 
+                    return response.json();                               
+                })
+            .then (data =>
+            {   
+              if(data == "")
+                  alert("Paper not found");
+              else
+              {
+                var tbl = document.getElementById("view paperList"); // Get the table
+                for(var i = 1;i<tbl.rows.length;){
+                          tbl.deleteRow(i);
+                }
+
+                const infoList = ["ID", "topic", "paper", "aId", "status"];
+
+                for (const element of data) {
+                    const row = tbl.insertRow();
+                    for (const e of infoList) {
+                        const cell = row.insertCell();
+                        cell.innerText = element[e];
+                    }
+                }
+              }
+            });
+          }
+
       
     function ChangeEffect4(func) {
       const navInfo = [
         "viewbid",
-        "searchbid",
-        "deletebid"
+        "searchbid"
       ];
       document.getElementById(func).classList.add("w3-white");
       document.getElementById(func).classList.remove("w3-button");
@@ -523,6 +629,38 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         .addEventListener("click", function () {
             ChangeEffect4("viewbid");
         });
+        
+    function ViewBids()
+    {
+        fetch("/B/chairViewBid", {  
+            method : "POST"          
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Bid not found");
+            else
+            {
+              var tbl = document.getElementById("view bidList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                        tbl.deleteRow(i);
+              }
+
+              const infoList = ["ID", "pId", "uId", "status"];
+
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+        }
       
 
         document
@@ -531,11 +669,51 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             ChangeEffect4("searchbid");
         });
 
-        document
-        .getElementById("deletebid")
-        .addEventListener("click", function () {
-            ChangeEffect4("deletebid");
-        });
+        function SearchBids() {
+
+          const uId = document.getElementById("searchBidid").value;
+
+            fetch("/B/chairSearchBid", {  
+              method : "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  uId: uId
+              }),               
+          })
+            .then(response =>{ 
+                    return response.json();                               
+                })
+            .then (data =>
+            {   
+              if(data == "")
+                  alert("Enter proper bid id");
+              else
+              {
+                var tbl = document.getElementById("search bidList"); // Get the table
+                for(var i = 1;i<tbl.rows.length;){
+                    tbl.deleteRow(i);
+                }
+
+                  const infoList = ["ID", "pId", "uId", "status"];
+
+                  for (const element of data) {
+                      const row = tbl.insertRow();
+                      for (const e of infoList) {
+                          const cell = row.insertCell();
+                          cell.innerText = element[e];
+                      }
+                  }
+              }
+            });
+          }
+
+        // document
+        // .getElementById("deletebid")
+        // .addEventListener("click", function () {
+        //     ChangeEffect4("deletebid");
+        // });
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
