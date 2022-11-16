@@ -12,6 +12,9 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+th, td {
+      border: 1px solid #444444;
+  }
 </style>
 </head>
 <body>
@@ -23,8 +26,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <a id="manageallocation" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Allocation</a>
       <a id="managepapers" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Papers</a>
       <a id="managebids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Bids</a>
-      <!-- <a id="listofsubmissions" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">List of Submissions</a>
-      <a id="viewbids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a> -->
       <a id="logout" href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
     </div>
@@ -53,8 +54,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <header class="w3-container w3-teal w3-center" style="padding:128px 16px;background-image: url(images/asd.jpg); background-size: cover;">
         <h1 class="w3-margin w3-jumbo textShadow" style="color:black;"><b>Chairman</b></h1>
         <p class="w3-xlarge"></p>
-        <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Allocate</button>
-        <button  id="reallocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Reallocate</button>
+        <button  id="manageallocationBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Manage Allocation</button>
       </header>
         
 
@@ -63,7 +63,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <div class="w3-content">
           <div class="w3-twothird" style="margin-left:-8%">
             <h2>Want to approve or reject reviewed papers?</h2>
-            <button  id="makeDecisionBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified3 boxShadow">Make Decision</button>
+            <button  id="managepapersBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified3 boxShadow">Manage Papers</button>
 
 
             <p class="w3-text-grey w3-justify" style="padding-right:10%">We will show you all the papers that have been reviewed by the lovely reviewer team. Once approved or rejected, you will not be able to change your decision! So make sure to pay attention to what you are doing. </p>
@@ -79,37 +79,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
         <div class="w3-contentTHIRD">
           <div class="w3-third w3-center">
-            <img src="images/acceptReject.jpg" width="150%" class="boxShadow" style="margin-left: 40%; margin-right:10px"></i>
+            <img src="images/file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-left: 40%; margin-right:10px"></i>
           </div>
 
           <div class="w3-twothirdPAPERLIST" style="width:70%; margin-left:70%">
-            <h2>Want to view accepted or rejected papers?</h2>
-            <button  id="listOfSubmissionsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow" style="margin-left:27%">List of Submissions</button>
-
-
-            <p class="w3-text-grey w3-justify" style="padding-right:10%">This is where all the papers that you've gone through ends up in. The ones that pass the acceptance criteria and even those that gets trashed into the bin because they suck. A hall of fame that doubles as a hall of shame! </p>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Third Grid -->
-      <div class="w3-row-padding w3-padding-64 w3-container">
-        <div class="w3-content">
-          <div class="w3-twothird" style="margin-left:-8%">
             <h2>Want to see all the bids on papers?</h2>
-            <button  id="viewBidsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow">View Bids</button>
+            <button  id="listOfSubmissionsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified2 boxShadow" style="margin-left:27%; margin-top:13%; margin-bottom:13%">Manage Bids</button>
 
 
-            <p class="w3-text-grey w3-justify" style="padding-right:10%">The place where a list of submitted reviews and their respective author's ratings are all compiled together and displayed for you in a neat format! Pretty handy huh? </p>
-          </div>
+            <p class="w3-text-grey w3-justify" style="padding-right:10%">The place where a list of submitted reviews and their respective author's ratings are all compiled together and displayed for you in a neat format! Pretty handy huh?</p>
 
-          <div class="w3-third w3-center">
-            <img src="images/file-picture-id696301002.jpg" width="150%" class="boxShadow" style="margin-left:10px"></i>
           </div>
         </div>
       </div>
-
 
       <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
           <h1 class="w3-margin w3-xlarge">OPPA Co., Ltd</h1>
@@ -165,51 +147,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           </form>
         </div>
       </div>
-      <!--UPDATE ALLOCATION BLOCK-->
-      <!-- <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
-        <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE ALLOCATION</b></h1>
-        <div class="tempBox">
-            <form method="post" action="/B/updatePaperStatus">
-              <br>
-              <input type="number" name="id" required="">
-              <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
-              <input type="email" name="userid" required="">
-              <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
-              <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
-              <button class="buttonSpecial" type="submit">Delete</button>
-            </form>
-        </div>
-      </div> -->
       
-      <!-- VIEW ALLOCATION BLOCK
-      <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
-        <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ALLOCATIONS</b></h1>
-        <div class="tempBox">
-              <form method="post" action="/B/viewPaperList">
-                <button class="buttonSpecial" type="submit">View</button>
-              </form>
-        </div>
-      </div> -->
-
-      <!-- DELETE BID BLOCK-->
-      <!-- <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
-        <h1 style="margin-top:0; margin-bottom:0"><b>TEMP</b></h1>
-        <div class="tempBox">
-          <div class="update">
-            <div class="delete">
-              <form method="post" action="/B/">
-                <br>
-                <input type="email" name="userid" required="">
-                <label alt="PLACEHOLDER" placeholder="PLACEHOLDER" style="font-family:Montserrat"></label>
-                <input type="number" name="bidid" required="">
-                <label alt="PLACEHOLDER" placeholder="PLACEHOLDER" style="font-family:Montserrat"></label>
-  
-                <button class="buttonSpecial" type="submit">Delete</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
 
     <!-- Chair Manage Paper ####################################################################################################################-->
@@ -272,6 +210,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ACCEPTED/REJECTED PAPERS</b></h1>
         <div class="tempBox">
+            <br/>
             <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
             <select class="selectSpecial" style="width:50%" name="status" id="status1" required="">
               <option value="" selected disabled hidden></option>
@@ -419,17 +358,38 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           ChangeEffect("manageallocation");
       });
 
+      //DASHBOARD BUTTON FUNC
+      document
+        .getElementById("manageallocationBtn")
+        .addEventListener("click", function () {
+            ChangeEffect("manageallocation");
+        });
+
     document
       .getElementById("managepapers")
       .addEventListener("click", function () {
           ChangeEffect("managepapers");
       });
 
+      //DASHBOARD BUTTON FUNC
+      document
+        .getElementById("managepapersBtn")
+        .addEventListener("click", function () {
+            ChangeEffect("managepapers");
+        });
+
     document
       .getElementById("managebids")
       .addEventListener("click", function () {
           ChangeEffect("managebids");
       });
+
+      //DASHBOARD BUTTON FUNC
+      document
+        .getElementById("managebids")
+        .addEventListener("click", function () {
+            ChangeEffect("managebids");
+        });
 
     function ChangeEffect2(func) {
       const navInfo = [
@@ -709,11 +669,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             });
           }
 
-        // document
-        // .getElementById("deletebid")
-        // .addEventListener("click", function () {
-        //     ChangeEffect4("deletebid");
-        // });
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
