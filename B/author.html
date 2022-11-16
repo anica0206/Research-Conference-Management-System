@@ -33,7 +33,7 @@ th, td {
     <a id="authorDeletePaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Paper</a>
     <a id="authorViewReview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Review</a>
     <a id="authorRateReview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Rate Review</a>
-    <a href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
+    <a id= "logout" href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
       <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
   </div>
 </div>
@@ -111,11 +111,9 @@ th, td {
     <div class="w3-content">
       <div class = "tempBox">
         <br>
-        <form method="post" id="createPaperTEXTBOX" action="/B/authorCreatePaper">
+        <form method="post" id="createPaperTEXTBOX" action="/B/createPaper">
           <input class="w3-animate-input" type="text" id="topic" name="topic" required="">
           <label alt="Paper Topic" placeholder="Paper Topic" style="font-family:Montserrat"></label>
-          <input class="w3-animate-input" type="email" id="userid" name="userid" required="">
-          <label alt="User Email" placeholder="User Email" style="font-family:Montserrat"></label>
 
           <h2><label for="message"><b>Paper: </b></label></h2>
           <textarea rows="15" cols="90" name="paper" form="createPaperTEXTBOX"> </textarea><br>
@@ -136,22 +134,19 @@ th, td {
     <h1 class="w3-margin w3-jumbo" style = "color : black"><b>View Paper</b></h1>
   </header>    
   
-  <form form method="post" action="/B/authorViewPaper">
     <div class="">
       <div style="text-align:center">
-        <table class = "author_table" id="search MenuList">
+        <table class = "author_table" id="view paperList">
           <tr>
             <th>ID</th>
-            <th>NAME</th>
-            <th>PAPER</th>
+            <th>Topic</th>
+            <th>Contents</th>
+            <th>Author ID</th>
+            <th>Status</th>
           </tr>
         </table>          
-
-        <h5 class="w3-padding-32">PAPERS HERE</h5>
-        <p class="w3-text-grey">. . . . ..  .</p>
       </div>
     </div>
-  </form>
 </div>
 
 <!--Search Paper -->
@@ -161,20 +156,22 @@ th, td {
   </header>   
   <div class="w3-light-grey" style="text-align:center">
     <div class="tempBox">
-      <div class="search">         
-        <form method="post" action="/B/searchMyPaper">   
-          <br>
-          <input class="w3-animate-input" id="searchID" type="email" name="userid" required="">
-          <label alt="Enter UserID" placeholder="Enter UserID" style="font-family:Montserrat"></label>
-          <button type="submit" onclick="SearchUser()" class="buttonSpecial" style="--slist: red, #ccc"><b>Search Paper</b></button>
-        </form>
+      <div class="search">  
+        <br>
+          <input id="searchPaperId" type="number" name="pId" required="">
+          <label alt="Paper ID" placeholder="Paper ID" style="font-family:Montserrat"></label>       
+          <button type="submit" onclick="SearchPaper()" class="buttonSpecial" style="--slist: red, #ccc"><b>Search Paper</b></button>
       </div>
     </div>
   </div>
-  <table id="search Paper" class = "author_table">
-      <tr>
-          <th>NAME</th><th>PRICE</th><th>IMAGE</th>
-      </tr>
+  <table id="search paperList" class = "author_table">
+    <tr>
+      <th>ID</th>
+      <th>Topic</th>
+      <th>Contents</th>
+      <th>Author ID</th>
+      <th>Status</th>
+    </tr>
   </table>
 </div>
 
@@ -183,7 +180,7 @@ th, td {
   <header class="w3-container w3-teal w3-center" style="padding:50px 16px;background-image: url(images/authorbg.jpg); background-size: cover;">
     <h1 class="w3-margin w3-jumbo" style = "color : black"><b>Update Paper</b></h1>
     </header>    
-    <form method="post" action="/B/authorUpdatePaper">
+    <form method="post" action="/B/authorUpdateMyPaper">
       <div class="w3-light-grey">
         <div class="w3-content">
           <div class="tempBox">
@@ -193,7 +190,7 @@ th, td {
               <h2><label for="message"><b>Paper: </b></label></h2>
               <input type ="text " class = "message" name="paper" id="paper"></label><br>
 
-              <button type="submit" onclick="UpdatePaper()" class="buttonSpecial" style="--slist: red, #ccc"><b>Update Paper</b></button>
+              <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>Update Paper</b></button>
             </div>
           </div>
         </div>
@@ -214,11 +211,9 @@ th, td {
     <div class="w3-light-grey" style="text-align:center">
       <div class="tempBox">
         <div class="search"><br>
-          <input class="w3-animate-input" id="userid" type="email" name="userid" required="">
-          <label alt="UserID" placeholder="UserID" style="font-family:Montserrat"></label>
-          <input class="w3-animate-input" id="paperid" type="number" name="paperid" required="">
+          <input class="w3-animate-input" id="deletepaperid" type="number" name="paperid" required="">
           <label alt="Paper ID" placeholder="Paper ID" style="font-family:Montserrat"></label>
-          <button type="submit" onclick="DeletePaper()" class="buttonSpecial" style="--slist: red, #ccc"><b>Delete Paper</b></button>
+          <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>Delete Paper</b></button>
         </div>
       </div>
     </div>
@@ -234,13 +229,23 @@ th, td {
     <div class="w3-light-grey" style="text-align:center">
       <div class="tempBox">
         <div class="search"><br>
-          <form method="post" action="/B/viewReviewOnPaper">
-            <input class="w3-animate-input" id="userid" type="email" name="userid" required="">
-            <label alt="UserID" placeholder="UserID" style="font-family:Montserrat"></label>
-            <input class="w3-animate-input" id="paperid" type="number" name="paperid" required="">
+            <input class="w3-animate-input" id="viewReviewId" type="number" name="paperid" required="">
             <label alt="Paper ID" placeholder="Paper ID" style="font-family:Montserrat"></label>
-            <button type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>View Review</b></button>
-          </form>
+            <button onclick="ViewReview()" type="submit" class="buttonSpecial" style="--slist: red, #ccc"><b>View Review</b></button>
+        </div>
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class = "author_table" id="view reviewList">
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Paper ID</th>
+              <th>Rating</th>
+              <th>Contents</th>
+              <th>Author Rating</th>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
@@ -258,11 +263,11 @@ th, td {
         <div class="search"><br>
           <input class="w3-animate-input" id="reviewid" type="number" name="reviewid" required="">
           <label alt="Rewiew ID" placeholder="Rewiew ID" style="font-family:Montserrat"></label>
-          <input class="w3-animate-input" id="reviewerid" type="number" name="reviewerid" required="">
-          <label alt="Rewiewer ID" placeholder="Rewiewer ID" style="font-family:Montserrat"></label>
+          <input class="w3-animate-input" id="pid" type="number" name="pid" required="">
+          <label alt="Paper ID" placeholder="Paper ID" style="font-family:Montserrat"></label>
           <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
           <select class="selectSpecial" name="rating" id="rating" required="">
-            <option value="" selected disabled hidden></option>
+            <option value="0" selected disabled hidden></option>
             <option value=-3>-3</option>
             <option value=-2>-2</option>
             <option value=-1>-1</option>
@@ -279,6 +284,14 @@ th, td {
 </div>
 
 <script>
+  document
+      .getElementById("logout")
+      .addEventListener("click", function () {
+          fetch("/B/logout", {
+              method: "get",
+          })
+      });
+      
   //function to change page
   function ChangeEffect(func) {
     const navInfo = [
@@ -320,8 +333,42 @@ th, td {
   document
     .getElementById("authorViewPaper")
     .addEventListener("click", function () {
+      fetch("/B/viewPaper", {
+      method: "GET",
+      })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Paper not found");
+            else
+            {
+              ViewPaper(data);
+            }
+          });
         ChangeEffect("authorViewPaper");
     });
+
+    function ViewPaper(data) {
+
+      var tbl = document.getElementById("view paperList"); // Get the table
+      for(var i = 1;i<tbl.rows.length;)
+      {
+          tbl.deleteRow(i);
+      }
+
+      const infoList = ["ID", "topic", "paper", "aId", "status"];
+
+      for (const element of data) {
+          const row = tbl.insertRow();
+          for (const e of infoList) {
+              const cell = row.insertCell();
+              cell.innerText = element[e];
+          }
+      }
+    }
 
   document
     .getElementById("authorUpdatePaper")
@@ -341,6 +388,45 @@ document
         ChangeEffect("authorViewReview");
     });    
 
+function ViewReview()
+{
+  const pId = document.getElementById("viewReviewId").value;
+
+  fetch("/B/viewReviewOnPaper", {  
+            method : "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pId: pId
+            }),             
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Wrong paper id");
+            else
+            {
+              var tbl = document.getElementById("view reviewList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+              const infoList = ["ID", "uId", "pId", "rating", "content", "aRating"];
+
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+}
+
 document
     .getElementById("authorRateReview")
     .addEventListener("click", function () {
@@ -353,6 +439,45 @@ document
         ChangeEffect("authorSearchPaper");
     });    
 
+    function SearchPaper()
+    {
+      const pId = document.getElementById("searchPaperId").value;
+
+          fetch("/B/searchMyPaper", {  
+            method : "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pId: pId
+            }),               
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Enter proper paper id");
+            else
+            {
+              var tbl = document.getElementById("search paperList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+
+              const infoList = ["ID", "topic", "paper", "aId", "status"];
+
+                for (const element of data) {
+                    const row = tbl.insertRow();
+                    for (const e of infoList) {
+                        const cell = row.insertCell();
+                        cell.innerText = element[e];
+                    }
+                }
+            }
+          });
+    }
   
   //dashboard mini-button
   document

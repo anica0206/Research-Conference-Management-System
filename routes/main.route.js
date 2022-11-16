@@ -42,6 +42,7 @@ router.post("/B/deleteBid", reviewController.deleteBid);
 router.post("/B/searchBid", reviewController.searchBid);
 
 //reviewer - review
+
 router.post("/B/createReview", reviewController.createReviewRate);
 
 router.post("/B/viewMyReview", reviewController.viewMyReview);
@@ -53,6 +54,8 @@ router.post("/B/searchMyReview", reviewController.searchMyReview);
 router.post("/B/deleteMyReview", reviewController.deleteMyReview);
 
 router.post("/B/viewOtherReview", reviewController.viewOtherReview);
+
+//reviewer - comments
 
 router.post("/B/CreateComment", reviewController.createComment);
 
@@ -66,11 +69,13 @@ router.post("/B/searchMyComment", reviewController.searchMyComment);
 
 router.post("/B/updateMaxPaperNum", reviewController.updateMaxPaperNum);
 
-router.post("/B/authorCreatePaper", authorController.createPaper);
+//author
 
-router.post("/B/authorViewPaper", authorController.authorViewPaper);
+router.post("/B/createPaper", authorController.createPaper);
 
-router.post("/B/authorUpdateMyPaper", authorController.authorUpdatePaper);
+router.get("/B/viewPaper", authorController.viewPaper);
+
+router.post("/B/authorUpdateMyPaper", authorController.updatePaper);
 
 router.post("/B/deleteMyPaper", authorController.deleteMyPaper);
 
