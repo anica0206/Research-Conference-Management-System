@@ -4,22 +4,20 @@
     <title>Login V2</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="w3.css" />
-    <link rel="stylesheet" type="text/css" href="css/util.css" />
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <!--===============================================================================================-->
+    <style>
+      body {background-color: rgb(101, 211, 204);}
+    </style>
   </head>
   <body>
-    <div class="limiter">
-      <div class="container-login100">
-        <div class="wrap-login100" style="text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>WELCOME</b></h1>
-          <br/><br/>
-          <div class="tempBox">
+    <div style="display:flex; flex-wrap:wrap; min-height: 100vh; justify-content: center; align-items: center;">
+        <div class="tempBox boxShadow" style="border-radius: 10px;width:18%;text-align: center; background-color: white;" >
+          <br/>
+          <h1><b>WELCOME</b></h1>
+          <br/>
+          <div class="tempBox" style=" margin-left:-4%">
                 <form method="post" action="/B/login">
                     <br>
                     <input type="email" name="userid" required="">
@@ -27,16 +25,14 @@
                     <input type="password" name="password" required="">
                     <label alt="Password" placeholder="Password" style="font-family:Montserrat"></label>
                     <br/><br/>
-                    <button class="buttonSpecial" type="submit">Login</button>
+                    <button class="buttonSpecial" type="submit" style="font-family:Montserrat">Login</button>
                     <br/><br/>
                 </form>
           </div>
-          <span>OPPA Co., Ltd.</span>
-        </div>
+          <p style="font-family:Montserrat"> OPPA Co., Ltd.</p>
+
       </div>
     </div>
-
-    <div id="dropDownSelect1"></div>
 
   
   </body>
