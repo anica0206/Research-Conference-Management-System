@@ -460,7 +460,8 @@ const searchBid = (req, res, next) => {
 const createReviewRate = (req, res, next) => {
   console.log("/B/createReview called" + req);
 
-  const paramUid = req.body.userid;
+  const paramUid = uId;
+  // const paramUid = req.body.userid;
   const paramPid = req.body.paperid;
   const paramRating = req.body.rating;
   const paramContent = req.body.content;
