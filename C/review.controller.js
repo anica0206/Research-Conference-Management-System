@@ -45,6 +45,44 @@ pool.getConnection(function (err) {
   });
 });
 
+const viewAllocatedPaper = (req, res, next) => {
+  console.log("/B/viewAllocatedPaper called" + req);
+
+  pool.getConnection((err, conn) => {
+    if (err) {
+      conn.release();
+      console.log("Mysql getConnetion error.");
+      return;
+    }
+
+    console.log("Database connection success");
+
+    const exec = conn.query(
+      "select * from paper where status = ?",
+      ["Accept"],
+      (err, result) => {
+        conn.release();
+        console.log("sql worked" + exec.sql);
+
+        if (err) {
+          console.log("sql error happen");
+          console.dir(err);
+          return;
+        }
+
+        if (result.length > 0) {
+          console.dir(result);
+          console.log("paper found success");
+          res.json(result);
+        } else {
+          console.log("paper not found");
+          res.json("");
+        }
+      }
+    );
+  });
+};
+
 // create bid
 const createBid = (req, res, next) => {
   console.log("/B/bidPaper called" + req);
@@ -1212,4 +1250,5 @@ module.exports = {
   deleteMyComment,
   searchMyComment,
   updateMaxPaperNum,
+  viewAllocatedPaper,
 };
