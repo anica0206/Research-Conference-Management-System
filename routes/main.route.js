@@ -99,9 +99,8 @@ router.post("/B/viewReviewRating", chairController.viewReviewRating);
 
 router.post("/B/updatePaperStatus", chairController.updatePaperStatus);
 
-router.post("/B/viewPaperList", chairController.viewPaperList);
-
 router.post("/B/viewAcceptPaper", chairController.viewAcceptPaper);
 
+router.post("/B/searchBids", chairController.searchBids);
 // 4.
 module.exports = router; // export to use in server.js

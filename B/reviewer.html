@@ -166,7 +166,7 @@
         <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
           <a id="createbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create Bid</a>
           <a id="viewbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
-          <a id="updatebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Bid</a>
+          <!-- <a id="updatebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Bid</a> -->
           <a id="deletebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Bid</a>
           <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>        
         </div>
@@ -216,10 +216,10 @@
         </div>
 
         <!-- UPDATE BID BLOCK-->
-        <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
+        <!-- <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE BID</b></h1>
           <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
+          <<h1>PAPERS HERE</h1>
           <div class="update">
             <div class="update">
                 <form method="post" action="/B/updateBid">
@@ -234,11 +234,11 @@
             </div>
           </div>
           </div>
-        </div>
+        </div> -->
 
 
         <!-- DELETE BID BLOCK-->
-        <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>DELETE BID</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -257,7 +257,7 @@
         </div>
 
         <!--SEARCH BID BLOCK-->
-        <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
           <div class="tempBox">
             <!-- <h1>PAPERS HERE</h1> -->
@@ -292,7 +292,8 @@
     <div id="pg2" style="display: none">
       <div style="display:inline-block; position:fixed; width:100%">
         <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
-          <a id="createreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create Review</a>
+          <a id="viewallocatedpapers" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">View Allocated Papers</a>
+          <a id="createreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create Review</a>
           <a id="viewreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Reviews</a>
           <a id="updatereview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Review</a>
           <a id="deletereview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Review</a>
@@ -304,8 +305,20 @@
         <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Review Manager</b></h1>
       </header>  
 
-        <!--CREATE REVIEW BLOCK-->
+
+        <!-- VIEW PAPERS BLOCK-->
         <div id="pg2-0" class="w3-light-grey" style="text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ALLOCATED PAPERS</b></h1>
+          <div class="tempBox">
+          <!-- <h1>PAPERS HERE</h1> -->
+              <form method="post" action="/B/">
+                  <button class="buttonSpecial" type="submit">View</button>
+              </form>
+          </div>
+        </div>
+
+        <!--CREATE REVIEW BLOCK-->
+        <div id="pg2-1" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>CREATE REVIEW</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -335,7 +348,7 @@
         </div>
 
         <!-- VIEW REVIEW BLOCK-->
-        <div id="pg2-1" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW REVIEWS</b></h1>
           <div class="tempBox">
             <!-- <h1>PAPERS HERE</h1> -->
@@ -360,7 +373,7 @@
         </div>
 
         <!-- UPDATE REVIEW BLOCK-->
-        <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg2-3" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE REVIEW</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -392,7 +405,7 @@
         </div>
 
         <!-- DELETE REVIEW BLOCK-->
-        <div id="pg2-3" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg2-4" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>DELETE REVIEW</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -410,7 +423,7 @@
           </div>
         </div>
         <!--SEARCH REVIEW BLOCK-->
-        <div id="pg2-4" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg2-5" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH REVIEWS</b></h1>
           <div class="tempBox">
             <!-- <h1>PAPERS HERE</h1> -->
@@ -439,7 +452,7 @@
         </div>
 
         <!--VIEW OTHER REVIEWS BLOCK-->
-        <div id="pg2-5" class="w3-light-grey" style="display:none; text-align:center">
+        <div id="pg2-6" class="w3-light-grey" style="display:none; text-align:center">
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW OTHER REVIEWS</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
@@ -718,11 +731,11 @@
           });
       };
 
-      document
-      .getElementById("updatebid")
-      .addEventListener("click", function updateBid () {
-        ChangeEffect2("updatebid");
-      });
+      // document
+      // .getElementById("updatebid")
+      // .addEventListener("click", function updateBid () {
+      //   ChangeEffect2("updatebid");
+      // });
 
     document
       .getElementById("deletebid")
@@ -780,6 +793,7 @@
 
     function ChangeEffect3(func) {
       const navInfo = [
+        "viewallocatedpapers",
         "createreview",
         "viewreview",
         "updatereview",
@@ -799,6 +813,13 @@
         document.getElementById(`pg2-${e}`).style.display = "none";
       }
     }
+
+
+    document
+      .getElementById("viewallocatedpapers")
+      .addEventListener("click", function createReview () {
+        ChangeEffect3("viewallocatedpapers");
+      });
 
     document
       .getElementById("createreview")
