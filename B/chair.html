@@ -261,7 +261,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ACCEPTED/REJECTED PAPERS</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/">
+            <form method="post" action="/B/viewAcceptPaper">
+              <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
+              <select class="selectSpecial" style="width:50%" name="status" id="status" required="">
+                <option value="" selected disabled hidden></option>
+                <option value="accept">Accept</option>
+                <option value="reject">Reject</option>
+              </select>
+              <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
               <button class="buttonSpecial" type="submit">View</button>
             </form>
         </div>
@@ -338,8 +345,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div id="pg3-2" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ACCEPTED/REJECTED PAPERS</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/">
-              <input type="email" name="userid" required="">
+            <form method="post" action="/B/viewAcceptPaper">
               <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
               <button class="buttonSpecial" type="submit">View</button>
             </form>
