@@ -32,18 +32,18 @@ const pool = mysql.createPool({
 //   });
 // });
 
-// var uId;
+var uId;
 
-// pool.getConnection(function (err) {
-//   if (err) throw err;
-//   pool.query("SELECT * FROM session", function (err, result, fields) {
-//     if (err) throw err;
-//     else if (result.length > 0) {
-//       console.log(result[0].loginId);
-//       uId = result[0].loginId;
-//     }
-//   });
-// });
+pool.getConnection(function (err) {
+  if (err) throw err;
+  pool.query("SELECT * FROM session", function (err, result, fields) {
+    if (err) throw err;
+    else if (result.length > 0) {
+      console.log(result[0].loginId);
+      uId = result[0].loginId;
+    }
+  });
+});
 
 // create bid
 const createBid = (req, res, next) => {
