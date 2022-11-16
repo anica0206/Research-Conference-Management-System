@@ -311,10 +311,17 @@
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ALLOCATED PAPERS</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
-              <form method="post" action="/B/">
-                  <button class="buttonSpecial" type="submit">View</button>
-              </form>
+              <button onclick = "ViewAllocatedPaper()" class="buttonSpecial" type="submit">View</button>
           </div>
+          <table id="view paperList" class = "author_table">
+            <tr>
+              <th>ID</th>
+              <th>Topic</th>
+              <th>Contents</th>
+              <th>Author ID</th>
+              <th>Status</th>
+            </tr>
+          </table>
         </div>
 
         <!--CREATE REVIEW BLOCK-->
@@ -1115,7 +1122,36 @@ var modal = document.getElementById("myModal");
       modal.style.display = "none";
     }
 
+      function ViewAllocatedPaper()
+      {
+        fetch("/B/viewAllocatedPaper", {  
+            method : "POST"          
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Paper not found");
+            else
+            {
+              var tbl = document.getElementById("view paperList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                  tbl.deleteRow(i);
+              }
+              const infoList = ["ID", "topic", "paper", "aId", "status"];
 
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+      }
 </script>
 </body>
 

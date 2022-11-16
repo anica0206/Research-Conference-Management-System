@@ -44,6 +44,8 @@ router.post("/B/searchBid", reviewController.searchBid);
 
 //reviewer - review
 
+router.post("/B/viewAllocatedPaper", reviewController.viewAllocatedPaper);
+
 router.post("/B/createReview", reviewController.createReviewRate);
 
 router.post("/B/viewMyReview", reviewController.viewMyReview);
