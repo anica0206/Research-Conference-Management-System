@@ -261,7 +261,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ACCEPTED/REJECTED PAPERS</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/">
+            <form method="post" action="/B/viewAcceptPaper">
+              <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
+              <select class="selectSpecial" style="width:50%" name="status" id="status" required="">
+                <option value="" selected disabled hidden></option>
+                <option value="accept">Accept</option>
+                <option value="reject">Reject</option>
+              </select>
+              <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
               <button class="buttonSpecial" type="submit">View</button>
             </form>
         </div>
@@ -307,7 +314,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div id="pg3-0" class="w3-light-grey" style="text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BID</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/viewBidList">
+            <form method="post" action="/B/viewBid">
               <button class="buttonSpecial" type="submit">View</button>
             </form>
         </div>
@@ -315,21 +322,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
       <!-- ACCEPT REJECT PAPERS BLOCK-->
       <div id="pg3-1" class="w3-light-grey" style="display:none; text-align:center">
-        <h1 style="margin-top:0; margin-bottom:0"><b>ACCEPT/REJECT PAPER</b></h1>
+        <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
         <div class="tempBox">
-          <form method="post" action="/B/updatePaperStatus">
+          <form method="post" action="/B/searchBids">
             <br>
-            <input type="number" name="id" required="">
-            <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
             <input type="email" name="userid" required="">
             <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
-            <label for="" class="selectLabel" style="font-family:Montserrat;">Status: </label>
-            <select class="selectSpecial" style="width:50%" name="status" id="status" required="">
-              <option value="" selected disabled hidden></option>
-              <option value="accept">Accept</option>
-              <option value="reject">Reject</option>
-            </select>
-            <button class="buttonSpecial" type="submit">Allocate</button>
+            <button class="buttonSpecial" type="submit">Search</button>
           </form>
         </div>
       </div>
@@ -338,8 +337,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div id="pg3-2" class="w3-light-grey" style="display:none; text-align:center">
         <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ACCEPTED/REJECTED PAPERS</b></h1>
         <div class="tempBox">
-            <form method="post" action="/B/">
-              <input type="email" name="userid" required="">
+            <form method="post" action="/B/viewAcceptPaper">
               <label alt="User's Email" placeholder="User's Email" style="font-family:Montserrat"></label>
               <button class="buttonSpecial" type="submit">View</button>
             </form>
@@ -523,20 +521,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         document
         .getElementById("viewbid")
         .addEventListener("click", function () {
-            ChangeEffect3("viewbid");
+            ChangeEffect4("viewbid");
         });
       
 
         document
         .getElementById("searchbid")
         .addEventListener("click", function () {
-            ChangeEffect3("searchbid");
+            ChangeEffect4("searchbid");
         });
 
         document
         .getElementById("deletebid")
         .addEventListener("click", function () {
-            ChangeEffect3("deletebid");
+            ChangeEffect4("deletebid");
         });
 
 // Used to toggle the menu on small screens when clicking on the menu button

@@ -7,6 +7,7 @@ const loginController = require("../C/login.controller.js");
 const userController = require("../C/user.controller.js");
 const reviewController = require("../C/review.controller");
 const authorController = require("../C/author.controller");
+const chairController = require("../C/chair.controller")
 // 3.
 //login
 router.post("/B/login", loginController.login);
@@ -42,6 +43,7 @@ router.post("/B/deleteBid", reviewController.deleteBid);
 router.post("/B/searchBid", reviewController.searchBid);
 
 //reviewer - review
+
 router.post("/B/createReview", reviewController.createReviewRate);
 
 router.post("/B/viewMyReview", reviewController.viewMyReview);
@@ -53,6 +55,8 @@ router.post("/B/searchMyReview", reviewController.searchMyReview);
 router.post("/B/deleteMyReview", reviewController.deleteMyReview);
 
 router.post("/B/viewOtherReview", reviewController.viewOtherReview);
+
+//reviewer - comments
 
 router.post("/B/CreateComment", reviewController.createComment);
 
@@ -66,11 +70,13 @@ router.post("/B/searchMyComment", reviewController.searchMyComment);
 
 router.post("/B/updateMaxPaperNum", reviewController.updateMaxPaperNum);
 
-router.post("/B/authorCreatePaper", authorController.createPaper);
+//author
 
-router.post("/B/authorViewPaper", authorController.authorViewPaper);
+router.post("/B/createPaper", authorController.createPaper);
 
-router.post("/B/authorUpdateMyPaper", authorController.authorUpdatePaper);
+router.get("/B/viewPaper", authorController.viewPaper);
+
+router.post("/B/authorUpdateMyPaper", authorController.updatePaper);
 
 router.post("/B/deleteMyPaper", authorController.deleteMyPaper);
 
@@ -79,6 +85,20 @@ router.post("/B/searchMyPaper", authorController.searchMyPaper);
 router.post("/B/viewReviewOnPaper", authorController.viewReviewOnPaper);
 
 router.post("/B/rateOnReview", authorController.rateOnReview);
+
+//chair
+router.post('/B/viewBid', chairController.viewBid);
+
+router.post('/B/allocateBidAuto', chairController.allocateBidAuto);
+
+router.post('/B/allocateBidManual', chairController.allocateBidAuto);
+
+router.post('/B/viewReviewRating', chairController.viewReviewRating);
+
+router.post('/B/updatePaperStatus', chairController.updatePaperStatus);
+
+router.post('/B/viewPaperList', chairController.viewPaperList);
+
 
 // 4.
 module.exports = router; // export to use in server.js

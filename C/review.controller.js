@@ -32,7 +32,7 @@ const pool = mysql.createPool({
 //   });
 // });
 
-var uId;
+// var uId;
 
 // pool.getConnection(function (err) {
 //   if (err) throw err;
