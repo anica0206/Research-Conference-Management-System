@@ -87,20 +87,20 @@ router.post("/B/viewReviewOnPaper", authorController.viewReviewOnPaper);
 router.post("/B/rateOnReview", authorController.rateOnReview);
 
 //chair
-router.post('/B/viewBid', chairController.viewBid);
+router.post("/B/chairViewBid", chairController.viewBid);
 
-router.post('/B/allocateBidAuto', chairController.allocateBidAuto);
+router.post("/B/chairSearchBid", chairController.searchBids);
 
-router.post('/B/allocateBidManual', chairController.allocateBidAuto);
+router.post("/B/allocateBidAuto", chairController.allocateBidAuto);
 
-router.post('/B/viewReviewRating', chairController.viewReviewRating);
+router.post("/B/allocateBidManual", chairController.allocateBidAuto);
 
-router.post('/B/updatePaperStatus', chairController.updatePaperStatus);
+router.post("/B/viewReviewRating", chairController.viewReviewRating);
 
-router.post('/B/viewPaperList', chairController.viewPaperList);
+router.post("/B/updatePaperStatus", chairController.updatePaperStatus);
 
-router.post('/B/viewAcceptPaper', chairController.viewAcceptPaper);
+router.post("/B/viewAcceptPaper", chairController.viewAcceptPaper);
 
-router.post('/B/searchBids', chairController.searchBids);
+router.post("/B/searchBids", chairController.searchBids);
 // 4.
 module.exports = router; // export to use in server.js
