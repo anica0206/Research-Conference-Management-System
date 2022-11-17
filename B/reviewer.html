@@ -172,7 +172,8 @@
           <a id="viewbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
           <!-- <a id="updatebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Bid</a> -->
           <a id="deletebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Bid</a>
-          <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>        
+          <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>
+          <a id="viewpaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">View Paper</a>        
         </div>
       </div>  
       <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
@@ -267,8 +268,31 @@
               </table>
             </div>
           </div>
-      </div>
-    </div>
+        </div>
+
+        <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
+          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW PAPERS</b></h1>
+          <div class="tempBox">
+              <div class="update">
+                  <button onclick="ViewPaper()" class="buttonSpecial" type="submit">View</button>
+              </div>
+          </div>
+          <div class="">
+            <div style="text-align:center">
+              <table class = "author_table" id="view allPaperList">
+                <tr>
+                  <th>Paper ID</th>
+                  <th>Paper ID</th>
+                  <th>Reviewer ID</th>
+                  <th>Status</th>
+                </tr>
+                <tbody id="bidList">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+  </div>
 
     <!-- MANAGE REVIEWS BLOCKS ##################################################################-->
     <div id="pg2" style="display: none">
@@ -660,9 +684,9 @@
       const navInfo = [
         "createbid",
         "viewbid",
-        // "updatebid",
         "deletebid",
-        "searchbid"
+        "searchbid",
+        "viewpaper"
       ];
       document.getElementById(func).classList.add("w3-white");
 
@@ -721,11 +745,44 @@
           });
       };
 
-      // document
-      // .getElementById("updatebid")
-      // .addEventListener("click", function updateBid () {
-      //   ChangeEffect2("updatebid");
-      // });
+      document
+      .getElementById("viewpaper")
+      .addEventListener("click", function updateBid () {
+        ChangeEffect2("viewpaper");
+      });
+
+      function ViewPaper()
+      {
+        fetch("/B/reviewerViewPaper", {  
+            method : "POST"          
+        })
+          .then(response =>{ 
+                  return response.json();                               
+              })
+          .then (data =>
+          {   
+            if(data == "")
+                alert("Bid not found");
+            else
+            {
+              var tbl = document.getElementById("view allPaperList"); // Get the table
+              for(var i = 1;i<tbl.rows.length;){
+                        tbl.deleteRow(i);
+              }
+
+              const infoList = ["ID", "pId", "uId", "status"];
+
+              for (const element of data) {
+                  const row = tbl.insertRow();
+                  for (const e of infoList) {
+                      const cell = row.insertCell();
+                      cell.innerText = element[e];
+                  }
+              }
+            }
+          });
+      }
+
 
     document
       .getElementById("deletebid")
