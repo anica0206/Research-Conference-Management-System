@@ -315,6 +315,9 @@
           <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ALLOCATED PAPERS</b></h1>
           <div class="tempBox">
           <!-- <h1>PAPERS HERE</h1> -->
+                <br>
+                <input id="paperId" type="number" name="searchBidid" required="">
+                <label alt="Bid's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
               <button onclick = "ViewAllocatedPaper()" class="buttonSpecial" type="submit">View</button>
           </div>
           <table id="view paperList" class = "author_table">
@@ -1162,8 +1165,17 @@ var modal = document.getElementById("myModal");
 
       function ViewAllocatedPaper()
       {
+
+        const pId = document.getElementById("paperId").value;
+
         fetch("/B/viewAllocatedPaper", {  
-            method : "POST"          
+            method : "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pId: pId
+            }),            
         })
           .then(response =>{ 
                   return response.json();                               
