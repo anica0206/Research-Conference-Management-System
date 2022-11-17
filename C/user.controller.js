@@ -32,29 +32,77 @@ const createUser = (req, res, next) => {
 
     console.log("Database connection success");
 
-    const exec = conn.query(
-      "insert into users (name,userId,password,role) values(?,?,md5(?),?)",
-      [paramName, paramUid, paramPassword, paramRole],
-      (err, result) => {
-        conn.release();
-        console.log("sql worked" + exec.sql);
-
+    if (paramRole == "reviewer") {
+      pool.getConnection((err, conn) => {
         if (err) {
-          console.log("sql error happen");
-          res.send(
-            "<script>alert('Create user account failed');location.href='/B/admin.html';</script>"
-          );
+          conn.release();
+          console.log("Mysql getConnetion error.");
+          return;
         }
 
-        if (result) {
-          console.log("inserted success");
-          // res.redirect("/B/admin.html");
-          res.send(
-            "<script>alert('User account created!');location.href='/B/admin.html';</script>"
-          );
+        console.log("Database connection success");
+
+        const exec = conn.query(
+          "insert into users (name,userId,password,role,maxPaper) values(?,?,md5(?),?,?)",
+          [paramName, paramUid, paramPassword, paramRole, 5],
+          (err, result) => {
+            conn.release();
+            console.log("sql worked" + exec.sql);
+
+            if (err) {
+              console.log("sql error happen");
+              res.send(
+                "<script>alert('Create user account failed');location.href='/B/admin.html';</script>"
+              );
+            }
+
+            if (result) {
+              console.log("inserted success");
+              // res.redirect("/B/admin.html");
+              res.send(
+                "<script>alert('User account created!');location.href='/B/admin.html';</script>"
+              );
+            }
+          }
+        );
+      });
+    }
+
+    if (paramRole != "reviewer") {
+      pool.getConnection((err, conn) => {
+        if (err) {
+          conn.release();
+          console.log("Mysql getConnetion error.");
+          return;
         }
-      }
-    );
+
+        console.log("Database connection success");
+
+        const exec = conn.query(
+          "insert into users (name,userId,password,role) values(?,?,md5(?),?)",
+          [paramName, paramUid, paramPassword, paramRole],
+          (err, result) => {
+            conn.release();
+            console.log("sql worked" + exec.sql);
+
+            if (err) {
+              console.log("sql error happen");
+              res.send(
+                "<script>alert('Create user account failed');location.href='/B/admin.html';</script>"
+              );
+            }
+
+            if (result) {
+              console.log("inserted success");
+              // res.redirect("/B/admin.html");
+              res.send(
+                "<script>alert('User account created!');location.href='/B/admin.html';</script>"
+              );
+            }
+          }
+        );
+      });
+    }
   });
 };
 
