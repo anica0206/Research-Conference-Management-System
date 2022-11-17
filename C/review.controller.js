@@ -19,32 +19,6 @@ const pool = mysql.createPool({
 //   database: "db",
 // });
 
-// var uId;
-
-// con.connect(function (err) {
-//   if (err) throw err;
-//   con.query("SELECT * FROM session", function (err, result, fields) {
-//     if (err) throw err;
-//     else if (result.length > 0) {
-//       console.log(result[0].loginId);
-//       uId = result[0].loginId;
-//     }
-//   });
-// });
-
-var uId;
-
-pool.getConnection(function (err) {
-  if (err) throw err;
-  pool.query("SELECT * FROM session", function (err, result, fields) {
-    if (err) throw err;
-    else if (result.length > 0) {
-      console.log(result[0].loginId);
-      uId = result[0].loginId;
-    }
-  });
-});
-
 const viewAllocatedPaper = (req, res, next) => {
   console.log("/B/viewAllocatedPaper called" + req);
 
@@ -97,6 +71,11 @@ const createBid = (req, res, next) => {
     }
 
     console.log("Database connection success");
+
+    conn.query("SELECT * FROM session", (err, result) => {
+      console.log(result[0].loginId);
+      uId = result[0].loginId;
+    });
 
     const exec = conn.query(
       "select * from users where userId = ? and maxPaper > 0",
@@ -216,7 +195,7 @@ const createBid = (req, res, next) => {
         } else {
           console.log("not reviewer");
           res.send(
-            "<script>alert('no user found');location.href='/B/login.html';</script>"
+            "<script>alert('no user found');location.href='/B/reviewer.html';</script>"
           );
         }
       }
@@ -235,6 +214,8 @@ const viewBid = (req, res, next) => {
     }
 
     console.log("Database connection success");
+
+    // let uId = getUserID();
 
     const exec = conn.query(
       "select * from bid, users where uId = ?",
@@ -498,7 +479,7 @@ const searchBid = (req, res, next) => {
 const createReviewRate = (req, res, next) => {
   console.log("/B/createReview called" + req);
 
-  const paramUid = req.body.userid;
+  const paramUid = uId;
   const paramPid = req.body.paperid;
   const paramRating = req.body.rating;
   const paramContent = req.body.content;

@@ -12,25 +12,22 @@ const pool = mysql.createPool({
   debug: false,
 });
 
-var uId;
-
-pool.getConnection(function (err) {
-  if (err) throw err;
-  pool.query("SELECT * FROM session", function (err, result, fields) {
-    if (err) throw err;
-    else if (result.length > 0) {
-      console.log(result[0].loginId);
-      uId = result[0].loginId;
-    }
-  });
-});
+// var uId = pool.getConnection(function (err) {
+//   if (err) throw err;
+//   pool.query("SELECT * FROM session", function (err, result, fields) {
+//     if (err) throw err;
+//     else if (result.length > 0) {
+//       console.log(result[0].loginId);
+//       uId = result[0].loginId;
+//     }
+//   });
+// });
 
 // create paper
 const createPaper = (req, res) => {
   console.log("/B/createPaper" + req);
 
   const paramTopic = req.body.topic;
-  const paramUid = uId;
   const paramPaper = req.body.paper;
 
   pool.getConnection((err, conn) => {
@@ -43,8 +40,8 @@ const createPaper = (req, res) => {
     console.log("Database connection success");
 
     const exec = conn.query(
-      "insert into paper (topic,aId,paper) values(?,?,?)",
-      [paramTopic, paramUid, paramPaper],
+      "select * from session where not loginId = ?",
+      ["null"],
       (err, result) => {
         conn.release();
         console.log("sql worked" + exec.sql);
@@ -53,19 +50,46 @@ const createPaper = (req, res) => {
           console.log("sql error happen");
           console.dir(err);
           return;
-        }
-
-        if (result) {
-          console.dir(result);
-          console.log("paper add success");
-          res.send(
-            "<script>alert('Paper added successfully');location.href='/B/author.html';</script>"
-          );
         } else {
-          console.log("create failed");
-          res.send(
-            "<script>alert('Paper create failed');location.href='/B/author.html';</script>"
-          );
+          var paramUid = result[0].loginId;
+
+          pool.getConnection((err, conn) => {
+            if (err) {
+              conn.release();
+              console.log("Mysql getConnetion error.");
+              return;
+            }
+
+            console.log("Database connection success");
+
+            const exec = conn.query(
+              "insert into paper (topic,aId,paper) values(?,?,?)",
+              [paramTopic, paramUid, paramPaper],
+              (err, result) => {
+                conn.release();
+                console.log("sql worked" + exec.sql);
+
+                if (err) {
+                  console.log("sql error happen");
+                  console.dir(err);
+                  return;
+                }
+
+                if (result) {
+                  console.dir(result);
+                  console.log("paper add success");
+                  res.send(
+                    "<script>alert('Paper added successfully');location.href='/B/author.html';</script>"
+                  );
+                } else {
+                  console.log("create failed");
+                  res.send(
+                    "<script>alert('Paper create failed');location.href='/B/author.html';</script>"
+                  );
+                }
+              }
+            );
+          });
         }
       }
     );
@@ -75,8 +99,6 @@ const createPaper = (req, res) => {
 // read(view) my paper
 const viewPaper = (req, res) => {
   console.log("/B/viewPaper called" + req);
-
-  const paramUid = uId;
 
   pool.getConnection((err, conn) => {
     if (err) {
@@ -88,8 +110,8 @@ const viewPaper = (req, res) => {
     console.log("Database connection success");
 
     const exec = conn.query(
-      "select * from paper where aId = ?",
-      [paramUid],
+      "select * from session where not loginId = ?",
+      ["null"],
       (err, result) => {
         conn.release();
         console.log("sql worked" + exec.sql);
@@ -98,15 +120,42 @@ const viewPaper = (req, res) => {
           console.log("sql error happen");
           console.dir(err);
           return;
-        }
-
-        if (result.length > 0) {
-          console.dir(result);
-          console.log("paper found success");
-          res.json(result);
         } else {
-          console.log("paper not found");
-          res.json("");
+          var paramUid = result[0].loginId;
+
+          pool.getConnection((err, conn) => {
+            if (err) {
+              conn.release();
+              console.log("Mysql getConnetion error.");
+              return;
+            }
+
+            console.log("Database connection success");
+
+            const exec = conn.query(
+              "select * from paper where aId = ?",
+              [paramUid],
+              (err, result) => {
+                conn.release();
+                console.log("sql worked" + exec.sql);
+
+                if (err) {
+                  console.log("sql error happen");
+                  console.dir(err);
+                  return;
+                }
+
+                if (result.length > 0) {
+                  console.dir(result);
+                  console.log("paper found success");
+                  res.json(result);
+                } else {
+                  console.log("paper not found");
+                  res.json("");
+                }
+              }
+            );
+          });
         }
       }
     );
@@ -119,7 +168,6 @@ const updatePaper = (req, res) => {
 
   const paramPid = req.body.paperid;
   const paramPaper = req.body.paper;
-  const paramUid = uId;
 
   pool.getConnection((err, conn) => {
     if (err) {
@@ -131,8 +179,8 @@ const updatePaper = (req, res) => {
     console.log("Database connection success");
 
     const exec = conn.query(
-      "select * from paper where ID = ? and aId = ?",
-      [paramPid, paramUid],
+      "select * from session where not loginId = ?",
+      ["null"],
       (err, result) => {
         conn.release();
         console.log("sql worked" + exec.sql);
@@ -141,197 +189,8 @@ const updatePaper = (req, res) => {
           console.log("sql error happen");
           console.dir(err);
           return;
-        }
-
-        if (result.length > 0) {
-          console.dir(result);
-          console.log("Paper found");
-
-          // update comment start
-          pool.getConnection((err, conn) => {
-            if (err) {
-              conn.release();
-              console.log("Mysql getConnetion error.");
-              return;
-            }
-            const exec = conn.query(
-              "update paper set paper = ? where ID =?",
-              [paramPaper, paramPid],
-              (err, result) => {
-                conn.release();
-                console.log("sql worked" + exec.sql);
-
-                if (err) {
-                  console.log("sql error happen");
-                  console.dir(err);
-                } else {
-                  console.dir(result);
-                  console.log("update success");
-                  res.send(
-                    "<script>alert('Paper update successed');location.href='/B/author.html';</script>"
-                  );
-                }
-              }
-            );
-          });
         } else {
-          console.log("comment not found");
-          res.send(
-            "<script>alert('Paper not found');location.href='/B/author.html';</script>"
-          );
-        }
-      }
-    );
-  });
-};
-
-// delete my paper
-const deleteMyPaper = (req, res) => {
-  console.log("/B/deleteMyPaper called" + req);
-
-  const paramPid = req.body.paperid;
-  const paramUid = uId;
-
-  pool.getConnection((err, conn) => {
-    if (err) {
-      conn.release();
-      console.log("Mysql getConnetion error.");
-      return;
-    }
-
-    console.log("Database connection success");
-
-    const exec = conn.query(
-      "select * from paper where ID = ? and aId = ?",
-      [paramPid, paramUid],
-      (err, result) => {
-        conn.release();
-        console.log("sql worked" + exec.sql);
-
-        if (err) {
-          console.log("sql error happen");
-          console.dir(err);
-          return;
-        }
-
-        if (result.length > 0) {
-          console.dir(result);
-          console.log("paper found success");
-
-          // bid delete start
-          pool.getConnection((err, conn) => {
-            if (err) {
-              conn.release();
-              console.log("Mysql getConnetion error.");
-              return;
-            }
-            const exec = conn.query(
-              "delete from paper where ID = ? and aId = ?",
-              [paramPid, paramUid],
-              (err, result) => {
-                conn.release();
-                console.log("sql worked" + exec.sql);
-
-                if (err) {
-                  console.log("sql error happen");
-                  console.dir(err);
-                } else {
-                  console.dir(result);
-                  console.log("Paper delete success");
-                  res.send(
-                    "<script>alert('Paper deleted');location.href='/B/author.html';</script>"
-                  );
-                }
-              }
-            );
-          });
-        } else {
-          console.log("paper delete failed");
-          res.send(
-            "<script>alert('Wrong paper id');location.href='/B/author.html';</script>"
-          );
-        }
-      }
-    );
-  });
-};
-
-// search my paper
-const searchMyPaper = (req, res) => {
-  console.log("/B/searchMyPaper called" + req);
-
-  const paramUid = uId;
-  const paramPid = req.body.pId;
-
-  pool.getConnection((err, conn) => {
-    if (err) {
-      conn.release();
-      console.log("Mysql getConnetion error.");
-      return;
-    }
-
-    console.log("Database connection success");
-
-    const exec = conn.query(
-      "select * from paper where ID = ? and aId = ?",
-      [paramPid, paramUid],
-      (err, rows) => {
-        conn.release();
-        console.log("sql worked" + exec.sql);
-
-        if (err) {
-          console.log("sql error happen");
-          console.dir(err);
-          return;
-        }
-
-        if (rows.length > 0) {
-          console.dir(rows);
-          console.log("paper found success");
-          res.json(rows);
-        } else {
-          console.log("paper not found");
-          res.json("");
-        }
-      }
-    );
-  });
-};
-
-// view review on paper (author)
-const viewReviewOnPaper = (req, res) => {
-  console.log("/B/viewReviewOnPaper" + req);
-
-  const paramUid = uId;
-  const paramPid = req.body.pId;
-
-  pool.getConnection((err, conn) => {
-    if (err) {
-      conn.release();
-      console.log("Mysql getConnetion error.");
-      return;
-    }
-
-    console.log("Database connection success");
-
-    const exec = conn.query(
-      "select * from paper where ID = ? and aId = ? and status = ?",
-      [paramPid, paramUid, "accepted"],
-      (err, result) => {
-        conn.release();
-        console.log("sql worked" + exec.sql);
-
-        if (err) {
-          console.log("sql error happen");
-          console.dir(err);
-          return;
-        }
-
-        if (result.length > 0) {
-          console.dir(result);
-          console.log("paper found success");
-
-          //view review on paper
+          var paramUid = result[0].loginId;
 
           pool.getConnection((err, conn) => {
             if (err) {
@@ -343,8 +202,202 @@ const viewReviewOnPaper = (req, res) => {
             console.log("Database connection success");
 
             const exec = conn.query(
-              "select * from review where pId = ?",
-              [paramPid],
+              "select * from paper where ID = ? and aId = ?",
+              [paramPid, paramUid],
+              (err, result) => {
+                conn.release();
+                console.log("sql worked" + exec.sql);
+
+                if (err) {
+                  console.log("sql error happen");
+                  console.dir(err);
+                  return;
+                }
+
+                if (result.length > 0) {
+                  console.dir(result);
+                  console.log("Paper found");
+
+                  // update comment start
+                  pool.getConnection((err, conn) => {
+                    if (err) {
+                      conn.release();
+                      console.log("Mysql getConnetion error.");
+                      return;
+                    }
+                    const exec = conn.query(
+                      "update paper set paper = ? where ID =?",
+                      [paramPaper, paramPid],
+                      (err, result) => {
+                        conn.release();
+                        console.log("sql worked" + exec.sql);
+
+                        if (err) {
+                          console.log("sql error happen");
+                          console.dir(err);
+                        } else {
+                          console.dir(result);
+                          console.log("update success");
+                          res.send(
+                            "<script>alert('Paper update successed');location.href='/B/author.html';</script>"
+                          );
+                        }
+                      }
+                    );
+                  });
+                } else {
+                  console.log("comment not found");
+                  res.send(
+                    "<script>alert('Paper not found');location.href='/B/author.html';</script>"
+                  );
+                }
+              }
+            );
+          });
+        }
+      }
+    );
+  });
+};
+
+// delete my paper
+const deleteMyPaper = (req, res) => {
+  console.log("/B/deleteMyPaper called" + req);
+
+  const paramPid = req.body.paperid;
+
+  pool.getConnection((err, conn) => {
+    if (err) {
+      conn.release();
+      console.log("Mysql getConnetion error.");
+      return;
+    }
+
+    console.log("Database connection success");
+
+    const exec = conn.query(
+      "select * from session where not loginId = ?",
+      ["null"],
+      (err, result) => {
+        conn.release();
+        console.log("sql worked" + exec.sql);
+
+        if (err) {
+          console.log("sql error happen");
+          console.dir(err);
+          return;
+        } else {
+          var paramUid = result[0].loginId;
+
+          pool.getConnection((err, conn) => {
+            if (err) {
+              conn.release();
+              console.log("Mysql getConnetion error.");
+              return;
+            }
+
+            console.log("Database connection success");
+
+            const exec = conn.query(
+              "select * from paper where ID = ? and aId = ?",
+              [paramPid, paramUid],
+              (err, result) => {
+                conn.release();
+                console.log("sql worked" + exec.sql);
+
+                if (err) {
+                  console.log("sql error happen");
+                  console.dir(err);
+                  return;
+                }
+
+                if (result.length > 0) {
+                  console.dir(result);
+                  console.log("paper found success");
+
+                  // bid delete start
+                  pool.getConnection((err, conn) => {
+                    if (err) {
+                      conn.release();
+                      console.log("Mysql getConnetion error.");
+                      return;
+                    }
+                    const exec = conn.query(
+                      "delete from paper where ID = ? and aId = ?",
+                      [paramPid, paramUid],
+                      (err, result) => {
+                        conn.release();
+                        console.log("sql worked" + exec.sql);
+
+                        if (err) {
+                          console.log("sql error happen");
+                          console.dir(err);
+                        } else {
+                          console.dir(result);
+                          console.log("Paper delete success");
+                          res.send(
+                            "<script>alert('Paper deleted');location.href='/B/author.html';</script>"
+                          );
+                        }
+                      }
+                    );
+                  });
+                } else {
+                  console.log("paper delete failed");
+                  res.send(
+                    "<script>alert('Wrong paper id');location.href='/B/author.html';</script>"
+                  );
+                }
+              }
+            );
+          });
+        }
+      }
+    );
+  });
+};
+
+// search my paper
+const searchMyPaper = (req, res) => {
+  console.log("/B/searchMyPaper called" + req);
+
+  const paramPid = req.body.pId;
+
+  pool.getConnection((err, conn) => {
+    if (err) {
+      conn.release();
+      console.log("Mysql getConnetion error.");
+      return;
+    }
+
+    console.log("Database connection success");
+
+    const exec = conn.query(
+      "select * from session where not loginId = ?",
+      ["null"],
+      (err, result) => {
+        conn.release();
+        console.log("sql worked" + exec.sql);
+
+        if (err) {
+          console.log("sql error happen");
+          console.dir(err);
+          return;
+        } else {
+          var paramUid = result[0].loginId;
+
+          pool.getConnection((err, conn) => {
+            if (err) {
+              conn.release();
+              console.log("Mysql getConnetion error.");
+              return;
+            }
+
+            console.log("Database connection success");
+
+            const exec = conn.query(
+              "select * from paper where ID = ? and aId = ?",
+              [paramPid, paramUid],
               (err, rows) => {
                 conn.release();
                 console.log("sql worked" + exec.sql);
@@ -357,19 +410,119 @@ const viewReviewOnPaper = (req, res) => {
 
                 if (rows.length > 0) {
                   console.dir(rows);
-                  console.log("review on paper search success");
-
+                  console.log("paper found success");
                   res.json(rows);
                 } else {
-                  console.log("review search faile");
+                  console.log("paper not found");
                   res.json("");
                 }
               }
             );
           });
+        }
+      }
+    );
+  });
+};
+
+// view review on paper (author)
+const viewReviewOnPaper = (req, res) => {
+  console.log("/B/viewReviewOnPaper" + req);
+
+  const paramPid = req.body.pId;
+
+  pool.getConnection((err, conn) => {
+    if (err) {
+      conn.release();
+      console.log("Mysql getConnetion error.");
+      return;
+    }
+
+    console.log("Database connection success");
+
+    const exec = conn.query(
+      "select * from session where not loginId = ?",
+      ["null"],
+      (err, result) => {
+        conn.release();
+        console.log("sql worked" + exec.sql);
+
+        if (err) {
+          console.log("sql error happen");
+          console.dir(err);
+          return;
         } else {
-          console.log("paper not found");
-          res.json("");
+          var paramUid = result[0].loginId;
+
+          pool.getConnection((err, conn) => {
+            if (err) {
+              conn.release();
+              console.log("Mysql getConnetion error.");
+              return;
+            }
+
+            console.log("Database connection success");
+
+            const exec = conn.query(
+              "select * from paper where ID = ? and aId = ? and status = ?",
+              [paramPid, paramUid, "Accept"],
+              (err, result) => {
+                conn.release();
+                console.log("sql worked" + exec.sql);
+
+                if (err) {
+                  console.log("sql error happen");
+                  console.dir(err);
+                  return;
+                }
+
+                if (result.length > 0) {
+                  console.dir(result);
+                  console.log("paper found success");
+
+                  //view review on paper
+
+                  pool.getConnection((err, conn) => {
+                    if (err) {
+                      conn.release();
+                      console.log("Mysql getConnetion error.");
+                      return;
+                    }
+
+                    console.log("Database connection success");
+
+                    const exec = conn.query(
+                      "select * from review where pId = ?",
+                      [paramPid],
+                      (err, rows) => {
+                        conn.release();
+                        console.log("sql worked" + exec.sql);
+
+                        if (err) {
+                          console.log("sql error happen");
+                          console.dir(err);
+                          return;
+                        }
+
+                        if (rows.length > 0) {
+                          console.dir(rows);
+                          console.log("review on paper search success");
+
+                          res.json(rows);
+                        } else {
+                          console.log("review search faile");
+                          res.json("");
+                        }
+                      }
+                    );
+                  });
+                } else {
+                  console.log("paper not found");
+                  res.json("");
+                }
+              }
+            );
+          });
         }
       }
     );
