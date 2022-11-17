@@ -32,7 +32,7 @@ router.post("/B/updateUserProfile", userController.updateUserProfile);
 router.post("/B/searchUserProfile", userController.searchUserProfile);
 
 //reviewer - bid
-router.post("/B/reviewerViewPaper", authorController.viewPaper);
+router.post("/B/reviewerViewPaper", reviewController.reviewerViewPaper);
 
 router.post("/B/bidPaper", reviewController.createBid);
 

@@ -282,12 +282,10 @@
               <table class = "author_table" id="view allPaperList">
                 <tr>
                   <th>Paper ID</th>
-                  <th>Paper ID</th>
-                  <th>Reviewer ID</th>
+                  <th>Topic</th>
+                  <th>Author ID</th>
                   <th>Status</th>
                 </tr>
-                <tbody id="bidList">
-                </tbody>
               </table>
             </div>
           </div>
@@ -770,7 +768,7 @@
                         tbl.deleteRow(i);
               }
 
-              const infoList = ["ID", "pId", "uId", "status"];
+              const infoList = ["ID", "topic", "aId", "status"];
 
               for (const element of data) {
                   const row = tbl.insertRow();
