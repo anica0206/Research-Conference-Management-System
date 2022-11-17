@@ -19,31 +19,43 @@ const pool = mysql.createPool({
 //   database: "db",
 // });
 
-// var uId;
+const viewAllocatedPaper = (req, res, next) => {
+  console.log("/B/viewAllocatedPaper called" + req);
 
-// con.connect(function (err) {
-//   if (err) throw err;
-//   con.query("SELECT * FROM session", function (err, result, fields) {
-//     if (err) throw err;
-//     else if (result.length > 0) {
-//       console.log(result[0].loginId);
-//       uId = result[0].loginId;
-//     }
-//   });
-// });
-
-var uId;
-
-pool.getConnection(function (err) {
-  if (err) throw err;
-  pool.query("SELECT * FROM session", function (err, result, fields) {
-    if (err) throw err;
-    else if (result.length > 0) {
-      console.log(result[0].loginId);
-      uId = result[0].loginId;
+  pool.getConnection((err, conn) => {
+    if (err) {
+      conn.release();
+      console.log("Mysql getConnetion error.");
+      return;
     }
+
+    console.log("Database connection success");
+
+    const exec = conn.query(
+      "select * from paper where status = ?",
+      ["Accept"],
+      (err, result) => {
+        conn.release();
+        console.log("sql worked" + exec.sql);
+
+        if (err) {
+          console.log("sql error happen");
+          console.dir(err);
+          return;
+        }
+
+        if (result.length > 0) {
+          console.dir(result);
+          console.log("paper found success");
+          res.json(result);
+        } else {
+          console.log("paper not found");
+          res.json("");
+        }
+      }
+    );
   });
-});
+};
 
 // create bid
 const createBid = (req, res, next) => {
@@ -59,6 +71,11 @@ const createBid = (req, res, next) => {
     }
 
     console.log("Database connection success");
+
+    conn.query("SELECT * FROM session", (err, result) => {
+      console.log(result[0].loginId);
+      uId = result[0].loginId;
+    });
 
     const exec = conn.query(
       "select * from users where userId = ? and maxPaper > 0",
@@ -178,7 +195,7 @@ const createBid = (req, res, next) => {
         } else {
           console.log("not reviewer");
           res.send(
-            "<script>alert('no user found');location.href='/B/login.html';</script>"
+            "<script>alert('no user found');location.href='/B/reviewer.html';</script>"
           );
         }
       }
@@ -197,6 +214,8 @@ const viewBid = (req, res, next) => {
     }
 
     console.log("Database connection success");
+
+    // let uId = getUserID();
 
     const exec = conn.query(
       "select * from bid, users where uId = ?",
@@ -1211,4 +1230,5 @@ module.exports = {
   deleteMyComment,
   searchMyComment,
   updateMaxPaperNum,
+  viewAllocatedPaper,
 };
