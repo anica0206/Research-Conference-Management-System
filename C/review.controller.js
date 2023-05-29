@@ -128,13 +128,13 @@ const viewAllocatedPaper = (req, res, next) => {
                         } else {
                           console.log(
                             "PaperID : " +
-                              rows[0].ID +
-                              " | Topic : " +
-                              rows[0].topic +
-                              " | Author : " +
-                              rows[0].aId +
-                              " | Paper : " +
-                              rows[0].paper
+                            rows[0].ID +
+                            " | Topic : " +
+                            rows[0].topic +
+                            " | Author : " +
+                            rows[0].aId +
+                            " | Paper : " +
+                            rows[0].paper
                           );
                           res.json(rows);
                         }
@@ -714,11 +714,10 @@ const searchBid = (req, res, next) => {
   });
 };
 
-const createReviewRate = (req, res, next) => {
+const createReviewRate = (req, res) => {
   console.log("/B/createReview called" + req);
 
-  //const paramUid = uId;
-  // const paramUid = req.body.userid;
+  //const paramUid = req.body.userid;
   const paramPid = req.body.paperid;
   const paramRating = req.body.rating;
   const paramContent = req.body.content;
@@ -774,20 +773,16 @@ const createReviewRate = (req, res, next) => {
                   console.dir(result);
                   console.log("bid found success");
 
-                  // check if review already exist
-
+                  // add review and rating
                   pool.getConnection((err, conn) => {
                     if (err) {
                       conn.release();
                       console.log("Mysql getConnetion error.");
                       return;
                     }
-
-                    console.log("Database connection success");
-
                     const exec = conn.query(
-                      "select * from review where pId = ? and uId = ?",
-                      [paramPid, paramUid],
+                      "insert into review (uId,pId,rating,content) values(?,?,?,?)",
+                      [paramUid, paramPid, paramRating, paramContent],
                       (err, result) => {
                         conn.release();
                         console.log("sql worked" + exec.sql);
@@ -795,43 +790,67 @@ const createReviewRate = (req, res, next) => {
                         if (err) {
                           console.log("sql error happen");
                           console.dir(err);
-                          return;
-                        }
-
-                        if (result.length == 0) {
-                          console.dir(result);
-                          console.log("bid found success");
-
-                          // add review and rating
+                        } else {
+                          // get user info
                           pool.getConnection((err, conn) => {
                             if (err) {
-                              conn.release();
-                              console.log("Mysql getConnetion error.");
-                              return;
-                            }
-                            const exec = conn.query(
-                              "insert into review (uId,pId,rating,content) values(?,?,?,?)",
-                              [paramUid, paramPid, paramRating, paramContent],
-                              (err, result) => {
-                                conn.release();
-                                console.log("sql worked" + exec.sql);
+                              console.log("sql error happen");
+                              console.dir(err);
+                            } else {
+                              const exec = conn.query(
+                                "select * from users where userId = ? ",
+                                [paramUid],
+                                (err, max) => {
+                                  conn.release();
+                                  console.log("sql worked" + exec.sql);
 
-                                if (err) {
-                                  console.log("sql error happen");
-                                  console.dir(err);
-                                } else {
-                                  console.dir(result);
-                                  console.log("Review and rating add success");
-                                  res.send(
-                                    "<script>alert('Review and rating add success');location.href='/B/reviewer.html';</script>"
-                                  );
+                                  if (err) {
+                                    console.log("sql error happen");
+                                    console.dir(err);
+                                  } else {
+                                    console.log("get user info success");
+
+                                    // update user max paper
+                                    pool.getConnection((err, conn) => {
+                                      if (err) {
+                                        console.log("sql error happen");
+                                        console.dir(err);
+                                      } else {
+                                        const exec = conn.query(
+                                          "update users set maxPaper = ? where userId = ?",
+                                          [
+                                            Number(max[0].maxPaper) + Number(1),
+                                            paramUid,
+                                          ],
+                                          (err, rows) => {
+                                            conn.release();
+                                            console.log(
+                                              "sql worked" + exec.sql
+                                            );
+
+                                            if (err) {
+                                              console.log("sql error happen");
+                                              console.dir(err);
+                                            } else {
+                                              console.log(
+                                                "add maxpaper success"
+                                              );
+                                            }
+                                          }
+                                        );
+                                      }
+                                    });
+                                  }
                                 }
-                              }
-                            );
+                              );
+                            }
                           });
-                        } else {
+
+                          console.dir(result);
+                          console.log("Review and rating add success");
+
                           res.send(
-                            "<script>alert('Review and rating add failed');location.href='/B/reviewer.html';</script>"
+                            "<script>alert('Review and rating add success');location.href='/B/reviewer.html';</script>"
                           );
                         }
                       }
@@ -839,6 +858,7 @@ const createReviewRate = (req, res, next) => {
                   });
                 } else {
                   console.log("inserted faile");
+
                   res.send(
                     "<script>alert('Review and rating add failed');location.href='/B/reviewer.html';</script>"
                   );
@@ -851,6 +871,7 @@ const createReviewRate = (req, res, next) => {
     );
   });
 };
+
 
 const viewMyReview = (req, res, next) => {
   console.log("/B/viewMyReview called" + req);

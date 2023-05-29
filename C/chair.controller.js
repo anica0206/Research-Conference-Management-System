@@ -430,6 +430,7 @@ const searchBids = (req, res) => {
 const allocateBidManual = (req, res) => {
   // check if the user exists
   const paramUid = req.body.userid;
+  const paramBid = req.body.bidid;
   const paramStatus = req.body.status;
 
   pool.getConnection((err, conn) => {
@@ -442,8 +443,8 @@ const allocateBidManual = (req, res) => {
     console.log("Database connection success");
 
     const exec = conn.query(
-      "select * from db.bid where uId = ?",
-      [paramUid],
+      "select * from db.bid where uId = ? and ID = ?",
+      [paramUid, paramBid],
       (err, rows) => {
         console.log("sql worked" + exec.sql);
 
@@ -466,8 +467,8 @@ const allocateBidManual = (req, res) => {
             // update 'accepted' status
             if (paramStatus == "accept") {
               const exec = conn.query(
-                "update db.bid set status = 'Accept' where uId = ?",
-                [paramUid],
+                "update db.bid set status = 'Accept' where uId = ? and ID = ?",
+                [paramUid, paramBid],
                 (err, result) => {
                   console.log("sql worked" + exec.sql);
 
@@ -515,8 +516,8 @@ const allocateBidManual = (req, res) => {
             // update 'rejected' status
             else if (paramStatus == "reject") {
               const exec = conn.query(
-                "update db.bid set status = 'Reject' where uId = ?",
-                [paramUid],
+                "update db.bid set status = 'Reject' where uId = ? and ID = ?",
+                [paramUid, paramBid],
                 (err, result) => {
                   console.log("sql worked" + exec.sql);
 

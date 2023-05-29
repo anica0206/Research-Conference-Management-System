@@ -12,16 +12,7 @@ const pool = mysql.createPool({
   debug: false,
 });
 
-// var uId = pool.getConnection(function (err) {
-//   if (err) throw err;
-//   pool.query("SELECT * FROM session", function (err, result, fields) {
-//     if (err) throw err;
-//     else if (result.length > 0) {
-//       console.log(result[0].loginId);
-//       uId = result[0].loginId;
-//     }
-//   });
-// });
+
 
 // create paper
 const createPaper = (req, res) => {
@@ -464,8 +455,8 @@ const viewReviewOnPaper = (req, res) => {
             console.log("Database connection success");
 
             const exec = conn.query(
-              "select * from paper where ID = ? and aId = ? and status = ?",
-              [paramPid, paramUid, "Accept"],
+              "select * from paper where ID = ? and aId = ? and  not status = ?",
+              [paramPid, paramUid, "Upcomming"],
               (err, result) => {
                 conn.release();
                 console.log("sql worked" + exec.sql);
@@ -547,8 +538,8 @@ const rateOnReview = (req, res) => {
     console.log("Database connection success");
 
     const exec = conn.query(
-      "select * from review where ID = ? and pId = ?",
-      [paramRid, paramPid],
+      "select * from paper where not status = ?",
+      ['Upcomming'],
       (err, result) => {
         conn.release();
         console.log("sql worked" + exec.sql);
@@ -560,19 +551,19 @@ const rateOnReview = (req, res) => {
         }
 
         if (result.length > 0) {
-          console.dir(result);
-          console.log("Review found");
 
-          // update comment start
           pool.getConnection((err, conn) => {
             if (err) {
               conn.release();
               console.log("Mysql getConnetion error.");
               return;
             }
+
+            console.log("Database connection success");
+
             const exec = conn.query(
-              "update review set aRating = ? where ID = ?",
-              [paramRating, paramRid],
+              "select * from review where ID = ? and pId = ?",
+              [paramRid, paramPid],
               (err, result) => {
                 conn.release();
                 console.log("sql worked" + exec.sql);
@@ -580,28 +571,65 @@ const rateOnReview = (req, res) => {
                 if (err) {
                   console.log("sql error happen");
                   console.dir(err);
-                  res.send(
-                    "<script>alert('Wrong paper id');location.href='/B/author.html';</script>"
-                  );
-                } else {
+                  return;
+                }
+
+                if (result.length > 0) {
                   console.dir(result);
-                  console.log("update success");
+                  console.log("Review found");
+
+                  // update comment start
+                  pool.getConnection((err, conn) => {
+                    if (err) {
+                      conn.release();
+                      console.log("Mysql getConnetion error.");
+                      return;
+                    }
+                    const exec = conn.query(
+                      "update review set aRating = ? where ID = ?",
+                      [paramRating, paramRid],
+                      (err, result) => {
+                        conn.release();
+                        console.log("sql worked" + exec.sql);
+
+                        if (err) {
+                          console.log("sql error happen");
+                          console.dir(err);
+                          res.send(
+                            "<script>alert('Wrong paper id');location.href='/B/author.html';</script>"
+                          );
+                        } else {
+                          console.dir(result);
+                          console.log("update success");
+                          res.send(
+                            "<script>alert('Rated');location.href='/B/author.html';</script>"
+                          );
+                        }
+                      }
+                    );
+                  });
+                } else {
+                  console.log("Review not found");
                   res.send(
-                    "<script>alert('Rated');location.href='/B/author.html';</script>"
+                    "<script>alert('Review not found');location.href='/B/author.html';</script>"
                   );
                 }
               }
             );
           });
-        } else {
-          console.log("Review not found");
-          res.send(
-            "<script>alert('Review not found');location.href='/B/author.html';</script>"
-          );
+
+
+        }
+        else {
+
+          console.log("no processed paper!");
+
         }
       }
-    );
-  });
+    )
+  }
+  )
+
 };
 
 module.exports = {

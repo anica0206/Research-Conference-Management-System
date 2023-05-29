@@ -36,7 +36,8 @@
       font-size: 200px
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #444444;
     }
   </style>
@@ -47,11 +48,15 @@
   <!-- Navbar -->
   <div class="w3-top">
     <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
-      <a id="dashboard" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Dashboard</a>
+      <a id="dashboard"
+        class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Dashboard</a>
       <a id="managebids" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Bids</a>
-      <a id="managereviews" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Reviews</a>
-      <a id="managecomments" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage Comments</a>
-      <a id = "logout" href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white" style="color:black">
+      <a id="managereviews" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage
+        Reviews</a>
+      <a id="managecomments" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Manage
+        Comments</a>
+      <a id="logout" href="login.html" class="w3-bar-item-right w3-button w3-hide-small w3-padding-large w3-hover-white"
+        style="color:black">
         <span> <img src="images/logoutIcon.png" width="16" class="logoutIcon"></span><b> Logout</b></a>
     </div>
   </div>
@@ -66,20 +71,20 @@
       </div>
       <div style="text-align:center">
         <div class="tempBox">
-            <form method="post" action="/B/updateMaxPaperNum">
-                <br>
-                <label for="" class="selectLabel" style="font-family:Montserrat;">Number of paper: </label>
-                <select class="selectSpecial" name="maxpaper" id="maxpaper" required="">
-                  <option value="" selected disabled hidden></option>
-                  <option value=1>1</option>
-                  <option value=2>2</option>
-                  <option value=3>3</option>
-                  <option value=4>4</option>
-                  <option value=5>5</option>
-                </select>
-                <button class="buttonSpecial" type="submit">Update</button>
-            </form>
-        </div>      
+          <form method="post" action="/B/updateMaxPaperNum">
+            <br>
+            <label for="" class="selectLabel" style="font-family:Montserrat;">Number of paper: </label>
+            <select class="selectSpecial" name="maxpaper" id="maxpaper" required="">
+              <option value="" selected disabled hidden></option>
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+              <option value=5>5</option>
+            </select>
+            <button class="buttonSpecial" type="submit">Update</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -87,18 +92,22 @@
   <!-- dashboard block ##################################################################- -->
   <div id="pg0">
     <!-- Header -->
-      <header class="w3-container w3-teal w3-center" style="padding:128px 16px; background-image:url(images/reviewer.jpg); background-size:cover;">
-        <h1 class="w3-margin w3-jumbo textShadow" style="color:rgb(0, 0, 0);"><b>Reviewer</b></h1>
-        <p class="w3-xlarge"></p>
-        <button  id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Set workload</button>
-      </header>
+    <header class="w3-container w3-teal w3-center"
+      style="padding:128px 16px; background-image:url(images/reviewer.jpg); background-size:cover;">
+      <h1 class="w3-margin w3-jumbo textShadow" style="color:rgb(0, 0, 0);"><b>Reviewer</b></h1>
+      <p class="w3-xlarge"></p>
+      <button id="allocateBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top boxShadow">Set
+        workload</button>
+    </header>
     <!-- First Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
       <div class="w3-content">
         <div class="w3-twothird" style="margin-left:-17%;">
           <h2>Central Hub for all your paper bidding needs.
           </h2>
-          <button  id="managebidsBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow" style="margin-left: 25%">Manage my biddings</button>
+          <button id="managebidsBtn"
+            class="w3-button w3-black w3-padding-large w3-large w3-margin-topModified boxShadow"
+            style="margin-left: 25%">Manage my biddings</button>
 
 
           <p class="w3-text-grey w3-justify" style="padding-right:10%">As a reviewer, normally you would like to review
@@ -164,1046 +173,1040 @@
     </div>
   </div>
 
-    <!-- MANAGE BID BLOCKS ##################################################################--->
-    <div id="pg1" style="display: none">
-      <div style="display:inline-block; position:fixed; width:100%">
-        <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
-          <a id="createbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create Bid</a>
-          <a id="viewbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
-          <!-- <a id="updatebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Bid</a> -->
-          <a id="deletebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Bid</a>
-          <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>
-          <a id="viewpaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>        
+  <!-- MANAGE BID BLOCKS ##################################################################--->
+  <div id="pg1" style="display: none">
+    <div style="display:inline-block; position:fixed; width:100%">
+      <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+        <a id="createbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create
+          Bid</a>
+        <a id="viewbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Bids</a>
+        <!-- <a id="updatebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Bid</a> -->
+        <a id="deletebid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Bid</a>
+        <a id="searchbid" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Bid</a>
+        <a id="viewpaper" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Paper</a>
+      </div>
+    </div>
+    <header class="w3-container w3-teal w3-center"
+      style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
+      <h1 class="w3-margin w3-jumbo textShadow" style="color: black;"><b>Bid Manager</b></h1>
+    </header>
+    <!--CREATE BID BLOCK-->
+    <div id="pg1-0" class="w3-light-grey" style="text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>CREATE BID</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="create">
+          <form method="post" action="/B/bidPaper">
+            <br>
+            <input type="text" name="paperid" required="">
+            <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
+
+            <button class="buttonSpecial" type="submit">Create</button>
+          </form>
         </div>
-      </div>  
-      <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
-        <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Bid Manager</b></h1>
-      </header>  
-        <!--CREATE BID BLOCK-->
-        <div id="pg1-0" class="w3-light-grey" style="text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>CREATE BID</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-          <div class="create">
-              <form method="post" action="/B/bidPaper">
-                  <br>
-                  <input type="text" name="paperid" required="">
-                  <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
-                  
-                  <button class="buttonSpecial" type="submit">Create</button>
-              </form>
-            </div>
-          </div>
+      </div>
+    </div>
+    <!-- VIEW BID BLOCK-->
+    <div id="pg1-1" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BIDS</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="update">
+          <button onclick="ViewBids()" class="buttonSpecial" type="submit">View</button>
         </div>
-        <!-- VIEW BID BLOCK-->
-        <div id="pg1-1" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW BIDS</b></h1>
-          <div class="tempBox">
-            <!-- <h1>PAPERS HERE</h1> -->
-              <div class="update">
-                  <button onclick="ViewBids()" class="buttonSpecial" type="submit">View</button>
-              </div>
-          </div>
-          <div class="">
-            <div style="text-align:center">
-              <table class = "author_table" id="view bidList">
-                <tr>
-                  <th>Bid ID</th>
-                  <th>Paper ID</th>
-                  <th>Reviewer ID</th>
-                  <th>Status</th>
-                </tr>
-                <tbody id="bidList">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- DELETE BID BLOCK-->
-        <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>DELETE BID</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-          <div class="update">
-            <div class="delete">
-                <form method="post" action="/B/deleteBid">
-                  <br>
-                  <input type="number" name="bidid" required="">
-                  <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
-
-                  <button class="buttonSpecial" type="submit">Delete</button>
-                </form>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <!--SEARCH BID BLOCK-->
-        <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
-          <div class="tempBox">
-            <!-- <h1>PAPERS HERE</h1> -->
-            <div class="delete">
-                <!-- <form method="post" action="/B/searchBid"> -->
-                  <br>
-                  <input id="searchBidid" type="number" name="searchBidid" required="">
-                  <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
-
-                  <button onclick="SearchBids()" class="buttonSpecial" type="submit">Search</button>
-                <!-- </form> -->
-            </div>
-          </div>
-          <div class="">
-            <div style="text-align:center">
-              <table class = "author_table" id="search bidList">
-                <tr>
-                  <th>Bid ID</th>
-                  <th>Paper ID</th>
-                  <th>Reviewer ID</th>
-                  <th>Status</th>
-                </tr>
-                <tbody id="searchbidList">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!--VIEW BID BLOCK-->
-        <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW PAPERS</b></h1>
-          <div class="tempBox">
-              <div class="update">
-                  <button onclick="ViewPaper()" class="buttonSpecial" type="submit">View</button>
-              </div>
-          </div>
-          <div class="">
-            <div style="text-align:center">
-              <table class = "author_table" id="view allPaperList">
-                <tr>
-                  <th>Paper ID</th>
-                  <th>Topic</th>
-                  <th>Author ID</th>
-                  <th>Status</th>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-  </div>
-
-    <!-- MANAGE REVIEWS BLOCKS ##################################################################-->
-    <div id="pg2" style="display: none">
-      <div style="display:inline-block; position:fixed; width:100%">
-        <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
-          <a id="viewallocatedpapers" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">View Allocated Papers</a>
-          <a id="createreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create Review</a>
-          <a id="viewreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Reviews</a>
-          <a id="updatereview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Review</a>
-          <a id="deletereview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Review</a>
-          <a id="searchreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Reviews</a>   
-          <a id="viewotherreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Other Reviews</a>
-        </div> 
-      </div>   
-      <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
-        <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Review Manager</b></h1>
-      </header>  
-
-
-        <!-- VIEW PAPERS BLOCK-->
-        <div id="pg2-0" class="w3-light-grey" style="text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ALLOCATED PAPERS</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-                <br>
-                <input id="paperId" type="number" name="searchBidid" required="">
-                <label alt="Bid's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
-              <button onclick = "ViewAllocatedPaper()" class="buttonSpecial" type="submit">View</button>
-          </div>
-          <table id="view paperList" class = "author_table">
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class="author_table" id="view bidList">
             <tr>
-              <th>ID</th>
-              <th>Topic</th>
-              <th>Contents</th>
-              <th>Author ID</th>
+              <th>Bid ID</th>
+              <th>Paper ID</th>
+              <th>Reviewer ID</th>
               <th>Status</th>
             </tr>
+            <tbody id="bidList">
+            </tbody>
           </table>
         </div>
+      </div>
+    </div>
 
-        <!--CREATE REVIEW BLOCK-->
-        <div id="pg2-1" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>CREATE REVIEW</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-          <div class="create">
-              <form method="post" action="/B/createReview">
-                  <br>
-                  <input type="number" name="paperid" required="">
-                  <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
-                  <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
-                  <select class="selectSpecial" name="rating" id="rating" required="">
-                    <option value="" selected disabled hidden></option>
-                    <option value=-3>-3</option>
-                    <option value=-2>-2</option>
-                    <option value=-1>-1</option>
-                    <option value=0>0</option>
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                  </select>
-                  <input type="text" name="content" required="">
-                  <label alt="Content" placeholder="Content" style="font-family:Montserrat"></label>
-                  
-                  <button class="buttonSpecial" type="submit">Create</button>
-              </form>
-          </div>
-          </div>
-        </div>
+    <!-- DELETE BID BLOCK-->
+    <div id="pg1-2" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>DELETE BID</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="update">
+          <div class="delete">
+            <form method="post" action="/B/deleteBid">
+              <br>
+              <input type="number" name="bidid" required="">
+              <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
 
-        <!-- VIEW REVIEW BLOCK-->
-        <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW REVIEWS</b></h1>
-          <div class="tempBox">
-            <!-- <h1>PAPERS HERE</h1> -->
-            <div class="update">
-                <button onclick = "ViewReviews()" class="buttonSpecial" type="submit">View</button>
-            </div>
-          </div>
-          <div class="">
-            <div style="text-align:center">
-              <table class = "author_table" id="view reviewList">
-                <tr>
-                  <th>ID</th>
-                  <th>User ID</th>
-                  <th>Paper ID</th>
-                  <th>Rating</th>
-                  <th>Contents</th>
-                  <th>Author Rating</th>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- UPDATE REVIEW BLOCK-->
-        <div id="pg2-3" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE REVIEW</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-          <div class="update">
-            <div class="update">
-                <form method="post" action="/B/updateMyReview">
-                    <br>
-                    <input type="number" name="reviewid" required="">
-                    <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
-                    <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
-                    <select class="selectSpecial" name="rating" id="rating" required="">
-                      <option value="" selected disabled hidden></option>
-                      <option value=-3>-3</option>
-                      <option value=-2>-2</option>
-                      <option value=-1>-1</option>
-                      <option value=0>0</option>
-                      <option value=1>1</option>
-                      <option value=2>2</option>
-                      <option value=3>3</option>
-                    </select>
-                    <input type="text" name="content"required="">
-                    <label alt="Content" placeholder="Content" style="font-family:Montserrat"></label>
-
-                    <button class="buttonSpecial" type="submit">Update</button>
-                </form>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <!-- DELETE REVIEW BLOCK-->
-        <div id="pg2-4" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>DELETE REVIEW</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-          <div class="update">
-            <div class="delete">
-                <form method="post" action="/B/deleteMyReview">
-                  <br>
-                  <input type="number" name="reviewid" required="">
-                  <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
-
-                  <button class="buttonSpecial" type="submit">Delete</button>
-                </form>
-            </div>
-          </div>
-          </div>
-        </div>
-        <!--SEARCH REVIEW BLOCK-->
-        <div id="pg2-5" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH REVIEWS</b></h1>
-          <div class="tempBox">
-            <!-- <h1>PAPERS HERE</h1> -->
-            <div class="delete">
-                <br>
-                <input id ="searchReviewId" type="number" name="reviewid" required="">
-                <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
-
-                <button onclick="SearchReviews()" class="buttonSpecial" type="submit">Search</button>
-            </div>
-          </div>
-          <div class="">
-            <div style="text-align:center">
-              <table class = "author_table" id="search reviewList">
-                <tr>
-                  <th>ID</th>
-                  <th>User ID</th>
-                  <th>Paper ID</th>
-                  <th>Rating</th>
-                  <th>Contents</th>
-                  <th>Author Rating</th>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!--VIEW OTHER REVIEWS BLOCK-->
-        <div id="pg2-6" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW OTHER REVIEWS</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-            <div class="delete">
-                <br>
-                <input id ="pId" type="number" name="paperid" required="">
-                <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
-                <button onclick='VeiwOtherReviews()'class="buttonSpecial" type="submit">View</button>
-            </div>
-         </div>
-         <div class="">
-          <div style="text-align:center">
-            <table class = "author_table" id="view otherReviewList">
-              <tr>
-                <th>ID</th>
-                <th>User ID</th>
-                <th>Paper ID</th>
-                <th>Rating</th>
-                <th>Contents</th>
-                <th>Author Rating</th>
-              </tr>
-            </table>
+              <button class="buttonSpecial" type="submit">Delete</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
 
+    <!--SEARCH BID BLOCK-->
+    <div id="pg1-3" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH BID</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="delete">
+          <!-- <form method="post" action="/B/searchBid"> -->
+          <br>
+          <input id="searchBidid" type="number" name="searchBidid" required="">
+          <label alt="Bid's ID" placeholder="Bid's ID" style="font-family:Montserrat"></label>
 
-    <!-- MANAGE COMMENTS BLOCKS ##################################################################-->
-    <div id="pg3" style="display: none">
-      <div style="display:inline-block; position:fixed; width:100%">
-        <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
-          <a id="createcomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create Comment</a>
-          <a id="viewcomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Comments</a>
-          <a id="updatecomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Comment</a>
-          <a id="deletecomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete Comment</a>
-          <a id="searchcomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search Comments</a>   
-        </div> 
-      </div>   
-      <header class="w3-container w3-teal w3-center" style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
-        <h1 class="w3-margin w3-jumbo textShadow" style ="color: black;"><b>Comment Manager</b></h1>
-      </header>  
-
-        <!--CREATE REVIEW BLOCK-->
-        <div id="pg3-0" class="w3-light-grey" style="text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>CREATE COMMENT</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-              <form method="post" action="/B/createComment">
-                  <br>
-                  <input type="number" name="reviewid" required="">
-                  <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
-                  <input type="text" name="comment" required="">
-                  <label alt="Comment" placeholder="Comment" style="font-family:Montserrat"></label>
-                  
-                  <button class="buttonSpecial" type="submit">Create</button>
-              </form>
-          </div>
+          <button onclick="SearchBids()" class="buttonSpecial" type="submit">Search</button>
+          <!-- </form> -->
         </div>
-        <!-- VIEW COMMENTS BLOCK-->
-        <div id="pg3-1" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>VIEW COMMENTS</b></h1>
-          <div class="tempBox">
-              <button onclick="ViewComments()" class="buttonSpecial" type="submit">View</button>
-          </div>
-          <div class="">
-            <div style="text-align:center">
-              <table class = "author_table" id="view commentList">
-                <tr>
-                  <th>ID</th>
-                  <th>User ID</th>
-                  <th>Review ID</th>
-                  <th>Comment</th>
-                </tr>
-              </table>
-            </div>
-          </div>
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class="author_table" id="search bidList">
+            <tr>
+              <th>Bid ID</th>
+              <th>Paper ID</th>
+              <th>Reviewer ID</th>
+              <th>Status</th>
+            </tr>
+            <tbody id="searchbidList">
+            </tbody>
+          </table>
         </div>
+      </div>
+    </div>
 
-        <!-- UPDATE COMMENT BLOCK-->
-        <div id="pg3-2" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE COMMENT</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
+    <!--VIEW BID BLOCK-->
+    <div id="pg1-4" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>VIEW PAPERS</b></h1>
+      <div class="tempBox">
+        <div class="update">
+          <button onclick="ViewPaper()" class="buttonSpecial" type="submit">View</button>
+        </div>
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class="author_table" id="view allPaperList">
+            <tr>
+              <th>Paper ID</th>
+              <th>Topic</th>
+              <th>Author ID</th>
+              <th>Status</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANAGE REVIEWS BLOCKS ##################################################################-->
+  <div id="pg2" style="display: none">
+    <div style="display:inline-block; position:fixed; width:100%">
+      <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+        <a id="viewallocatedpapers"
+          class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">View Allocated Papers</a>
+        <a id="createreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Create
+          Review</a>
+        <a id="viewreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Reviews</a>
+        <a id="updatereview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update
+          Review</a>
+        <a id="deletereview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete
+          Review</a>
+        <a id="searchreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search
+          Reviews</a>
+        <a id="viewotherreview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Other
+          Reviews</a>
+      </div>
+    </div>
+    <header class="w3-container w3-teal w3-center"
+      style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
+      <h1 class="w3-margin w3-jumbo textShadow" style="color: black;"><b>Review Manager</b></h1>
+    </header>
+
+
+    <!-- VIEW PAPERS BLOCK-->
+    <div id="pg2-0" class="w3-light-grey" style="text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>VIEW ALLOCATED PAPERS</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <br>
+        <input id="paperId" type="number" name="searchBidid" required="">
+        <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
+        <button onclick="ViewAllocatedPaper()" class="buttonSpecial" type="submit">View</button>
+      </div>
+      <table id="view paperList" class="author_table">
+        <tr>
+          <th>ID</th>
+          <th>Topic</th>
+          <th>Contents</th>
+          <th>Author ID</th>
+          <th>Status</th>
+        </tr>
+      </table>
+    </div>
+
+    <!--CREATE REVIEW BLOCK-->
+    <div id="pg2-1" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>CREATE REVIEW</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="create">
+          <form method="post" action="/B/createReview">
+            <br>
+            <input type="number" name="paperid" required="">
+            <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
+            <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
+            <select class="selectSpecial" name="rating" id="rating" required="">
+              <option value="" selected disabled hidden></option>
+              <option value=-3>-3</option>
+              <option value=-2>-2</option>
+              <option value=-1>-1</option>
+              <option value=0>0</option>
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+            </select>
+            <input type="text" name="content" required="">
+            <label alt="Content" placeholder="Content" style="font-family:Montserrat"></label>
+
+            <button class="buttonSpecial" type="submit">Create</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW REVIEW BLOCK-->
+    <div id="pg2-2" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>VIEW REVIEWS</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="update">
+          <button onclick="ViewReviews()" class="buttonSpecial" type="submit">View</button>
+        </div>
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class="author_table" id="view reviewList">
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Paper ID</th>
+              <th>Rating</th>
+              <th>Contents</th>
+              <th>Author Rating</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPDATE REVIEW BLOCK-->
+    <div id="pg2-3" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE REVIEW</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="update">
           <div class="update">
-            <div class="update">
-                <form method="post" action="/B/updateMyComment">
-                    <br>
-                    <input type="number" name="commentid" required="">
-                    <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
-                    <input type="text" name="comment" required="">
-                    <label alt="Edit Comment" placeholder="Edit Comment" style="font-family:Montserrat"></label>
-
-                    <button class="buttonSpecial" type="submit">Update</button>
-                </form>
-            </div>
-          </div>
-          </div>
-        </div>
-        <!-- DELETE COMMENT BLOCK-->
-        <div id="pg3-3" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>DELETE COMMENT</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-          <div class="update">
-            <div class="delete">
-                <form method="post" action="/B/deleteMyComment">
-                  <br>
-                  <input type="number" name="commentid" required="">
-                  <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
-
-                  <button class="buttonSpecial" type="submit">Delete</button>
-                </form>
-            </div>
-          </div>
-          </div>
-        </div>
-        <!--SEARCH COMMENT BLOCK-->
-        <div id="pg3-4" class="w3-light-grey" style="display:none; text-align:center">
-          <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH COMMENTS</b></h1>
-          <div class="tempBox">
-          <!-- <h1>PAPERS HERE</h1> -->
-            <div class="delete">
+            <form method="post" action="/B/updateMyReview">
               <br>
-                <input id ="commentid" type="number" name="commentid" required="">
-                <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
+              <input type="number" name="reviewid" required="">
+              <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
+              <label for="" class="selectLabel" style="font-family:Montserrat;">Rating</label>
+              <select class="selectSpecial" name="rating" id="rating" required="">
+                <option value="" selected disabled hidden></option>
+                <option value=-3>-3</option>
+                <option value=-2>-2</option>
+                <option value=-1>-1</option>
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+              </select>
+              <input type="text" name="content" required="">
+              <label alt="Content" placeholder="Content" style="font-family:Montserrat"></label>
 
-                <button onclick = "SearchComments()" class="buttonSpecial" type="submit">Search</button>
-            </div>
-         </div>
-         <div class="">
-          <div style="text-align:center">
-            <table class = "author_table" id="search commentList">
-              <tr>
-                <th>ID</th>
-                <th>User ID</th>
-                <th>Review ID</th>
-                <th>Comment</th>
-              </tr>
-            </table>
+              <button class="buttonSpecial" type="submit">Update</button>
+            </form>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- DELETE REVIEW BLOCK-->
+    <div id="pg2-4" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>DELETE REVIEW</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="update">
+          <div class="delete">
+            <form method="post" action="/B/deleteMyReview">
+              <br>
+              <input type="number" name="reviewid" required="">
+              <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
+
+              <button class="buttonSpecial" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--SEARCH REVIEW BLOCK-->
+    <div id="pg2-5" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH REVIEWS</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="delete">
+          <br>
+          <input id="searchReviewId" type="number" name="reviewid" required="">
+          <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
+
+          <button onclick="SearchReviews()" class="buttonSpecial" type="submit">Search</button>
+        </div>
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class="author_table" id="search reviewList">
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Paper ID</th>
+              <th>Rating</th>
+              <th>Contents</th>
+              <th>Author Rating</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!--VIEW OTHER REVIEWS BLOCK-->
+    <div id="pg2-6" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>VIEW OTHER REVIEWS</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="delete">
+          <br>
+          <input id="pId" type="number" name="paperid" required="">
+          <label alt="Paper's ID" placeholder="Paper's ID" style="font-family:Montserrat"></label>
+          <button onclick='VeiwOtherReviews()' class="buttonSpecial" type="submit">View</button>
+        </div>
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class="author_table" id="view otherReviewList">
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Paper ID</th>
+              <th>Rating</th>
+              <th>Contents</th>
+              <th>Author Rating</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MANAGE COMMENTS BLOCKS ##################################################################-->
+  <div id="pg3" style="display: none">
+    <div style="display:inline-block; position:fixed; width:100%">
+      <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+        <a id="createcomment"
+          class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">Create Comment</a>
+        <a id="viewcomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View
+          Comments</a>
+        <a id="updatecomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update
+          Comment</a>
+        <a id="deletecomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Delete
+          Comment</a>
+        <a id="searchcomment" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Search
+          Comments</a>
+      </div>
+    </div>
+    <header class="w3-container w3-teal w3-center"
+      style="margin-top:50px; padding:75px 16px; background-image:url(images/reviewer.jpg); background-size: cover;">
+      <h1 class="w3-margin w3-jumbo textShadow" style="color: black;"><b>Comment Manager</b></h1>
+    </header>
+
+    <!--CREATE REVIEW BLOCK-->
+    <div id="pg3-0" class="w3-light-grey" style="text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>CREATE COMMENT</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <form method="post" action="/B/createComment">
+          <br>
+          <input type="number" name="reviewid" required="">
+          <label alt="Review's ID" placeholder="Review's ID" style="font-family:Montserrat"></label>
+          <input type="text" name="comment" required="">
+          <label alt="Comment" placeholder="Comment" style="font-family:Montserrat"></label>
+
+          <button class="buttonSpecial" type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+    <!-- VIEW COMMENTS BLOCK-->
+    <div id="pg3-1" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>VIEW COMMENTS</b></h1>
+      <div class="tempBox">
+        <button onclick="ViewComments()" class="buttonSpecial" type="submit">View</button>
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class="author_table" id="view commentList">
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Review ID</th>
+              <th>Comment</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPDATE COMMENT BLOCK-->
+    <div id="pg3-2" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>UPDATE COMMENT</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="update">
+          <div class="update">
+            <form method="post" action="/B/updateMyComment">
+              <br>
+              <input type="number" name="commentid" required="">
+              <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
+              <input type="text" name="comment" required="">
+              <label alt="Edit Comment" placeholder="Edit Comment" style="font-family:Montserrat"></label>
+
+              <button class="buttonSpecial" type="submit">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- DELETE COMMENT BLOCK-->
+    <div id="pg3-3" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>DELETE COMMENT</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="update">
+          <div class="delete">
+            <form method="post" action="/B/deleteMyComment">
+              <br>
+              <input type="number" name="commentid" required="">
+              <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
+
+              <button class="buttonSpecial" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--SEARCH COMMENT BLOCK-->
+    <div id="pg3-4" class="w3-light-grey" style="display:none; text-align:center">
+      <h1 style="margin-top:0; margin-bottom:0"><b>SEARCH COMMENTS</b></h1>
+      <div class="tempBox">
+        <!-- <h1>PAPERS HERE</h1> -->
+        <div class="delete">
+          <br>
+          <input id="commentid" type="number" name="commentid" required="">
+          <label alt="Comment's ID" placeholder="Comment's ID" style="font-family:Montserrat"></label>
+
+          <button onclick="SearchComments()" class="buttonSpecial" type="submit">Search</button>
+        </div>
+      </div>
+      <div class="">
+        <div style="text-align:center">
+          <table class="author_table" id="search commentList">
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Review ID</th>
+              <th>Comment</th>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
 
 
 
-<script>
-  document
-      .getElementById("logout")
-      .addEventListener("click", function () {
+    <script>
+      document
+        .getElementById("logout")
+        .addEventListener("click", function () {
           fetch("/B/logout", {
-              method: "get",
+            method: "get",
           })
-      });
-  
-  function ChangeEffect(func) {
-    const navInfo = [
-      "dashboard",
-      "managebids",
-      "managereviews",
-      "managecomments"
-    ];
-    document.getElementById(func).classList.add("w3-white");
+        });
 
-      for (const e in navInfo) {
-        if (navInfo[e] == func) {
-          document.getElementById(`pg${e}`).style.display =
-            "block";
-          continue;
+      function ChangeEffect(func) {
+        const navInfo = [
+          "dashboard",
+          "managebids",
+          "managereviews",
+          "managecomments"
+        ];
+        document.getElementById(func).classList.add("w3-white");
+
+        for (const e in navInfo) {
+          if (navInfo[e] == func) {
+            document.getElementById(`pg${e}`).style.display =
+              "block";
+            continue;
+          }
+          document.getElementById(navInfo[e]).classList.remove("w3-white")
+          document.getElementById(`pg${e}`).style.display = "none";
         }
-        document.getElementById(navInfo[e]).classList.remove("w3-white")
-        document.getElementById(`pg${e}`).style.display = "none";
       }
-    }
 
-    document
-      .getElementById("dashboard")
-      .addEventListener("click", function dashboard () {
-        ChangeEffect("dashboard");
-      });
+      document
+        .getElementById("dashboard")
+        .addEventListener("click", function dashboard() {
+          ChangeEffect("dashboard");
+        });
 
-    document
-      .getElementById("managebids")
-      .addEventListener("click", function manageBids () {
-        ChangeEffect("managebids");
-      });
+      document
+        .getElementById("managebids")
+        .addEventListener("click", function manageBids() {
+          ChangeEffect("managebids");
+        });
       document
         .getElementById("managebidsBtn")
-        .addEventListener("click", function manageBids () {
+        .addEventListener("click", function manageBids() {
           ChangeEffect("managebids");
         });
 
-    document
-      .getElementById("managereviews")
-      .addEventListener("click", function manageReviews () {
-        ChangeEffect("managereviews");
-      });
+      document
+        .getElementById("managereviews")
+        .addEventListener("click", function manageReviews() {
+          ChangeEffect("managereviews");
+        });
       document
         .getElementById("managereviewsBtn")
-        .addEventListener("click", function manageReviews () {
+        .addEventListener("click", function manageReviews() {
           ChangeEffect("managereviews");
         });
 
-    document
-      .getElementById("managecomments")
-      .addEventListener("click", function manageComments () {
-        ChangeEffect("managecomments");
-      });
+      document
+        .getElementById("managecomments")
+        .addEventListener("click", function manageComments() {
+          ChangeEffect("managecomments");
+        });
       document
         .getElementById("managecommentsBtn")
-        .addEventListener("click", function manageComments () {
+        .addEventListener("click", function manageComments() {
           ChangeEffect("managecomments");
         });
 
-    function ChangeEffect2(func) {
-      const navInfo = [
-        "createbid",
-        "viewbid",
-        "deletebid",
-        "searchbid",
-        "viewpaper"
-      ];
-      document.getElementById(func).classList.add("w3-white");
+      function ChangeEffect2(func) {
+        const navInfo = [
+          "createbid",
+          "viewbid",
+          "deletebid",
+          "searchbid",
+          "viewpaper"
+        ];
+        document.getElementById(func).classList.add("w3-white");
 
-      for (const e in navInfo) {
-        if (navInfo[e] == func) {
-          document.getElementById(`pg1-${e}`).style.display =
-            "block";
-          continue;
+        for (const e in navInfo) {
+          if (navInfo[e] == func) {
+            document.getElementById(`pg1-${e}`).style.display =
+              "block";
+            continue;
+          }
+          document.getElementById(navInfo[e]).classList.remove("w3-white")
+          document.getElementById(`pg1-${e}`).style.display = "none";
         }
-        document.getElementById(navInfo[e]).classList.remove("w3-white")
-        document.getElementById(`pg1-${e}`).style.display = "none";
       }
-    }
 
-    document
-      .getElementById("createbid")
-      .addEventListener("click", function createBid () {
-        ChangeEffect2("createbid");
-      });
+      document
+        .getElementById("createbid")
+        .addEventListener("click", function createBid() {
+          ChangeEffect2("createbid");
+        });
 
-    document
-      .getElementById("viewbid")
-      .addEventListener("click", function viewBid () {
-        ChangeEffect2("viewbid");
-      });
+      document
+        .getElementById("viewbid")
+        .addEventListener("click", function viewBid() {
+          ChangeEffect2("viewbid");
+        });
 
       function ViewBids() {
 
-          fetch("/B/viewBid", {  
-            method : "POST"          
+        fetch("/B/viewBid", {
+          method: "POST"
         })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Bid not found");
-            else
-            {
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Bid not found");
+            else {
               var tbl = document.getElementById("view bidList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                        tbl.deleteRow(i);
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
               }
 
               const infoList = ["ID", "pId", "uId", "status"];
 
               for (const element of data) {
-                  const row = tbl.insertRow();
-                  for (const e of infoList) {
-                      const cell = row.insertCell();
-                      cell.innerText = element[e];
-                  }
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+                }
               }
             }
           });
       };
 
       document
-      .getElementById("viewpaper")
-      .addEventListener("click", function updateBid () {
-        ChangeEffect2("viewpaper");
-      });
+        .getElementById("viewpaper")
+        .addEventListener("click", function updateBid() {
+          ChangeEffect2("viewpaper");
+        });
 
-      function ViewPaper()
-      {
-        fetch("/B/reviewerViewPaper", {  
-            method : "POST"          
+      function ViewPaper() {
+        fetch("/B/reviewerViewPaper", {
+          method: "POST"
         })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Bid not found");
-            else
-            {
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Bid not found");
+            else {
               var tbl = document.getElementById("view allPaperList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                        tbl.deleteRow(i);
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
               }
 
               const infoList = ["ID", "topic", "aId", "status"];
 
               for (const element of data) {
-                  const row = tbl.insertRow();
-                  for (const e of infoList) {
-                      const cell = row.insertCell();
-                      cell.innerText = element[e];
-                  }
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+                }
               }
             }
           });
       }
 
 
-    document
-      .getElementById("deletebid")
-      .addEventListener("click", function deleteBid () {
-        ChangeEffect2("deletebid");
-      });
+      document
+        .getElementById("deletebid")
+        .addEventListener("click", function deleteBid() {
+          ChangeEffect2("deletebid");
+        });
 
-    document
-      .getElementById("searchbid")
-      .addEventListener("click", function searchBid () {
-        ChangeEffect2("searchbid");
-      });
+      document
+        .getElementById("searchbid")
+        .addEventListener("click", function searchBid() {
+          ChangeEffect2("searchbid");
+        });
 
       function SearchBids() {
 
         const bidId = document.getElementById("searchBidid").value;
 
-          fetch("/B/searchBid", {  
-            method : "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                bidid: bidId
-            }),               
+        fetch("/B/searchBid", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            bidid: bidId
+          }),
         })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Enter proper bid id");
-            else
-            {
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Enter proper bid id");
+            else {
               var tbl = document.getElementById("search bidList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                  tbl.deleteRow(i);
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
               }
 
-                const infoList = ["ID", "pId", "uId", "status"];
+              const infoList = ["ID", "pId", "uId", "status"];
 
-                for (const element of data) {
-                    const row = tbl.insertRow();
-                    for (const e of infoList) {
-                        const cell = row.insertCell();
-                        cell.innerText = element[e];
-                    }
+              for (const element of data) {
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
                 }
+              }
             }
           });
       }
 
 
 
-    function ChangeEffect3(func) {
-      const navInfo = [
-        "viewallocatedpapers",
-        "createreview",
-        "viewreview",
-        "updatereview",
-        "deletereview",
-        "searchreview",
-        "viewotherreview"
-      ];
-      document.getElementById(func).classList.add("w3-white");
+      function ChangeEffect3(func) {
+        const navInfo = [
+          "viewallocatedpapers",
+          "createreview",
+          "viewreview",
+          "updatereview",
+          "deletereview",
+          "searchreview",
+          "viewotherreview"
+        ];
+        document.getElementById(func).classList.add("w3-white");
 
-      for (const e in navInfo) {
-        if (navInfo[e] == func) {
-          document.getElementById(`pg2-${e}`).style.display =
-            "block";
-          continue;
+        for (const e in navInfo) {
+          if (navInfo[e] == func) {
+            document.getElementById(`pg2-${e}`).style.display =
+              "block";
+            continue;
+          }
+          document.getElementById(navInfo[e]).classList.remove("w3-white")
+          document.getElementById(`pg2-${e}`).style.display = "none";
         }
-        document.getElementById(navInfo[e]).classList.remove("w3-white")
-        document.getElementById(`pg2-${e}`).style.display = "none";
       }
-    }
 
 
-    document
-      .getElementById("viewallocatedpapers")
-      .addEventListener("click", function createReview () {
-        ChangeEffect3("viewallocatedpapers");
-      });
+      document
+        .getElementById("viewallocatedpapers")
+        .addEventListener("click", function createReview() {
+          ChangeEffect3("viewallocatedpapers");
+        });
 
-    document
-      .getElementById("createreview")
-      .addEventListener("click", function createReview () {
-        ChangeEffect3("createreview");
-      });
+      document
+        .getElementById("createreview")
+        .addEventListener("click", function createReview() {
+          ChangeEffect3("createreview");
+        });
 
-    document
-      .getElementById("viewreview")
-      .addEventListener("click", function viewReview () {
-        ChangeEffect3("viewreview");
-      });
+      document
+        .getElementById("viewreview")
+        .addEventListener("click", function viewReview() {
+          ChangeEffect3("viewreview");
+        });
 
       function ViewReviews() {
 
-        fetch("/B/viewMyReview", {  
-            method : "POST"            
+        fetch("/B/viewMyReview", {
+          method: "POST"
         })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Review not found");
-            else
-            {
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Review not found");
+            else {
               var tbl = document.getElementById("view reviewList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                  tbl.deleteRow(i);
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
               }
               const infoList = ["ID", "uId", "pId", "rating", "content", "aRating"];
 
               for (const element of data) {
-                  const row = tbl.insertRow();
-                  for (const e of infoList) {
-                      const cell = row.insertCell();
-                      cell.innerText = element[e];
-                  }
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+                }
               }
             }
           });
       };
 
       document
-      .getElementById("updatereview")
-      .addEventListener("click", function updateReview () {
-        ChangeEffect3("updatereview");
-      });
+        .getElementById("updatereview")
+        .addEventListener("click", function updateReview() {
+          ChangeEffect3("updatereview");
+        });
 
-    document
-      .getElementById("deletereview")
-      .addEventListener("click", function deleteReview () {
-        ChangeEffect3("deletereview");
-      });
+      document
+        .getElementById("deletereview")
+        .addEventListener("click", function deleteReview() {
+          ChangeEffect3("deletereview");
+        });
 
-    document
-      .getElementById("searchreview")
-      .addEventListener("click", function searchReview () {
-        ChangeEffect3("searchreview");
-      });
+      document
+        .getElementById("searchreview")
+        .addEventListener("click", function searchReview() {
+          ChangeEffect3("searchreview");
+        });
 
       function SearchReviews() {
 
         const reviewId = document.getElementById("searchReviewId").value;
 
-          fetch("/B/searchMyReview", {  
-            method : "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                reviewid: reviewId
-            }),               
+        fetch("/B/searchMyReview", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            reviewid: reviewId
+          }),
         })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Review not found");
-            else
-            {
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Review not found");
+            else {
               var tbl = document.getElementById("search reviewList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                  tbl.deleteRow(i);
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
               }
 
               const infoList = ["ID", "uId", "pId", "rating", "content", "aRating"];
 
               for (const element of data) {
-                  const row = tbl.insertRow();
-                  for (const e of infoList) {
-                      const cell = row.insertCell();
-                      cell.innerText = element[e];
-                  }
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+                }
               }
             }
           });
       }
 
       document
-      .getElementById("viewotherreview")
-      .addEventListener("click", function viewOtherReview () {
-        ChangeEffect3("viewotherreview");
-      });
+        .getElementById("viewotherreview")
+        .addEventListener("click", function viewOtherReview() {
+          ChangeEffect3("viewotherreview");
+        });
 
-      function VeiwOtherReviews()
-      {
+      function VeiwOtherReviews() {
 
         const pId = document.getElementById("pId").value;
 
-        fetch("/B/viewOtherReview", {  
-            method : "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                pId: pId
-            }),            
+        fetch("/B/viewOtherReview", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            pId: pId
+          }),
         })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Other review not found");
-            else
-            {
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Other review not found");
+            else {
               var tbl = document.getElementById("view otherReviewList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                  tbl.deleteRow(i);
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
               }
               const infoList = ["ID", "uId", "pId", "rating", "content", "aRating"];
 
               for (const element of data) {
-                  const row = tbl.insertRow();
-                  for (const e of infoList) {
-                      const cell = row.insertCell();
-                      cell.innerText = element[e];
-                  }
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+                }
               }
             }
           });
       }
 
-    function ChangeEffect4(func) {
-      const navInfo = [
-        "createcomment",
-        "viewcomment",
-        "updatecomment",
-        "deletecomment",
-        "searchcomment",
-      ];
-      document.getElementById(func).classList.add("w3-white");
+      function ChangeEffect4(func) {
+        const navInfo = [
+          "createcomment",
+          "viewcomment",
+          "updatecomment",
+          "deletecomment",
+          "searchcomment",
+        ];
+        document.getElementById(func).classList.add("w3-white");
 
-      for (const e in navInfo) {
-        if (navInfo[e] == func) {
-          document.getElementById(`pg3-${e}`).style.display =
-            "block";
-          continue;
+        for (const e in navInfo) {
+          if (navInfo[e] == func) {
+            document.getElementById(`pg3-${e}`).style.display =
+              "block";
+            continue;
+          }
+          document.getElementById(navInfo[e]).classList.remove("w3-white")
+          document.getElementById(`pg3-${e}`).style.display = "none";
         }
-        document.getElementById(navInfo[e]).classList.remove("w3-white")
-        document.getElementById(`pg3-${e}`).style.display = "none";
       }
-    }
 
-    document
-      .getElementById("createcomment")
-      .addEventListener("click", function createComment () {
-        ChangeEffect4("createcomment");
-      });
+      document
+        .getElementById("createcomment")
+        .addEventListener("click", function createComment() {
+          ChangeEffect4("createcomment");
+        });
 
-    document
-      .getElementById("viewcomment")
-      .addEventListener("click", function viewComment () {
-        ChangeEffect4("viewcomment");
-      });
+      document
+        .getElementById("viewcomment")
+        .addEventListener("click", function viewComment() {
+          ChangeEffect4("viewcomment");
+        });
 
       function ViewComments() {
 
-        fetch("/B/viewMyComment", {  
-            method : "POST"            
+        fetch("/B/viewMyComment", {
+          method: "POST"
         })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Comment not found");
-            else
-            {
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Comment not found");
+            else {
               var tbl = document.getElementById("view commentList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                  tbl.deleteRow(i);
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
               }
               const infoList = ["ID", "uId", "rId", "comment"];
 
               for (const element of data) {
-                  const row = tbl.insertRow();
-                  for (const e of infoList) {
-                      const cell = row.insertCell();
-                      cell.innerText = element[e];
-                  }
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+                }
               }
             }
           });
-        };
+      };
 
       document
-      .getElementById("updatecomment")
-      .addEventListener("click", function updateComment () {
-        ChangeEffect4("updatecomment");
-      });
+        .getElementById("updatecomment")
+        .addEventListener("click", function updateComment() {
+          ChangeEffect4("updatecomment");
+        });
 
-    document
-      .getElementById("deletecomment")
-      .addEventListener("click", function deleteComment () {
-        ChangeEffect4("deletecomment");
-      });
+      document
+        .getElementById("deletecomment")
+        .addEventListener("click", function deleteComment() {
+          ChangeEffect4("deletecomment");
+        });
 
-    document
-      .getElementById("searchcomment")
-      .addEventListener("click", function searchComment () {
-        ChangeEffect4("searchcomment");
-      });
+      document
+        .getElementById("searchcomment")
+        .addEventListener("click", function searchComment() {
+          ChangeEffect4("searchcomment");
+        });
 
       function SearchComments() {
 
         const cId = document.getElementById("commentid").value;
 
-          fetch("/B/searchMyComment", {  
-            method : "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                cId: cId
-            }),               
+        fetch("/B/searchMyComment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            cId: cId
+          }),
         })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Enter proper comment id");
-            else
-            {
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Enter proper comment id");
+            else {
               var tbl = document.getElementById("search commentList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                  tbl.deleteRow(i);
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
               }
 
-                const infoList = ["ID", "uId", "rId", "comment"];
-
-                for (const element of data) {
-                    const row = tbl.insertRow();
-                    for (const e of infoList) {
-                        const cell = row.insertCell();
-                        cell.innerText = element[e];
-                    }
-                }
-            }
-          });
-        }
-
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-// Get the modal
-var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var allocateBtn = document.getElementById("allocateBtn");
-    allocateBtn.onclick = function () {
-      modal.style.display = "block";
-    }
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-
-      function ViewAllocatedPaper()
-      {
-
-        const pId = document.getElementById("paperId").value;
-
-        fetch("/B/viewAllocatedPaper", {  
-            method : "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                pId: pId
-            }),            
-        })
-          .then(response =>{ 
-                  return response.json();                               
-              })
-          .then (data =>
-          {   
-            if(data == "")
-                alert("Paper not found");
-            else
-            {
-              var tbl = document.getElementById("view paperList"); // Get the table
-              for(var i = 1;i<tbl.rows.length;){
-                  tbl.deleteRow(i);
-              }
-              const infoList = ["ID", "topic", "paper", "aId", "status"];
+              const infoList = ["ID", "uId", "rId", "comment"];
 
               for (const element of data) {
-                  const row = tbl.insertRow();
-                  for (const e of infoList) {
-                      const cell = row.insertCell();
-                      cell.innerText = element[e];
-                  }
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+                }
               }
             }
           });
       }
-</script>
+
+
+      // Used to toggle the menu on small screens when clicking on the menu button
+      function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var allocateBtn = document.getElementById("allocateBtn");
+      allocateBtn.onclick = function () {
+        modal.style.display = "block";
+      }
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      function ViewAllocatedPaper() {
+
+        const pId = document.getElementById("paperId").value;
+
+        fetch("/B/viewAllocatedPaper", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            pId: pId
+          }),
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            if (data == "")
+              alert("Paper not found");
+            else {
+              var tbl = document.getElementById("view paperList"); // Get the table
+              for (var i = 1; i < tbl.rows.length;) {
+                tbl.deleteRow(i);
+              }
+              const infoList = ["ID", "topic", "paper", "aId", "status"];
+
+              for (const element of data) {
+                const row = tbl.insertRow();
+                for (const e of infoList) {
+                  const cell = row.insertCell();
+                  cell.innerText = element[e];
+                }
+              }
+            }
+          });
+      }
+    </script>
 </body>
 
 </html>

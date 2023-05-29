@@ -97,7 +97,7 @@ router.post("/B/chairSearchBid", chairController.searchBids);
 
 router.post("/B/allocateBidAuto", chairController.allocateBidAuto);
 
-router.post("/B/allocateBidManual", chairController.allocateBidAuto);
+router.post("/B/allocateBidManual", chairController.allocateBidManual);
 
 router.post("/B/viewReviewRating", chairController.viewReviewRating);
 
