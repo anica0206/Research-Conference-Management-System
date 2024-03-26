@@ -44,12 +44,12 @@ accordingly via emails. The authors are then able to see the reviews of their pa
 
 # OverView_of_The_Project
 
-- Project Title: Research-Conference-Management-System
-- Team Name: OPPA
-- Project Manager: Kim Taehwan
-- Project Team Member:<br>[Chae Youngsuh](https://github.com/anica0206), Chaewon Hwang, Tan Ngan Teng Jasper, Khoo Jun Cheng, Marco, Ang Hui Qi <br>
+<b>Project Title:</b> Research-Conference-Management-System <br>
+<b>Team Name:</b> OPPA <br>
+<b>Project Manager:</b> Kim Taehwan <br>
+<b>Project Team Member: </b> [Chae Youngsuh](https://github.com/anica0206), Chaewon Hwang, Tan Ngan Teng Jasper, Khoo Jun Cheng, Marco, Ang Hui Qi <br>
 
-- Final Report (Including User Stories, Use-Case Diagrams, Use-Case Descriptions, BCE Diagrams, Sequence Diagrams, Test Cases, and Qualifications of Team Members): <br>
+<b>Final Report </b>(Including User Stories, Use-Case Diagrams, Use-Case Descriptions, BCE Diagrams, Sequence Diagrams, Test Cases, and Qualifications of Team Members):
 [Final_Report.pdf](https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/OPPA_Final%20Report.pdf)
 
 <br>
