@@ -30,45 +30,15 @@
 - Project Team Member:<br>[Chae Youngsuh](https://github.com/anica0206), Chaewon Hwang, Tan Ngan Teng Jasper, Khoo Jun Cheng, Marco, Ang Hui Qi
 
 - Peer Assessment: [Peer_Assessment.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Peer%20Assessment.pdf)
-- Final Presentation: [Final_Presentation.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Final%20Presentation.pdf)
-
-<br>
-<br>
-
-
-# Project_Schedule
-
-* WBS: [Gantt_Chart.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Gantt%20chart.xlsx)
-<img src="https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Gantt%20chart.png" height="800" width="1000"/>  
-<br>
-<br>
-
-
-# Planning_and_Design
-
-* Technical Manual: [Technical_Manual.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Technical%20Manual.pdf)
-
-* User Manual: [User_Manual.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/User%20Manual.pdf)
-
-* Progress Report: [Progress_Report.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Progress%20Report.pdf)
-
-<br>
-<br>
-
-# Testing
-
-* Hotel Operator: [Hotel_Operator.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Test%20Case%20-%20Hotel%20Operator.pdf)
-
-* Customer: [Customer.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Test%20Case%20-%20Customer.pdf)
-
-* Systen Admin: [Systen_Admin.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Test%20Case%20-%20System%20Admin.pdf)
+- Final Report(Including User Stories, Use-Case Diagrams, Use-Case Descriptions, BCE digrams, Sequence Diagrams and Test Cases): <br>
+[Final_Report.pdd](https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/OPPA_Final%20Report.pdf)
 
 <br>
 <br>
 
 # Demo_Video
 
-<img src="https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/demo.gif"  width="800" height="400"/>
+<img src="https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/T1_Oppa_live_demo.gif"  width="800" height="400"/>
 
 
 
