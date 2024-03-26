@@ -10,9 +10,9 @@ This is a group project done during Software Development Methodologies subject.
 
 # Contents
 
->[1. Project Specification](#Project_Specification)\
->[2. OverView of The Project](#OverView_of_The_Project)\
->[3. Demo Video of Final Product](#Demo_Video)
+>1. [1. Project Specification](#Project_Specification)
+>2. [2. OverView of The Project](#OverView_of_The_Project)
+>3. [3. Demo Video of Final Product](#Demo_Video)
 
 <br>
 
