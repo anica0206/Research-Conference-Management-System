@@ -2,24 +2,18 @@
   <img src="https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/uow_logo.png"  width="400" height="450"/>
   <img src="https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/sim_logo.jpg"  width="400" height="450"/>
 </div>
-                                            
-<br>
-
+                                          
 # Research-Conference-Management-System
 This is a group project done during Software Development Methodologies subject.
 
 <br>
-<br>
 
 # Contents
 
->[Project Specification](#Project_Specification)
-><br>
->[OverView of The Project](#OverView_of_The_Project)
-><br>
->[Demo Video of Final Product](#Demo_Video)
+>[1. Project Specification](#Project_Specification)\
+>[2. OverView of The Project](#OverView_of_The_Project)\
+>[3. Demo Video of Final Product](#Demo_Video)
 
-<br>
 <br>
 
 # Project_Specification
@@ -47,7 +41,6 @@ conference chairs should also be able to see a list of accepted and rejected pap
 accordingly via emails. The authors are then able to see the reviews of their paper and rate the review.
 
 <br>
-<br>
 
 # OverView_of_The_Project
 
@@ -59,7 +52,6 @@ accordingly via emails. The authors are then able to see the reviews of their pa
 - Final Report (Including User Stories, Use-Case Diagrams, Use-Case Descriptions, BCE Diagrams, Sequence Diagrams, Test Cases, and Qualifications of Team Members): <br>
 [Final_Report.pdf](https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/OPPA_Final%20Report.pdf)
 
-<br>
 <br>
 
 # Demo_Video
