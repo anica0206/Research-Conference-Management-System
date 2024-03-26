@@ -56,8 +56,7 @@ accordingly via emails. The authors are then able to see the reviews of their pa
 - Project Manager: Kim Taehwan
 - Project Team Member:<br>[Chae Youngsuh](https://github.com/anica0206), Chaewon Hwang, Tan Ngan Teng Jasper, Khoo Jun Cheng, Marco, Ang Hui Qi <br>
 
-- Peer Assessment: [Peer_Assessment.pdf](https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/Peer%20Assessment.pdf)
-- Final Report (Including User Stories, Use-Case Diagrams, Use-Case Descriptions, BCE digrams, Sequence Diagrams, Test Cases and Qualificaitions of Team Members): <br>
+- Final Report (Including User Stories, Use-Case Diagrams, Use-Case Descriptions, BCE Diagrams, Sequence Diagrams, Test Cases, and Qualifications of Team Members): <br>
 [Final_Report.pdf](https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/OPPA_Final%20Report.pdf)
 
 <br>
