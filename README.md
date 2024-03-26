@@ -8,6 +8,9 @@
 # Research-Conference-Management-System
 This is a group project done during Software Development Methodologies subject.
 
+<br>
+<br>
+
 # Contents
 
 >[Project Specification](#Project_Specification)
@@ -15,7 +18,6 @@ This is a group project done during Software Development Methodologies subject.
 >[OverView of The Project](#OverView_of_The_Project)
 ><br>
 >[Demo Video of Final Product](#Demo_Video)
-><br>
 
 <br>
 <br>
@@ -43,6 +45,9 @@ paper. They can then add comments to discuss the reviews.
 accepted or rejected after the reviewing process completes. Once all decision have been made, the 
 conference chairs should also be able to see a list of accepted and rejected papers and notify the authors 
 accordingly via emails. The authors are then able to see the reviews of their paper and rate the review.
+
+<br>
+<br>
 
 # OverView_of_The_Project
 
