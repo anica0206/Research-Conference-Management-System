@@ -3,7 +3,7 @@
   <img src="https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/sim_logo.jpg"  width="400" height="450"/>
 </div>
                                           
-# Research-Conference-Management-System (학술 회의 논문 관리 시스템)
+# Research-Conference-Management-System <br> (학술 회의 논문 관리 시스템)
 This is a group project done during Software Development Methodologies subject.<br>
 이것은 소프트웨어 개발 방법론 과목 중에 수행한 팀 프로젝트입니다.
 
@@ -68,6 +68,13 @@ accordingly via emails. The authors are then able to see the reviews of their pa
 [Final_Report.pdf](https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/OPPA_Final%20Report.pdf)
 
 <br>
+
+<b>프로젝트 제목:</b> 연구 학회 관리 시스템
+<b>팀 이름:</b> OPPA
+<b>프로젝트 매니저:</b> 김태환
+<b>프로젝트 팀원:</b> [채영서](https://github.com/anica0206), 황채원, Tan Ngan Teng Jasper, Khoo Jun Cheng, Marco, Ang Hui Q
+
+<b>최종 보고서</b> (사용자 스토리, 사용 사례 다이어그램, 사용 사례 설명, BCE 다이어그램, 시퀀스 다이어그램, 테스트 케이스 및 팀원 역할 분담): [Final_Report.pdf](https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/OPPA_Final%20Report.pdf)
 
 # Demo_Video
 
