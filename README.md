@@ -17,7 +17,7 @@ This is a group project done during Software Development Methodologies subject.<
 
 <br>
 
-# Project_Specification_프로젝트_요구사항
+# Project_Specification #프로젝트 요구사항
 In this project, your team is asked to design and develop a research conference management system. This 
 system will help organise the submission of research papers, allocation to reviewers and making decisions on 
 accepting or rejecting papers. 
