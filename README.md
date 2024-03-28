@@ -3,20 +3,21 @@
   <img src="https://github.com/anica0206/Contactless-Hotel-Check-In-System/blob/main/doc/sim_logo.jpg"  width="400" height="450"/>
 </div>
                                           
-# Research-Conference-Management-System
-This is a group project done during Software Development Methodologies subject.
+# Research-Conference-Management-System (학술 회의 논문 관리 시스템)
+This is a group project done during Software Development Methodologies subject.<br>
+이것은 소프트웨어 개발 방법론 과목 중에 수행한 팀 프로젝트입니다.
 
 <br>
 
-# Contents
+# Contents (목차)
 
->1. [Project Specification](#Project_Specification)
->2. [OverView of The Project](#OverView_of_The_Project)
->3. [Demo Video of Final Product](#Demo_Video)
+>1. [Project Specification 프로젝트 요구사항](#Project_Specification)
+>2. [OverView of The Project 프로젝트 개](#OverView_of_The_Project)
+>3. [Demo Video of Final Product 데모 영상](#Demo_Video)
 
 <br>
 
-# Project_Specification
+# Project_Specification (프로젝트 요구사항)
 In this project, your team is asked to design and develop a research conference management system. This 
 system will help organise the submission of research papers, allocation to reviewers and making decisions on 
 accepting or rejecting papers. 
