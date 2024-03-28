@@ -11,13 +11,13 @@ This is a group project done during Software Development Methodologies subject.<
 
 # Contents (목차)
 
->1. [Project Specification (프로젝트 요구사항)](#Project_Specification)
->2. [OverView of The Project (프로젝트 개요)](#OverView_of_The_Project)
->3. [Demo Video of Final Product (데모 영상)](#Demo_Video)
+>1. Project Specification (프로젝트 요구사항)
+>2. OverView of The Project (프로젝트 개요)
+>3. Demo Video of Final Product (데모 영상)
 
 <br>
 
-# Project_Specification
+# Project Specification (프로젝트 요구사항)
 In this project, your team is asked to design and develop a research conference management system. This 
 system will help organise the submission of research papers, allocation to reviewers and making decisions on 
 accepting or rejecting papers. 
@@ -57,7 +57,7 @@ accordingly via emails. The authors are then able to see the reviews of their pa
 
 <br>
 
-# OverView_of_The_Project
+# OverView of The Project (프로젝트 개요)
 
 <b>Project Title:</b> Research-Conference-Management-System <br>
 <b>Team Name:</b> OPPA <br>
@@ -78,7 +78,7 @@ accordingly via emails. The authors are then able to see the reviews of their pa
 
 <br>
 
-# Demo_Video
+#  Demo Video of Final Product (데모 영상)
 
 <img src="https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/T1_Oppa_live_demo.gif"  width="800" height="400"/>
 
