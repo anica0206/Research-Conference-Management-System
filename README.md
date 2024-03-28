@@ -11,7 +11,7 @@ This is a group project done during Software Development Methodologies subject.<
 
 # Contents (목차)
 
->1. [Project Specification (프로젝트 요구사항)](#Project_Specification_프로젝트_요구사항)
+>1. [Project Specification (프로젝트 요구사항)](#Project_Specification)
 >2. [OverView of The Project (프로젝트 개요)](#OverView_of_The_Project)
 >3. [Demo Video of Final Product (데모 영상)](#Demo_Video)
 
