@@ -63,6 +63,7 @@ accordingly via emails. The authors are then able to see the reviews of their pa
 <b>Team Name:</b> OPPA <br>
 <b>Project Manager:</b> Kim Taehwan <br>
 <b>Project Team Member: </b> [Chae Youngsuh](https://github.com/anica0206), Chaewon Hwang, Tan Ngan Teng Jasper, Khoo Jun Cheng, Marco, Ang Hui Qi <br>
+<b>Project Period: </b> 07-10-2022 ~ 17-11-2022
 
 <b>Final Report </b>(Including User Stories, Use-Case Diagrams, Use-Case Descriptions, BCE Diagrams, Sequence Diagrams, Test Cases, and Qualifications of Team Members):
 [Final_Report.pdf](https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/OPPA_Final%20Report.pdf)
@@ -73,6 +74,7 @@ accordingly via emails. The authors are then able to see the reviews of their pa
 <b>팀 이름:</b> OPPA <br>
 <b>프로젝트 매니저:</b> 김태환 <br>
 <b>프로젝트 팀원:</b> [채영서](https://github.com/anica0206), 황채원, Tan Ngan Teng Jasper, Khoo Jun Cheng, Marco, Ang Hui Q <br>
+<b>프로젝트 기간: </b> 2022-10-07 ~ 2022-11-17
 
 <b>최종 보고서</b> (사용자 스토리, 사용 사례 다이어그램, 사용 사례 설명, BCE 다이어그램, 시퀀스 다이어그램, 테스트 케이스 및 팀원 역할 분담): [Final_Report.pdf](https://github.com/anica0206/Research-Conference-Management-System/blob/main/doc/OPPA_Final%20Report.pdf)
 
